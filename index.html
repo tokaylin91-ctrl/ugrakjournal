@@ -9,8 +9,9 @@
 <meta property="og:description" content="Ekranı kapat, şehre uğra. Sinop'tan şehir defteri, çocuk keşif kitabı ve zamansız ajanda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ugrakjournal.com/">
+<meta property="og:image" content="https://ugrakjournal.com/urunler.jpg">
 <meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#5E1D04">
+<meta name="theme-color" content="#F5F0E8">
 <link rel="canonical" href="https://ugrakjournal.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
@@ -21,14 +22,16 @@
 <style>
 /* Layout: tek sütun, defter sayfası gibi; geniş kenar boşlukları, ince çizgiler, deri kırmızısı yalnızca vurguda */
 :root{
-  --paper:#EEF0EE;      /* Sinop taşı, hafif deniz grisi */
-  --paper-2:#E3E7E5;
-  --ink:#1E2321;
-  --muted:#5D6662;
-  --rule:#C5CCC8;
-  --sinopia:#8E2A12;    /* Sinop kırmızısı */
+  --paper:#F5F0E8;      /* Krem */
+  --paper-2:#EDE4D6;
+  --ink:#2B1D15;
+  --muted:#76665A;
+  --rule:#E2D6C2;
+  --sinopia:#A3362A;    /* Kiremit */
+  --bordo:#7A2C20;
+  --gold:#D4AE6A;       /* Altın */
   --leather:#5E1D04;    /* deri kapak */
-  --on-leather:#F1E7E1;
+  --on-leather:#F5F0E8;
   --f-display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;
   --f-serif:"Libre Caslon Text",Georgia,serif;
   --f-body:"Karla",system-ui,-apple-system,sans-serif;
@@ -36,12 +39,10 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#151918;--paper-2:#1C2120;--ink:#E4E8E6;--muted:#9AA4A0;--rule:#333B38;
-    --sinopia:#D2705A;--leather:#4A1703;--on-leather:#F1E7E1;color-scheme:dark}
+    --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#DB7563;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1703;--on-leather:#F5F0E8;color-scheme:dark}
 }
 :root[data-theme="dark"]{
-  --paper:#151918;--paper-2:#1C2120;--ink:#E4E8E6;--muted:#9AA4A0;--rule:#333B38;
-  --sinopia:#D2705A;--leather:#4A1703;--on-leather:#F1E7E1;color-scheme:dark}
+  --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#DB7563;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1703;--on-leather:#F5F0E8;color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
@@ -69,6 +70,22 @@ nav{display:flex;gap:22px;flex-wrap:wrap}
 nav a{text-decoration:none;font-size:14px;color:var(--muted)}
 nav a:hover{color:var(--sinopia)}
 
+/* logo: gerçek Uğrak yazı logosu (görsel) */
+.wordmark{display:block;height:auto}
+.wordmark.on-dark{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .wordmark.on-light{display:none}:root:not([data-theme="light"]) .wordmark.on-dark{display:block}}
+:root[data-theme="dark"] .wordmark.on-light{display:none}
+:root[data-theme="dark"] .wordmark.on-dark{display:block}
+.brand .wordmark{width:112px}
+footer .brand .wordmark{width:96px}
+.cover .seal img{width:46%;max-width:110px;height:auto;display:block;opacity:.9}
+/* eski çizim logo */
+.logo{font-family:var(--f-display);line-height:1;display:inline-block;white-space:nowrap;letter-spacing:.01em}
+.logo .g{position:relative;display:inline-block}
+.logo .gull{position:absolute;left:56%;top:-.2em;width:1.05em;height:.42em;transform:translateX(-50%);color:var(--sinopia);overflow:visible}
+.cover .logo .gull{color:currentColor}
+.brand .logo{font-size:32px;padding-top:.22em}
+
 /* hero */
 .hero .wrap{padding-block:clamp(56px,9vw,112px) clamp(48px,7vw,88px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,6vw,80px);align-items:end}
 .hero h1{font-size:clamp(46px,8vw,92px);line-height:.98}
@@ -77,6 +94,12 @@ nav a:hover{color:var(--sinopia)}
 .hero aside{display:grid;gap:18px;min-width:0}
 .hero aside p{max-width:36ch}
 .coords{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.06em;border-top:1px solid var(--rule);padding-top:12px}
+
+/* ürün görseli */
+.showcase .wrap{padding-block:0 clamp(48px,7vw,88px)}
+.showcase figure{margin:0;display:grid;gap:10px}
+.showcase img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
+.showcase figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
 
 /* bölümler */
 section{border-top:1px solid var(--rule)}
@@ -103,7 +126,7 @@ section > .wrap{padding-block:clamp(56px,8vw,96px)}
 .cover .band{position:absolute;top:0;bottom:0;right:16%;width:7px;background:rgba(0,0,0,.35)}
 .cover .ribbon{position:absolute;bottom:-6px;left:38%;width:9px;height:34px;background:var(--sinopia);filter:brightness(1.15)}
 .cover .seal{position:absolute;left:0;right:0;bottom:12%;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--on-leather);opacity:.85}
-.cover .seal span{font-family:var(--f-display);font-size:20px;letter-spacing:.02em}
+.cover .seal .logo{font-size:22px}
 .cover.kids{background:var(--paper-2);border:1px solid var(--rule);box-shadow:none}
 .cover.kids::before{background:none}
 .cover.kids svg.scene{position:absolute;inset:0;width:100%;height:100%}
@@ -185,7 +208,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="gull" viewBox="0 0 64 24"><path d="M2 18 C12 6, 22 6, 32 16 C42 6, 52 6, 62 18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="gull" viewBox="0 0 64 24"><path d="M1 18 Q15 2 32 14 Q49 2 63 18 Q48 9 32 20 Q16 9 1 18Z" fill="currentColor"/></symbol>
 </svg>
 
 <div class="strip">
@@ -199,7 +222,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#" aria-label="Uğrak">
-      <span class="word">U<span style="position:relative">ğ<svg class="gull" width="22" height="9" style="position:absolute;left:50%;top:-6px;transform:translateX(-50%)"><use href="#gull"/></svg></span>rak</span>
+      <img class="wordmark on-light" src="logo-kiremit.png" alt="Uğrak" width="1164" height="486"><img class="wordmark on-dark" src="logo-krem.png" alt="Uğrak" width="1164" height="486">
     </a>
     <nav aria-label="Bölümler">
       <a href="#urunler">Ürünler</a>
@@ -222,6 +245,15 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <p class="en">Paper goods made to be carried and written in. For noting a city, planning a week at your own pace, and heading outside with your children.</p>
         <p class="coords">42°01′N · 35°09′E — Sinop</p>
       </aside>
+    </div>
+  </div>
+
+  <div class="showcase">
+    <div class="wrap">
+      <figure>
+        <img src="urunler.jpg" width="1536" height="1024" alt="Sinop kalesi taşının üzerinde Uğrak ürünleri: koyu deri Sinop Journal, bej Zamansız Ajanda ve Martı'yla Sinop'u Keşfet çocuk kitabı; arkada deniz ve deniz feneri">
+        <figcaption><span>Sinop Journal · Zamansız Ajanda · Martı'yla Sinop'u Keşfet</span><span>Tasarım önizlemesi · Design preview</span></figcaption>
+      </figure>
     </div>
   </div>
 
@@ -250,7 +282,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <article class="product">
           <div class="cover b6" role="img" aria-label="Koyu kırmızı deri görünümlü Sinop Journal kapağı, lastik bant ve kurdele">
             <div class="band"></div><div class="ribbon"></div>
-            <div class="seal"><svg width="40" height="15"><use href="#gull"/></svg><span>Uğrak</span></div>
+            <div class="seal"><img src="logo-krem.png" alt="Uğrak" width="1164" height="486"></div>
           </div>
           <div class="meta"><span class="label">Uğrak Şehir</span><span class="label">B6</span></div>
           <div>
@@ -301,7 +333,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <article class="product">
           <div class="cover a5" role="img" aria-label="Baskısız düz deri Zamansız Ajanda kapağı">
             <div class="ribbon" style="left:62%"></div>
-            <div class="seal"><svg width="40" height="15"><use href="#gull"/></svg><span>Uğrak</span></div>
+            <div class="seal"><img src="logo-krem.png" alt="Uğrak" width="1164" height="486"></div>
           </div>
           <div class="meta"><span class="label">Uğrak Gündelik</span><span class="label">A5</span></div>
           <div>
@@ -411,7 +443,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#" aria-label="Uğrak, başa dön"><svg class="gull" width="30" height="11"><use href="#gull"/></svg></a>
+    <a class="brand" href="#" aria-label="Uğrak, başa dön"><img class="wordmark on-light" src="logo-kiremit.png" alt="Uğrak" width="1164" height="486"><img class="wordmark on-dark" src="logo-krem.png" alt="Uğrak" width="1164" height="486"></a>
     <p>Sinop'un denizini, taşını ve sofrasını kâğıda taşırız.</p>
     <span class="label">© 2026 Uğrak · Sinop</span>
   </div>

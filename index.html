@@ -130,6 +130,10 @@ section > .wrap{padding-block:clamp(56px,8vw,96px)}
 .cover.kids{background:var(--paper-2);border:1px solid var(--rule);box-shadow:none}
 .cover.kids::before{background:none}
 .cover.kids svg.scene{position:absolute;inset:0;width:100%;height:100%}
+.shot{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:148/210;max-width:100%}
+.shot img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(43,29,21,.22)) drop-shadow(0 2px 3px rgba(43,29,21,.18))}
+.shot.b6 img{width:84.5%}
+@media (prefers-reduced-motion:no-preference){.shot img{transition:transform .4s ease}.product:hover .shot img{transform:translateY(-4px) rotate(-.6deg)}}
 .product .meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
 .product h3{font-size:26px;line-height:1.15}
 .product .en{display:block;font-size:15px;margin-top:2px}
@@ -280,10 +284,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 
       <div class="products">
         <article class="product">
-          <div class="cover b6" role="img" aria-label="Koyu kırmızı deri görünümlü Sinop Journal kapağı, lastik bant ve kurdele">
-            <div class="band"></div><div class="ribbon"></div>
-            <div class="seal"><img src="logo-krem.png" alt="Uğrak" width="1164" height="486"></div>
-          </div>
+          <div class="shot b6"><img src="kapak-journal.webp" width="600" height="790" alt="Sinop Journal: düz koyu deri kapak, deri tonunda lastik ve Uğrak Şehir kuşağı"></div>
           <div class="meta"><span class="label">Uğrak Şehir</span><span class="label">B6</span></div>
           <div>
             <h3>Sinop Journal</h3>
@@ -302,18 +303,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         </article>
 
         <article class="product">
-          <div class="cover a5 kids" role="img" aria-label="Sinop kıyısı önünde uçan martılı çocuk kitabı kapağı">
-            <svg class="scene" viewBox="0 0 148 210" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              <rect width="148" height="210" fill="var(--paper-2)"/>
-              <path d="M0 150 Q37 142 74 150 T148 150 V210 H0Z" fill="var(--rule)"/>
-              <path d="M0 162 Q37 154 74 162 T148 162" fill="none" stroke="var(--muted)" stroke-width=".8"/>
-              <path d="M18 150 V118 h8 v-6 h6 v6 h10 v-6 h6 v6 h8 V150Z" fill="none" stroke="var(--ink)" stroke-width="1"/>
-              <path d="M112 150 V104 l4 -8 l4 8 V150" fill="none" stroke="var(--ink)" stroke-width="1"/>
-              <g color="var(--sinopia)"><use href="#gull" x="54" y="56" width="44" height="16"/></g>
-              <g color="var(--ink)"><use href="#gull" x="96" y="44" width="16" height="6"/></g>
-              <text x="74" y="196" text-anchor="middle" font-family="Libre Caslon Display, Georgia, serif" font-size="11" fill="var(--ink)">Martı'yla Sinop</text>
-            </svg>
-          </div>
+          <div class="shot"><img src="kapak-cocuk.webp" width="424" height="601" alt="Martı'yla Sinop'u Keşfet kapağı: kırmızı fularlı martı, arkada Sinop limanı ve kalesi"></div>
           <div class="meta"><span class="label">Uğrak Çocuk</span><span class="label">A5</span></div>
           <div>
             <h3>Martı'yla Sinop'u Keşfet</h3>
@@ -331,10 +321,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         </article>
 
         <article class="product">
-          <div class="cover a5" role="img" aria-label="Baskısız düz deri Zamansız Ajanda kapağı">
-            <div class="ribbon" style="left:62%"></div>
-            <div class="seal"><img src="logo-krem.png" alt="Uğrak" width="1164" height="486"></div>
-          </div>
+          <div class="shot"><img src="kapak-ajanda.webp" width="600" height="841" alt="Zamansız Ajanda: düz koyu deri kapak, deri tonunda lastik ve Uğrak Gündelik kuşağı"></div>
           <div class="meta"><span class="label">Uğrak Gündelik</span><span class="label">A5</span></div>
           <div>
             <h3>Zamansız Ajanda</h3>

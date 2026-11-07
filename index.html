@@ -103,6 +103,18 @@ footer .brand .wordmark{width:96px}
 .showcase img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
 
 /* kuşak koleksiyonu */
+.leather-panel{aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 20%,#3B2620,#211511);border-radius:3px;display:flex;align-items:center;justify-content:center;padding:9%}
+.showcase .leather-panel img{aspect-ratio:auto;width:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:2px 8px 8px 2px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
+.puzzle{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.puzzle img{display:block;width:100%;height:auto;border-radius:3px}
+.puzzle .txt{display:grid;gap:14px;min-width:0}
+.extras{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule)}
+.extras li{padding:18px 18px 18px 0;display:grid;gap:4px;border-bottom:1px solid var(--rule);align-content:start}
+.extras li:nth-child(even){padding-left:18px;border-left:1px solid var(--rule)}
+.extras b{font-family:var(--f-display);font-weight:400;font-size:20px}
+.card-row{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:clamp(20px,4vw,40px);align-items:center}
+.card-row img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 10px 24px rgba(43,29,21,.16)}
+
 .bands{display:grid;grid-template-columns:200px 1fr;gap:24px}
 .bands .body{display:grid;gap:32px;min-width:0}
 .bands .intro{display:grid;gap:14px;max-width:62ch}
@@ -231,6 +243,10 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
   .howto li,.howto li + li{padding:16px 0;border-left:0;border-top:1px solid var(--rule)}
   .howto li:first-child{border-top:0}
   .collect{grid-template-columns:1fr}
+  .puzzle,.card-row{grid-template-columns:1fr}
+  .card-row img{max-width:260px}
+  .extras{grid-template-columns:1fr}
+  .extras li:nth-child(even){padding-left:0;border-left:0}
   .notify{grid-template-columns:1fr}
   .strip .wrap{justify-content:center}
 }
@@ -290,9 +306,9 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
       <figure>
         <div class="pair">
           <img src="foto-acik-harita.webp" width="1000" height="1250" alt="Açık Sinop Journal: solda Sinop'un ilçeler haritası, sağda Sinop Kalesi sayfası; yanında pirinç dolma kalem ve deniz lavantası">
-          <img src="foto-kusak-koleksiyonu.webp" width="1000" height="1250" alt="Kızıl kahve deri Sinop Journal, üzerinde alt alta dört Sinop kuşağı: Kale, Kotra, Hamsaroz, Diyojen; altta deriye kör baskı Uğrak logosu">
+          <div class="leather-panel"><img src="kapak-journal-4kusak.webp" width="600" height="790" alt="Kızıl kahve deri Sinop Journal, üzerinde alt alta dört Sinop kuşağı: Kale, Kotra, Hamsaroz, Diyojen; altta deriye kör baskı Uğrak logosu"></div>
         </div>
-        <figcaption><span>Sinop Journal · İlçeler Haritası ve Sinop Kalesi sayfaları · Dört Sinop kuşağı</span><span>Görseller temsilîdir · Illustrative images</span></figcaption>
+        <figcaption><span>Sinop Journal · İlçeler Haritası ve Sinop Kalesi sayfaları · Dört kuşak bir arada</span><span>Görseller temsilîdir · Illustrative images</span></figcaption>
       </figure>
     </div>
   </div>
@@ -385,8 +401,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <div class="intro">
           <h2 style="font-size:clamp(30px,4.4vw,44px);line-height:1.08">Atılmayan kuşak</h2>
           <span class="en">The band you keep.</span>
-          <p class="lead">Sinop Journal'ın kuşağı ambalaj değil, defterin imzası. Krem pamuklu kâğıda basılı gravür, altın yaldız çerçeve.</p>
-          <p>Dört kuşak, Sinop'un dört hikâyesini taşır. Her defter seçtiğiniz bir kuşakla gelir. Kalanları ayrıca alıp koleksiyonu tamamlayabilirsiniz.</p>
+          <p class="lead">Sinop Journal'ın kuşağı ambalaj değil, defterin imzası. Krem pamuklu kâğıt, gravür baskı, altın yaldız çerçeve; renkleri defterin derisiyle bir.</p>
+          <p>Dört kuşak, Sinop'un dört hikâyesini taşır. Her defter seçtiğiniz bir kuşakla gelir; kalanları ayrıca alıp koleksiyonu tamamlarsınız.</p>
           <p class="en">Four bands, four Sinop stories. Each journal comes with the band of your choice; collect the rest separately.</p>
         </div>
 
@@ -400,22 +416,36 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <ol class="howto">
           <li><span class="n">1</span><h3>Seçin</h3><p>Defterinizle gelecek kuşağı siz seçersiniz.</p></li>
           <li><span class="n">2</span><h3>Biriktirin</h3><p>Kalan kuşaklar tek tek ya da üçlü paket olarak satılır.</p></li>
-          <li><span class="n">3</span><h3>Birleştirin</h3><p>Dört kuşağın arka yüzü yan yana gelince tek bir Sinop kıyı panoraması olur.</p></li>
+          <li><span class="n">3</span><h3>Birleştirin</h3><p>Dört kuşak alt alta gelince arka yüzlerde gizli resim tamamlanır.</p></li>
         </ol>
 
-        <div class="pano">
-          <div class="scroll"><img src="kusak-panorama.webp" width="2400" height="165" alt="Dört kuşağın arka yüzü yan yana: kale, liman ve kotralar, Hamsaroz koyu ve antik kıyıdan oluşan Sinop panoraması"></div>
-          <p>Arka yüzler yan yana · Backs side by side → kale · liman · koy · antik kıyı</p>
-        </div>
-
-        <div class="collect">
+        <div class="puzzle">
+          <img src="kusak-yapboz.webp" width="900" height="1039" loading="lazy" alt="Dört kuşağın arka yüzü alt alta: birleşince pusula gülü, Boztepe, kale ve şehir, liman ve kotradan oluşan eski gravür bir Sinop haritası çıkıyor; son kuşakta Uğrak mührü">
           <div class="txt">
-            <p class="label">Koleksiyonu tamamla</p>
-            <h3 style="font-size:clamp(24px,3vw,30px);line-height:1.15">Dördü aynı defterde</h3>
-            <p>Kuşaklar defterin üzerinde alt alta takılabilecek ölçüde. Tek tek ayraç olarak da kullanılır.</p>
-            <p class="en">All four fit on one journal, or use each as a bookmark.</p>
+            <p class="label">Gizli resim</p>
+            <h3 style="font-size:clamp(24px,3vw,32px);line-height:1.15">Dördü birleşince Sinop haritası çıkar</h3>
+            <p>Her kuşağın arkasında haritanın bir şeridi var: pusula ve martılar, Boztepe, kale ve şehir, liman ve kotra. Dördünü defterin üzerinde alt alta takın ya da masaya dizin; harita tamamlanır, son kuşaktaki mühür "Koleksiyon tamam" der.</p>
+            <p class="en">Each band carries one strip of an engraved map. Stack all four and Sinop appears.</p>
           </div>
         </div>
+
+        <ul class="extras">
+          <li><b>Numaralı ilk baskı</b><span>İlk baskı 500 adet; her kuşağın arkasında elle yazılan Nº.</span></li>
+          <li><b>İç yüzde hikâye</b><span>Kuşağın içinde, gravürün kısa hikâyesi Türkçe ve İngilizce.</span></li>
+          <li><b>Katlayın, ayraç olsun</b><span>Defterden çıkarıp ikiye katladığınızda sayfanızı tutar.</span></li>
+          <li><b>Kurumunuza özel</b><span>Kurumlar için aynı sistemle beşinci, kişisel bir kuşak.</span></li>
+        </ul>
+
+        <div class="card-row">
+          <img src="kusak-kart.webp" width="700" height="971" loading="lazy" alt="Koleksiyon kartı: soluk Sinop haritası üzerinde dört numaralı şerit ve dört kuşak için işaret kutuları">
+          <div class="collect">
+            <p class="label">Koleksiyonu tamamla</p>
+            <h3 style="font-size:clamp(24px,3vw,30px);line-height:1.15">Her defterde bir koleksiyon kartı</h3>
+            <p>Kartta haritanın silüeti ve dört kuşak için birer kutu var. Hangisinin eksik olduğunu bilirsiniz; arkasındaki kod sizi bu sayfaya getirir.</p>
+            <p class="en">A collector's card in every journal: tick off your bands, scan to find the rest.</p>
+          </div>
+        </div>
+        <p class="note">Görseller temsilîdir; gravürler baskıdan önce sanatçısıyla son haline getirilecek. · Illustrative images.</p>
       </div>
     </div>
   </section>
@@ -426,7 +456,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <div style="display:grid;gap:18px">
           <p class="label">Kurumsal hediye</p>
           <h2>Kurumunuz için Sinop'tan bir hediye</h2>
-          <p style="max-width:46ch">Valilik, belediye, otel ve şirketler için kişiselleştirilmiş Sinop Journal, ajanda ve çocuk kitabı. Logo baskısı, kurumunuza özel kuşak ve hediye kutusu seçenekleri.</p>
+          <p style="max-width:46ch">Valilik, belediye, otel ve şirketler için kişiselleştirilmiş Sinop Journal, ajanda ve çocuk kitabı. Logo baskısı, kurumunuza özel beşinci kuşak ve hediye kutusu seçenekleri.</p>
           <p class="en">Personalised editions for institutions and companies: logo, custom band, gift box.</p>
         </div>
         <ol class="steps">

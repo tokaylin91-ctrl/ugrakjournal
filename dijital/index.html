@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uğrak Dijital · Martı'nın Defterleri</title>
+<meta name="description" content="Martı'yla 7–8 yaş için dijital aktivite defterleri: Merak Defteri, İlk Kelimeler İngilizce, Şehrini Keşfet. Tablette kalemle ya da yazdırarak.">
+<link rel="canonical" href="https://ugrakjournal.com/dijital/">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+/* Layout: tek sütun, defter sayfası gibi; geniş kenar boşlukları, ince çizgiler, deri kırmızısı yalnızca vurguda */
+:root{
+  --paper:#F5F0E8;      /* Krem */
+  --paper-2:#EDE4D6;
+  --ink:#2B1D15;
+  --muted:#76665A;
+  --rule:#E2D6C2;
+  --sinopia:#B83A0A;    /* Sinop kırmızısı (#CB410B), krem zeminde okunurluk için bir ton koyu */
+  --sinop:#CB410B;      /* Sinop kırmızısı — etiket, nokta, vurgu yüzeyleri */
+  --bordo:#7A2C20;
+  --gold:#B8954A;       /* Altın yaldız */
+  --leather:#5E2318;    /* deri kapak, kızıl kahve */
+  --on-leather:#F5F0E8;
+  --f-display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;
+  --f-serif:"Libre Caslon Text",Georgia,serif;
+  --f-body:"Karla",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
+}
+:root[data-theme="dark"]{
+  --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sinopia);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.005em}
+p{margin:0}
+.en{font-family:var(--f-serif);font-style:italic;color:var(--muted);font-size:.9em}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* üst şerit */
+.strip{background:var(--leather);color:var(--on-leather)}
+.strip .wrap{display:flex;justify-content:flex-end;gap:20px;padding-block:7px;flex-wrap:wrap}
+.strip a{color:inherit;text-decoration:none;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.strip a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+
+/* üst bar */
+header.top{border-bottom:1px solid var(--rule)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.brand{display:flex;align-items:flex-end;gap:2px;text-decoration:none;color:var(--ink)}
+.brand .word{font-family:var(--f-display);font-size:28px;line-height:1}
+.gull{color:var(--sinopia)}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:14px;color:var(--muted)}
+nav a:hover{color:var(--sinopia)}
+
+/* logo: gerçek Uğrak yazı logosu (görsel) */
+.wordmark{display:block;height:auto}
+.wordmark.on-dark{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .wordmark.on-light{display:none}:root:not([data-theme="light"]) .wordmark.on-dark{display:block}}
+:root[data-theme="dark"] .wordmark.on-light{display:none}
+:root[data-theme="dark"] .wordmark.on-dark{display:block}
+.brand .wordmark{width:112px}
+footer .brand .wordmark{width:96px}
+.cover .seal img{width:46%;max-width:110px;height:auto;display:block;opacity:.9}
+/* eski çizim logo */
+.logo{font-family:var(--f-display);line-height:1;display:inline-block;white-space:nowrap;letter-spacing:.01em}
+.logo .g{position:relative;display:inline-block}
+.logo .gull{position:absolute;left:56%;top:-.2em;width:1.05em;height:.42em;transform:translateX(-50%);color:var(--sinopia);overflow:visible}
+.cover .logo .gull{color:currentColor}
+.brand .logo{font-size:32px;padding-top:.22em}
+
+/* hero */
+.hero .wrap{padding-block:clamp(56px,9vw,112px) clamp(48px,7vw,88px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,6vw,80px);align-items:end}
+.hero h1{font-size:clamp(46px,8vw,92px);line-height:.98}
+.hero h1 em{font-family:var(--f-serif);font-style:italic;color:var(--sinopia);font-size:.82em}
+.hero .en.big{display:block;margin-top:14px;font-size:clamp(18px,2.2vw,22px)}
+.hero aside{display:grid;gap:18px;min-width:0}
+.hero aside p{max-width:36ch}
+.coords{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.06em;border-top:1px solid var(--rule);padding-top:12px}
+
+/* ürün görseli */
+.showcase .wrap{padding-block:0 clamp(48px,7vw,88px)}
+.showcase figure{margin:0;display:grid;gap:10px}
+.showcase .pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,24px)}
+.showcase img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
+
+/* kuşak koleksiyonu */
+.leather-panel{aspect-ratio:4/5;background:radial-gradient(120% 90% at 30% 20%,#3B2620,#211511);border-radius:3px;display:flex;align-items:center;justify-content:center;padding:9%}
+.showcase .leather-panel img{aspect-ratio:auto;width:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:2px 8px 8px 2px;filter:drop-shadow(0 14px 22px rgba(0,0,0,.45))}
+.puzzle{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,48px);align-items:center}
+.puzzle img{display:block;width:100%;height:auto;border-radius:3px}
+.puzzle .txt{display:grid;gap:14px;min-width:0}
+.extras{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule)}
+.extras li{padding:18px 18px 18px 0;display:grid;gap:4px;border-bottom:1px solid var(--rule);align-content:start}
+.extras li:nth-child(even){padding-left:18px;border-left:1px solid var(--rule)}
+.extras b{font-family:var(--f-display);font-weight:400;font-size:20px}
+.card-row{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:clamp(20px,4vw,40px);align-items:center}
+.card-row img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 10px 24px rgba(43,29,21,.16)}
+
+.bands{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.bands .body{display:grid;gap:32px;min-width:0}
+.bands .intro{display:grid;gap:14px;max-width:62ch}
+.bands .lead{font-family:var(--f-serif);font-size:clamp(20px,2.4vw,25px);line-height:1.4}
+.band-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,20px)}
+.band-card{margin:0;display:grid;gap:8px;min-width:0}
+.band-card img{display:block;width:100%;height:auto;aspect-ratio:130/36;border-radius:2px;box-shadow:0 1px 0 var(--rule),0 6px 16px rgba(43,29,21,.10)}
+.band-card figcaption{display:flex;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.band-card figcaption b{font-weight:400;color:var(--ink)}
+.howto{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule)}
+.howto li{padding:20px 20px 20px 0;display:grid;gap:6px;align-content:start}
+.howto li + li{padding-left:20px;border-left:1px solid var(--rule)}
+.howto .n{font-family:var(--f-display);font-size:28px;line-height:1;color:var(--sinopia)}
+.howto h3{font-size:21px}
+.pano{display:grid;gap:10px;min-width:0}
+.pano .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:2px}
+.pano img{display:block;width:100%;min-width:760px;height:auto;aspect-ratio:2400/165}
+.pano p{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.collect{display:grid;gap:14px;padding:clamp(20px,3vw,32px);background:var(--paper-2);border:1px solid var(--rule)}
+.collect img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:3px}
+.collect .txt{display:grid;gap:14px;min-width:0}
+.note{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.showcase figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+
+/* bölümler */
+section{border-top:1px solid var(--rule)}
+section > .wrap{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(30px,4.4vw,44px);line-height:1.08}
+.sec-head .en{display:block;margin-top:6px}
+
+/* amaç */
+.manifest{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.manifest .body{display:grid;gap:20px;max-width:62ch}
+.manifest .lead{font-family:var(--f-serif);font-size:clamp(21px,2.6vw,27px);line-height:1.4}
+.manifest .lead em{color:var(--sinopia)}
+
+/* ürünler */
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.product{display:grid;grid-template-rows:auto auto 1fr auto;gap:16px;min-width:0}
+.cover{aspect-ratio:3/4;max-width:100%;background:var(--leather);border-radius:3px 10px 10px 3px;position:relative;overflow:hidden;box-shadow:inset 6px 0 0 rgba(0,0,0,.18)}
+.cover.b6{aspect-ratio:125/176}
+.cover.a5{aspect-ratio:148/210}
+.cover::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 30% 20%,rgba(255,255,255,.06),transparent 55%),
+  repeating-linear-gradient(115deg,rgba(255,255,255,.02) 0 2px,transparent 2px 5px)}
+.cover .band{position:absolute;top:0;bottom:0;right:16%;width:7px;background:rgba(0,0,0,.35)}
+.cover .ribbon{position:absolute;bottom:-6px;left:38%;width:9px;height:34px;background:var(--sinopia);filter:brightness(1.15)}
+.cover .seal{position:absolute;left:0;right:0;bottom:12%;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--on-leather);opacity:.85}
+.cover .seal .logo{font-size:22px}
+.cover.kids{background:var(--paper-2);border:1px solid var(--rule);box-shadow:none}
+.cover.kids::before{background:none}
+.cover.kids svg.scene{position:absolute;inset:0;width:100%;height:100%}
+.shot{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:148/210;max-width:100%}
+.shot img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(43,29,21,.22)) drop-shadow(0 2px 3px rgba(43,29,21,.18))}
+.shot.b6 img{width:84.5%}
+@media (prefers-reduced-motion:no-preference){.shot img{transition:transform .4s ease}.product:hover .shot img{transform:translateY(-4px) rotate(-.6deg)}}
+.product .meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.product h3{font-size:26px;line-height:1.15}
+.product .en{display:block;font-size:15px;margin-top:2px}
+.product p.desc{color:var(--ink);max-width:40ch}
+.specs{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--rule);display:grid;gap:4px;font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
+.specs li{display:flex;justify-content:space-between;gap:12px}
+.specs li b{font-weight:400;color:var(--ink)}
+
+/* kurumsal */
+.corporate{background:var(--leather);color:var(--on-leather);border-top:0}
+.corporate .label,.corporate .en{color:color-mix(in srgb,var(--on-leather) 70%,transparent)}
+.corporate .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,6vw,72px);align-items:start}
+.corporate h2{font-size:clamp(32px,4.6vw,48px);line-height:1.08}
+.corporate .steps{display:grid;gap:18px;margin:0;padding:0;list-style:none;counter-reset:s}
+.corporate .steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding-bottom:18px;border-bottom:1px solid color-mix(in srgb,var(--on-leather) 22%,transparent)}
+.corporate .steps li::before{counter-increment:s;content:counter(s);font-family:var(--f-display);font-size:24px;line-height:1.1}
+.corporate .steps b{font-weight:500;display:block}
+
+/* ilkeler */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)}
+.principles div{padding:24px 24px 24px 0;display:grid;gap:8px}
+.principles div + div{padding-left:24px;border-left:1px solid var(--rule)}
+.principles h3{font-size:22px}
+
+/* iletişim */
+.contact{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule)}
+.card{padding:22px;display:grid;gap:10px;min-width:0}
+.card + .card{border-left:1px solid var(--rule)}
+.card .value{font-family:var(--f-serif);font-size:20px;word-break:break-word;user-select:all}
+.copy{justify-self:start;background:none;border:1px solid var(--rule);color:var(--ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;padding:6px 12px;border-radius:2px;cursor:pointer}
+.copy:hover{border-color:var(--sinopia);color:var(--sinopia)}
+
+/* satış noktaları */
+.stockists{display:grid;grid-template-columns:200px 1fr;gap:24px}
+.stock-list{display:grid;gap:0;border-top:1px solid var(--rule)}
+.stock{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--rule)}
+.stock h3{font-size:22px}
+.stock p{color:var(--muted);font-size:15px}
+.pill{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--rule);padding:3px 9px;border-radius:999px;color:var(--muted);white-space:nowrap}
+.pill.on{border-color:var(--sinopia);color:var(--sinopia)}
+
+/* haberdar ol */
+.notify{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(28px,5vw,64px);align-items:center;background:var(--paper-2);border:1px solid var(--rule);padding:clamp(24px,4vw,44px)}
+.notify h2{font-size:clamp(28px,4vw,40px);line-height:1.1}
+.notify .act{display:grid;gap:12px;min-width:0}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--sinopia);color:#fff;text-decoration:none;font-family:var(--f-body);font-weight:500;padding:14px 20px;border-radius:2px}
+.btn:hover{filter:brightness(1.08)}
+.notify small{color:var(--muted);font-size:13.5px}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{padding-block:36px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
+
+@media (max-width:860px){
+  .hero .wrap,.corporate .grid{grid-template-columns:1fr}
+  .products{grid-template-columns:1fr;gap:56px;max-width:440px}
+  .sec-head,.manifest,.contact{grid-template-columns:1fr;gap:12px}
+  .principles{grid-template-columns:1fr}
+  .principles div,.principles div + div{padding:20px 0;border-left:0;border-top:1px solid var(--rule)}
+  .principles div:first-child{border-top:0}
+  .cards{grid-template-columns:1fr}
+  .card + .card{border-left:0;border-top:1px solid var(--rule)}
+  nav{display:none}
+  .stockists{grid-template-columns:1fr;gap:12px}
+  .bands{grid-template-columns:1fr;gap:12px}
+  .band-grid{grid-template-columns:1fr}
+  .howto{grid-template-columns:1fr}
+  .howto li,.howto li + li{padding:16px 0;border-left:0;border-top:1px solid var(--rule)}
+  .howto li:first-child{border-top:0}
+  .collect{grid-template-columns:1fr}
+  .puzzle,.card-row{grid-template-columns:1fr}
+  .card-row img{max-width:260px}
+  .extras{grid-template-columns:1fr}
+  .extras li:nth-child(even){padding-left:0;border-left:0}
+  .notify{grid-template-columns:1fr}
+  .strip .wrap{justify-content:center}
+}
+@media (prefers-reduced-motion:no-preference){
+  .cover{transition:transform .4s ease}
+  .product:hover .cover{transform:translateY(-4px) rotate(-.6deg)}
+}
+
+.draft{background:var(--sinop);color:#fff;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-align:center;padding:8px 16px}
+.dhero .wrap{padding-block:clamp(48px,8vw,96px) clamp(32px,5vw,56px);display:grid;gap:18px;max-width:820px}
+.dhero h1{font-size:clamp(40px,7vw,76px);line-height:1}
+.dhero h1 em{font-family:var(--f-serif);font-style:italic;color:var(--sinopia);font-size:.8em}
+.dhero p{font-family:var(--f-serif);font-size:clamp(19px,2.3vw,23px);line-height:1.45;max-width:46ch}
+.dlist{display:grid;gap:clamp(48px,7vw,80px)}
+.dp{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.dp-imgs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:start;min-width:0}
+.dp-cover{width:100%;border-radius:3px;box-shadow:0 12px 28px rgba(43,29,21,.18)}
+.dp-in{display:contents}
+.dp-in figure{margin:0;display:grid;gap:4px}
+.dp-in img{width:100%;border-radius:2px;border:1px solid var(--rule);background:#fff}
+.dp-in figcaption{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.dp-txt{display:grid;gap:14px;min-width:0}
+.dp-txt h3{font-size:clamp(26px,3vw,32px);line-height:1.12}
+.tbd{color:var(--sinopia)!important}
+.buy{display:inline-block;justify-self:start;background:var(--sinopia);color:#fff;text-decoration:none;font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;padding:12px 20px;border-radius:999px}
+.buy[aria-disabled="true"]{opacity:.55;pointer-events:none}
+.steps4{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule)}
+.steps4 li{padding:20px 18px 20px 0;display:grid;gap:6px;align-content:start;min-width:0}
+.steps4 li + li{padding-left:18px;border-left:1px solid var(--rule)}
+.steps4 .n{font-family:var(--f-display);font-size:28px;line-height:1;color:var(--sinopia)}
+.steps4 h3{font-size:20px}
+.faq{display:grid;gap:0;border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule);padding:16px 0}
+.faq summary{cursor:pointer;font-family:var(--f-serif);font-size:19px}
+.faq p{margin-top:10px;max-width:64ch;color:var(--ink)}
+.order{display:grid;gap:14px;padding:clamp(20px,3vw,32px);background:var(--paper-2);border:1px solid var(--rule);max-width:720px}
+.order code{font-family:var(--f-mono);font-size:14px;background:var(--paper);padding:2px 6px;border:1px solid var(--rule)}
+@media (max-width:760px){.dp{grid-template-columns:1fr}.steps4{grid-template-columns:1fr 1fr}.steps4 li:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:420px){.steps4{grid-template-columns:1fr}.steps4 li + li{padding-left:0;border-left:0;border-top:1px solid var(--rule)}}
+</style></head>
+<body>
+<header class="top"><div class="wrap">
+ <a class="brand" href="https://ugrakjournal.com/" aria-label="Uğrak"><img class="wordmark on-light" src="logo-kiremit.png" alt="Uğrak" width="1524" height="684"><img class="wordmark on-dark" src="logo-krem.png" alt="Uğrak" width="1524" height="684"></a>
+ <nav aria-label="Bölümler"><a href="#defterler">Defterler</a><a href="#nasil">Nasıl alınır</a><a href="#sss">Sorular</a></nav>
+</div></header>
+
+<section class="dhero" style="border-top:0"><div class="wrap">
+ <span class="label">Uğrak Dijital · 7–8 yaş</span>
+ <h1>Martı'nın <em>dijital defterleri</em></h1>
+ <p>Martı soruyor, çocuk çiziyor. Ezber yok, tek doğru cevap yok; bakmak, bulmak ve kendi fikrini kâğıda ya da ekrana dökmek var.</p>
+</div></section>
+
+<section id="defterler"><div class="wrap">
+ <div class="sec-head"><span class="label">01 · Defterler</span><div><h2>Üç defter, bir martı</h2><span class="en">Three activity books for ages 7–8</span></div></div>
+ <div class="dlist"><article class="dp">
+  <div class="dp-imgs"><figure style="margin:0;display:grid;gap:4px"><img class="dp-cover" src="merak-0.webp" alt="Martı'nın Merak Defteri kapağı" loading="lazy"><figcaption class="note" style="font-size:11px">Kapak</figcaption></figure>
+   <div class="dp-in"><figure><img src="merak-1.webp" alt="" loading="lazy"><figcaption>Gizli Şehir</figcaption></figure><figure><img src="merak-2.webp" alt="" loading="lazy"><figcaption>Merak Haritası</figcaption></figure></div></div>
+  <div class="dp-txt"><span class="label">Tablet + telefon sürümü · 7–8 yaş</span><h3>Martı'nın Merak Defteri</h3><p>Rüzgâr Martı'nın merak izlerini dokuz kapının ardına savurdu. Gizli şehir, yanlış tahmin, fark bulma, şifreli mesaj, labirent, yarım hikâye ve serbest çizim. Telefon sürümünde kutulara dokununca işaretlenir, haritaya mühür basılır; puan ve yarış yok.</p>
+   <ul class="specs"><li>Biçim <b>PDF · tablet + telefon</b></li><li>Kullanım <b>Dokun, işaretle, parmakla çiz; istersen yazdır</b></li><li>Fiyat <b>149 TL</b></li></ul>
+   <a class="buy" href="https://www.shopier.com/ugrakjournal/52780338" target="_blank" rel="noopener">Satın al · Shopier ▶</a><span class="note">Ödemeden sonra en geç 1 iş günü içinde, sipariş numaranla e-postana gelir.</span></div>
+</article><article class="dp">
+  <div class="dp-imgs"><figure style="margin:0;display:grid;gap:4px"><img class="dp-cover" src="kelime-0.webp" alt="Martı'yla İlk Kelimeler · İngilizce kapağı" loading="lazy"><figcaption class="note" style="font-size:11px">Kapak</figcaption></figure>
+   <div class="dp-in"><figure><img src="kelime-1.webp" alt="" loading="lazy"><figcaption>Kelime kartları</figcaption></figure><figure><img src="kelime-2.webp" alt="" loading="lazy"><figcaption>Kelime avı</figcaption></figure></div></div>
+  <div class="dp-txt"><span class="label">18 sayfa · 7–8 yaş</span><h3>Martı'yla İlk Kelimeler · İngilizce</h3><p>Günlük hayattan 24 İngilizce kelime: resimli kartlar, eşleştirme, resimde bulma, kayıp harfler, Martı'nın günlüğü ve kelime avı. Görsel kelime tanıma çalışmasıdır; telaffuz öğretimi değildir.</p>
+   <ul class="specs"><li>Biçim <b>PDF · A4 dikey</b></li><li>Kullanım <b>Tablette kalemle ya da yazdırarak</b></li><li>Fiyat <b>119 TL</b></li></ul>
+   <a class="buy" href="#" aria-disabled="true">Çok yakında</a><span class="note">Yeni tablet ve telefon tasarımıyla hazırlanıyor.</span></div>
+</article><article class="dp">
+  <div class="dp-imgs"><figure style="margin:0;display:grid;gap:4px"><img class="dp-cover" src="sehir-0.webp" alt="Martı'yla Şehrini Keşfet kapağı" loading="lazy"><figcaption class="note" style="font-size:11px">Kapak</figcaption></figure>
+   <div class="dp-in"><figure><img src="sehir-1.webp" alt="" loading="lazy"><figcaption>Martı’nın haritası</figcaption></figure><figure><img src="sehir-2.webp" alt="" loading="lazy"><figcaption>Görev sayfası</figcaption></figure></div></div>
+  <div class="dp-txt"><span class="label">13 sayfa · 7–8 yaş</span><h3>Martı'yla Şehrini Keşfet</h3><p>Birçok şehirde oynanabilen altı küçük keşif: pencere, kaldırım deseni, gölge, tekrar eden şekil, yakından-uzaktan, ses avı. Kaldırımda, büyüğüyle birlikte.</p>
+   <ul class="specs"><li>Biçim <b>PDF · A4 dikey</b></li><li>Kullanım <b>Tablette kalemle ya da yazdırarak</b></li><li>Fiyat <b>99 TL</b></li></ul>
+   <a class="buy" href="#" aria-disabled="true">Çok yakında</a><span class="note">Yeni tablet ve telefon tasarımıyla hazırlanıyor.</span></div>
+</article></div>
+ <div class="order" style="margin-top:40px"><span class="label">Üçlü set</span><h3 style="margin:0">Üç defter birlikte · 299 TL · çok yakında</h3><p>Merak Defteri (tablet + telefon), İlk Kelimeler İngilizce ve Şehrini Keşfet. Ayrı ayrı 367 TL. Diğer iki defter yeni tasarımıyla hazır olunca açılacak.</p></div>
+ <p class="note" style="margin-top:32px">Görseller defterlerin gerçek sayfalarıdır. Hiçbir sayfada örnek boyama rengi yok; renkleri çocuk seçer.</p>
+</div></section>
+
+<section><div class="wrap">
+ <div class="sec-head"><span class="label">02 · Büyükler için</span><div><h2>Her defterin sonunda: Birlikte Keşif Notları</h2></div></div>
+ <div class="manifest"><span></span><div class="body"><p class="lead">Çocuğunuzu ölçen bir test değil, birlikte konuşmak için birkaç soru.</p>
+ <p>"Hangi sayfaya kendiliğinden geri döndü?", "Neyi anlatırken heyecanlandı?" gibi gözlem soruları. Yetenek ya da kişilik hakkında yorum yapılmaz; ilgi alanları çocuklukta sık sık değişir.</p></div></div>
+</div></section>
+
+<section id="nasil"><div class="wrap">
+ <div class="sec-head"><span class="label">03 · Nasıl alınır</span><div><h2>Havale ile, e-postayla teslim</h2></div></div>
+ <ol class="steps4">
+  <li><span class="n">1</span><h3>Defteri seçin</h3><p>"Satın al" düğmesi sizi Shopier'in güvenli ödeme sayfasına götürür.</p></li>
+  <li><span class="n">2</span><h3>Kartla ödeyin</h3><p>Ödeme Shopier'de yapılır; kart bilgileriniz bize ulaşmaz.</p></li>
+  <li><span class="n">3</span><h3>PDF e-postanızda</h3><p>En geç 1 iş günü içinde, size özel sipariş numarasıyla hazırlanıp gönderilir.</p></li>
+  <li><span class="n">4</span><h3>Açın, başlayın</h3><p>Telefonda Dosyalar (iPhone) ya da Xodo (Android); tablette Kitaplar, Samsung Notes ya da Xodo. Ya da A4 yazdırın.</p></li>
+ </ol>
+ <div class="order" style="margin-top:32px"><span class="label">Basılı Uğrak yakında</span>
+  <p>Basılı defterlerimiz hazırlanıyor. Çıktıklarında duyurmak için @ugrakjournal'ı takip edebilirsiniz.</p>
+  <p class="note">Sorularınız için: <code>satis@ugrakjournal.com</code></p></div>
+</div></section>
+
+<section id="sss"><div class="wrap">
+ <div class="sec-head"><span class="label">04 · Sorular</span><div><h2>Sık sorulanlar</h2></div></div>
+ <div class="faq">
+  <details><summary>Telefonda kullanılır mı?</summary><p>Martı'nın Merak Defteri'nin telefon ekranına göre hazırlanmış ayrı bir sürümü var; siparişle birlikte tablet sürümüyle beraber gelir. iPhone'da Dosyalar, Android'de Xodo uygulamasıyla açın. Diğer iki defterin tablet ve telefon sürümleri hazırlanıyor.</p></details>
+  <details><summary>Bu bir terapi aracı mı?</summary><p>Hayır. Martı'nın defterleri hikâye kurma, çizim ve gözlem fırsatları sunan etkinlik defterleridir; terapi ya da tanı aracı değildir. Çocuğunuzun çizimlerini yorumlamayın; anlatmak isterse dinleyin.</p></details>
+  <details><summary>Çizdiklerimiz kaybolur mu?</summary><p>iPad Kitaplar, Samsung Notes ve Xodo'da kalemle çizdikleriniz dosyaya kaydedilir; defteri kapatıp açtığınızda kaldığınız yerden devam edersiniz.</p></details>
+  <details><summary>Paylaşabilir miyim?</summary><p>Defter yalnızca satın alan ailenin kişisel kullanımı içindir. Her sayfada sipariş numaranız yazılıdır; lütfen başkalarıyla paylaşmayın.</p></details>
+  <details><summary>İngilizce defter okunuşu öğretiyor mu?</summary><p>Hayır. Kelimeyi resimle tanıma ve eşleştirme çalışmasıdır. Okunuşu bir sözlük uygulamasından birlikte dinlemenizi öneriyoruz.</p></details>
+  <details><summary>Şehrini Keşfet hangi şehirde oynanır?</summary><p>Birçok şehirde oynanabilir; rotayı siz seçersiniz. Bir görev için uygun ve güvenli bir yer bulamazsanız o görevi atlayın.</p></details>
+  <details><summary>İade var mı?</summary><p>Dijital ürün olduğu için cayma hakkı yoktur. Dosya açılmazsa ya da bozuksa yenisini göndeririz; sorun çözülemezse ücreti iade ederiz.</p></details>
+  <details><summary>Bilgilerimi ne için kullanıyorsunuz?</summary><p>Yalnızca adınızı ve e-posta adresinizi, siparişi tamamlamak ve dosyayı göndermek için kullanırız. Çocuğunuza ait hiçbir bilgi istenmez; reklam yapılmaz, kimseyle paylaşılmaz.</p></details>
+  <details><summary>Başka yaşlar için var mı?</summary><p>5–6 ve 9–10 yaş sürümleri hazırlanıyor.</p></details>
+ </div>
+</div></section>
+
+<footer style="border-top:1px solid var(--rule)"><div class="wrap" style="padding-block:32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+ <span class="note">© 2026 Uğrak · Sinop</span><a class="note" href="https://ugrakjournal.com/">ugrakjournal.com</a></div></footer>
+</body></html>

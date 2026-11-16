@@ -78,6 +78,8 @@ textarea{min-height:110px;resize:vertical;line-height:1.7;background-image:repea
 .msg{font-size:14.5px;min-height:1.4em}
 .ok{color:var(--okc)} .err{color:var(--sinop)}
 .locked{opacity:.6}
+.ai-note{font-size:13px;color:var(--muted);margin:4px 0 0}
+.bar{cursor:pointer}
 .lock{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .count{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
 .prompt{display:grid;gap:6px;padding-block:14px;border-top:1px solid var(--rule)}
@@ -216,10 +218,11 @@ const PROMPTS=[
  ["dahaki","Bir dahaki sefere","Next time","Gitmek, yemek, yanında getirmek istediklerin."]
 ];
 const STORIES=[
- ["Diyojen'in fıçısı","Diogenes and his barrel","Az şeyle yetinen filozofun hikâyesi.",140],
- ["Kotra nasıl yapılır?","How a kotra is built","Ustanın elinden geçen tekne: tahtadan denize.",125],
- ["Sinop sofrası","The Sinop table","Mantı, nokul, lakerda: masaya ne gelir, neden?",120]
+ ["Diyojen'in fıçısı","Diogenes and his barrel","Az şeyle yetinen filozofun hikâyesi.","ses/diyojen.mp3",116],
+ ["Kotra nasıl yapılır?","How a kotra is built","Ceviz yelkenli ahşap maket: ustanın elinden geçen tekne.","ses/kotra.mp3",101],
+ ["Sinop sofrası","The Sinop table","Mantı, nokul, lakerda, kestane balı: masaya ne gelir, neden?","ses/sofra.mp3",106]
 ];
+const DRAFT=true;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
@@ -250,11 +253,27 @@ $('#export').addEventListener('click',()=>{const b=new Blob([notesText()],{type:
 let clearArmed=false;
 $('#clear').addEventListener('click',()=>{const m=$('#notes-msg');if(!clearArmed){clearArmed=true;m.className='msg err';m.textContent='Bütün notlar silinecek. Emin isen tekrar bas.';setTimeout(()=>{clearArmed=false},5000);return}
   notes={};store.set('ugrak.sinop.notes',notes);renderPrompts();renderPlaces();clearArmed=false;m.className='msg';m.textContent='Notlar silindi.'});
-function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function fmt(s){s=Math.round(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+const audio=new Audio();audio.preload='none';let cur=-1;
+const PLAY='<svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg>',PAUSE='<svg viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg>';
+function setBtn(i,playing){const b=document.querySelector(`#st${i} .play`);if(b){b.innerHTML=playing?PAUSE:PLAY;b.setAttribute('aria-label',STORIES[i][0]+(playing?' duraklat':' dinle'))}}
 function renderStories(){
-  $('#stories').innerHTML=STORIES.map((s,i)=>`<div class="story ${unlocked?'':'locked'}"><span class="lock">${unlocked?'Ses kaydı hazırlanıyor':'Defter koduyla açılır'}</span><h2>${s[0]}</h2><span class="en">${s[1]}</span><p style="margin:0;font-size:15.5px">${s[2]}</p><div class="player"><button class="play" type="button" aria-label="${s[0]} dinle" disabled><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg></button><div class="bar"><i></i></div><span class="dur">${fmt(s[3])}</span></div></div>`).join('')
-  + (unlocked?'':'<div class="note"><b>Kilitli</b>Anlatımları açmak için <a href="#defterim">defter kodunu</a> yaz.</div>');
+  $('#stories').innerHTML=STORIES.map((s,i)=>`<div class="story ${unlocked?'':'locked'}" id="st${i}"><span class="lock">${unlocked?(DRAFT?'Taslak kayıt':'Dinle'):'Defter koduyla açılır'}</span><h2>${s[0]}</h2><span class="en">${s[1]}</span><p style="margin:0;font-size:15.5px">${s[2]}</p><div class="player"><button class="play" type="button" aria-label="${s[0]} dinle" ${unlocked?'':'disabled'}>${PLAY}</button><div class="bar" role="slider" aria-label="${s[0]} ilerleme" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="${unlocked?0:-1}"><i></i></div><span class="dur">${fmt(s[4])}</span></div></div>`).join('')
+  + (unlocked?'<p class="ai-note">Seslendirme: Yapay zekâ destekli Türkçe ses. Metin ve anlatım kurgusu Uğrak tarafından hazırlanmıştır.</p>':'<div class="note"><b>Kilitli</b>Anlatımları açmak için <a href="#defterim">defter kodunu</a> yaz.</div>');
+  if(!unlocked)return;
+  STORIES.forEach((s,i)=>{const el=$('#st'+i);
+    el.querySelector('.play').addEventListener('click',()=>{
+      if(cur===i&&!audio.paused){audio.pause();return}
+      if(cur!==i){if(cur>-1)setBtn(cur,false);cur=i;audio.src=s[3]}
+      audio.play().catch(()=>{el.querySelector('.dur').textContent='Açılamadı'})});
+    el.querySelector('.bar').addEventListener('click',e=>{if(cur!==i||!audio.duration)return;const r=e.currentTarget.getBoundingClientRect();audio.currentTime=audio.duration*Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))});
+  });
 }
+audio.addEventListener('play',()=>setBtn(cur,true));
+audio.addEventListener('pause',()=>setBtn(cur,false));
+audio.addEventListener('ended',()=>{setBtn(cur,false)});
+audio.addEventListener('timeupdate',()=>{if(cur<0)return;const el=$('#st'+cur);if(!el)return;const p=audio.duration?audio.currentTime/audio.duration*100:0;el.querySelector('.bar i').style.width=p+'%';el.querySelector('.bar').setAttribute('aria-valuenow',Math.round(p));el.querySelector('.dur').textContent=fmt(audio.currentTime)+' / '+fmt(audio.duration)});
+audio.addEventListener('loadedmetadata',()=>{const el=$('#st'+cur);if(el)el.querySelector('.dur').textContent='0:00 / '+fmt(audio.duration)});
 function progress(){$('#progress').textContent=`İşaretlediğin durak: ${visited.length}`}
 $('#codeform').addEventListener('submit',e=>{e.preventDefault();const v=$('#code').value.trim().toUpperCase();const m=$('#msg');
   if(!/^SNP-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(v)){m.className='msg err';m.textContent='Kod SNP-XXXX-XXXX biçiminde olmalı. Defterin son sayfasına tekrar bak.';return}

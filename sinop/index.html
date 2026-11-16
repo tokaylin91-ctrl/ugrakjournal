@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uğrak Sinop</title>
+<meta name="description" content="Sinop Journal'ın telefon katmanı: yerler, notlar, sesli anlatımlar. İnternetsiz çalışır.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#5E2318">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Uğrak Sinop">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@400;500;700&family=IBM+Plex+Mono&display=swap">
+<style>
+/* Tek sütunlu cep defteri: üstte deri bant, altta sabit sekme çubuğu */
+:root{
+  --paper:#F5F0E8; --paper-2:#EDE4D6; --ink:#2B1D15; --muted:#76665A; --rule:#E2D6C2;
+  --sinop:#B83A0A; --leather:#5E2318; --on-leather:#F5F0E8; --gold:#B8954A; --okc:#2f7a3b;
+  --f-display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;
+  --f-serif:"Libre Caslon Text",Georgia,serif;
+  --f-body:"Karla",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root{--paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinop:#E8784A;--leather:#4A1A12;--gold:#D4AE6A;--okc:#7ccf8a;color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--leather)}
+a{color:var(--sinop)}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--leather);color:var(--on-leather);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:10px;gap:12px}
+header.top img{height:26px;width:auto;display:block}
+.city{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+.off{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:#2B1D15;padding:2px 7px;border-radius:3px}
+main{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+section.view{padding-block:22px 8px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(30px,8vw,40px);line-height:1.1;margin:0 0 6px;text-wrap:balance}
+h2{font-family:var(--f-serif);font-weight:400;font-size:22px;margin:0 0 4px;text-wrap:balance}
+.en{font-family:var(--f-serif);font-style:italic;color:var(--muted);font-size:15px;line-height:1.5}
+.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sinop)}
+.lede{font-size:18px}
+.band{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--rule);margin-block:14px;background:#F5F0E8}
+.stack{display:grid;gap:14px}
+.item{border-top:1px solid var(--rule);padding-block:14px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start}
+.item:last-child{border-bottom:1px solid var(--rule)}
+.num{font-family:var(--f-mono);font-size:13px;color:var(--on-leather);background:var(--leather);border-radius:50%;width:28px;height:28px;display:grid;place-items:center;margin-top:2px}
+.item h3{margin:0;font-size:17px;font-weight:700}
+.item .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.item p{margin:6px 0 0;font-size:15.5px}
+.btn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:14px;font-weight:700;border:1.5px solid var(--sinop);color:var(--sinop);background:transparent;border-radius:999px;padding:7px 14px;text-decoration:none;cursor:pointer;min-height:40px}
+.btn.solid{background:var(--sinop);color:var(--paper)}
+.btn.quiet{border-color:var(--rule);color:var(--muted)}
+.btn:focus-visible,.tab:focus-visible,input:focus-visible,textarea:focus-visible,.check:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.check{appearance:none;-webkit-appearance:none;width:28px;height:28px;border:1.5px solid var(--ink);border-radius:50%;cursor:pointer;margin:0;display:grid;place-items:center;background:transparent}
+.check:checked{background:var(--sinop);border-color:var(--sinop)}
+.check:checked::after{content:"";width:10px;height:6px;border-left:2.5px solid var(--paper);border-bottom:2.5px solid var(--paper);transform:rotate(-45deg) translate(1px,-1px)}
+.note{background:var(--paper-2);border-radius:6px;padding:12px 14px;font-size:14.5px}
+.note b{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sinop);display:block;margin-bottom:2px;font-weight:400}
+.story{border:1px solid var(--rule);border-radius:8px;padding:16px;display:grid;gap:8px}
+.player{display:flex;align-items:center;gap:12px}
+.play{width:46px;height:46px;border-radius:50%;border:0;background:var(--leather);color:var(--on-leather);display:grid;place-items:center;cursor:pointer;flex:none}
+.play svg{width:16px;height:16px;fill:currentColor}
+.play:disabled{opacity:.5;cursor:default}
+.bar{flex:1;height:4px;background:var(--rule);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--sinop)}
+.dur{font-family:var(--f-mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+details{border-top:1px solid var(--rule);padding-block:8px}
+details summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--muted);min-height:32px;display:flex;align-items:center}
+form.code{display:grid;gap:10px;margin-top:12px}
+input[type=text],textarea{font:inherit;padding:12px 14px;border:1.5px solid var(--rule);border-radius:8px;background:var(--paper);color:var(--ink);width:100%}
+input#code{font-family:var(--f-mono);font-size:18px;letter-spacing:.12em;text-transform:uppercase;border-color:var(--ink)}
+textarea{min-height:110px;resize:vertical;line-height:1.7;background-image:repeating-linear-gradient(transparent,transparent calc(1.7em - 1px),var(--rule) calc(1.7em - 1px),var(--rule) 1.7em);background-attachment:local;background-position:0 12px}
+.msg{font-size:14.5px;min-height:1.4em}
+.ok{color:var(--okc)} .err{color:var(--sinop)}
+.locked{opacity:.6}
+.lock{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.count{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.prompt{display:grid;gap:6px;padding-block:14px;border-top:1px solid var(--rule)}
+.prompt label{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.prompt .en{font-size:13.5px;margin-top:-6px}
+.saved{font-family:var(--f-mono);font-size:11px;color:var(--muted);min-height:1.2em}
+.place-note{margin-top:8px}
+.place-note summary{font-weight:500;font-size:13.5px;color:var(--sinop)}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--rule);z-index:6;padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.tabs .wrap{display:grid;grid-template-columns:repeat(6,1fr);padding-block:4px}
+.tab{background:none;border:0;font:inherit;color:var(--muted);display:grid;justify-items:center;gap:2px;padding:6px 0;cursor:pointer;font-size:10.5px;min-height:52px;min-width:0}
+.tab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6}
+.tab[aria-current="page"]{color:var(--sinop);font-weight:700}
+#install[hidden]{display:none}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+/* Kâğıda geçir: B6 sayfası */
+@media print{
+  @page{size:125mm 176mm;margin:10mm}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  header.top,nav.tabs,.noprint,section.view:not(#v-notlar){display:none!important}
+  #v-notlar{display:block!important}
+  textarea{border:0;background:none;min-height:0;padding:0;height:auto}
+  .prompt{break-inside:avoid;border-top:.3mm solid #999}
+  main{padding:0}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <img src="../logo-krem.png" alt="Uğrak" width="1524" height="684">
+  <span class="city">Sinop <span class="off" id="offline" hidden>Çevrimdışı</span></span>
+</div></header>
+
+<main class="wrap">
+
+<section class="view" id="v-kesfet">
+  <span class="eyebrow">Taslak · deneme sürümü</span>
+  <h1 style="margin-top:8px">Şehrin başka hikâyeleri de var.</h1>
+  <p class="en">The city has other stories too.</p>
+  <img class="band" src="../kusak-kale.webp" alt="Sinop Kalesi gravürü" width="780" height="216">
+  <p class="lede">Sinop'u gezerken cebinde dursun. Yerleri bul, notunu al, hikâyeleri dinle. Defterin varsa ona eşlik eder; yoksa tek başına da işini görür.</p>
+  <div class="stack">
+    <div class="note"><b>İnternet olmadan</b>Bir kez açtıktan sonra telefonunda kalır; kalede ya da koyda çekim olmasa da çalışır. <span class="en">Works offline after the first visit.</span></div>
+    <div class="note" id="install" hidden><b>Ana ekrana ekle</b><span id="install-txt">Uygulama gibi açmak için ana ekranına ekle.</span><div class="row"><button class="btn solid" id="install-btn" type="button" hidden>Ana ekrana ekle</button></div></div>
+    <div class="note"><b>Defterin elindeyse</b>Son sayfadaki örtülü kodu <a href="#defterim">Defterim</a> bölümüne yaz; sesli anlatımlar açılır.</div>
+  </div>
+  <div class="row"><a class="btn solid" href="#yerler">Yerlere bak</a><a class="btn" href="#notlar">Not al</a></div>
+  <p class="count" style="margin-top:18px" id="progress">İşaretlediğin durak: 0</p>
+</section>
+
+<section class="view" id="v-yerler" hidden>
+  <span class="eyebrow">Haritadaki yerler</span>
+  <h1>11 durak</h1>
+  <p class="en">Places on the map. Numbers match the district map in the journal (p. 12).</p>
+  <div id="places"></div>
+  <p class="en" style="margin-top:14px">Yol tarifi Google Haritalar'da açılır. Bu sayfa konumunu istemez, takip etmez.</p>
+</section>
+
+<section class="view" id="v-notlar" hidden>
+  <span class="eyebrow">Notlarım</span>
+  <h1>Bana kalan</h1>
+  <p class="en noprint">Your notes stay on this phone. Print them in journal size if you like.</p>
+  <p class="noprint" style="font-size:15.5px">Defterdeki soruların aynısı. Yazdıkların yalnızca bu telefonda saklanır. İstersen sonra deftere geçirirsin ya da defter boyunda yazdırıp arasına koyarsın.</p>
+  <div id="prompts"></div>
+  <div class="row noprint">
+    <button class="btn solid" type="button" id="print">Defter boyunda yazdır</button>
+    <button class="btn" type="button" id="export">Metin olarak indir</button>
+    <button class="btn quiet" type="button" id="clear">Notları sil</button>
+  </div>
+  <p class="msg noprint" id="notes-msg" role="status"></p>
+</section>
+
+<section class="view" id="v-dinle" hidden>
+  <span class="eyebrow">Sesli anlatımlar</span>
+  <h1>Kulağına Sinop</h1>
+  <p class="en">Short audio stories, about two minutes each.</p>
+  <div class="stack" id="stories"></div>
+</section>
+
+<section class="view" id="v-muhurler" hidden>
+  <span class="eyebrow">Uğrak Mühürleri</span>
+  <h1>Mührün nerede?</h1>
+  <p class="en">Where to get stamps for page 56 of the journal.</p>
+  <img class="band" src="../kusak-hamsaroz.webp" alt="Hamsaroz koyu gravürü" width="780" height="216">
+  <p>Defterin 56. sayfası, uğradığın yerlerin mühürlerini toplaman için. Mühür veren yerler anlaştıkça buraya eklenir; adres ve açık günler burada güncel tutulur.</p>
+  <div class="note"><b>Durum</b>İlk mühür noktaları belirleniyor. Liste baskıyla birlikte (Ocak 2027) açılacak.</div>
+</section>
+
+<section class="view" id="v-defterim" hidden>
+  <span class="eyebrow">Defterim</span>
+  <h1>Kodunu yaz</h1>
+  <p>Kod, defterin son sayfasındaki örtülü alanın altında. Bir kez yazman yeter; bu telefon hatırlar.</p>
+  <p class="en">Your code is under the scratch panel on the last page.</p>
+  <form class="code" id="codeform" novalidate>
+    <label for="code" class="lock">Defter kodu</label>
+    <input type="text" id="code" autocomplete="off" placeholder="SNP-XXXX-XXXX" maxlength="14">
+    <button class="btn solid" type="submit" style="justify-self:start">Defterimi aç</button>
+    <p class="msg" id="msg" role="status"></p>
+  </form>
+  <div class="note" style="margin-top:12px"><b>Deneme sürümü</b>Bu ekran henüz satın almayı doğrulamaz. Deneme kodu: <span style="font-family:var(--f-mono)">SNP-DENE-2027</span></div>
+  <details><summary>Ne saklanıyor?</summary><p style="font-size:14.5px">Hesap, isim, e-posta ya da konum istenmez. Kod, işaretlerin ve notların yalnızca bu telefonda tutulur; bize gelmez. Reklam ya da takip yok.</p></details>
+  <details><summary>Sırrı buldun mu?</summary><p style="font-size:14.5px">Defterde dört tüy saklı. Tüylerin söylediği kelimeyi bulduysan, ne yapacağını da biliyorsun.</p></details>
+</section>
+
+</main>
+
+<nav class="tabs" aria-label="Bölümler"><div class="wrap">
+  <button class="tab" data-v="kesfet"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Keşfet</button>
+  <button class="tab" data-v="yerler"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Yerler</button>
+  <button class="tab" data-v="notlar"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>Notlar</button>
+  <button class="tab" data-v="dinle"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/></svg>Dinle</button>
+  <button class="tab" data-v="muhurler"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/></svg>Mühür</button>
+  <button class="tab" data-v="defterim"><svg viewBox="0 0 24 24"><path d="M6 3h11a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6z"/><path d="M6 3v18M10 8h5"/></svg>Defterim</button>
+</div></nav>
+
+<script>
+const PLACES=[
+ ["Sinop merkez","Sinop centre","s. 11","Kale surları, liman ve çarşı yürüyerek gezilir.","Sinop Kalesi"],
+ ["İnceburun Feneri","İnceburun Lighthouse","s. 23","Türkiye'nin en kuzey ucu.","İnceburun Feneri Sinop"],
+ ["Hamsaroz Koyu","Hamsaroz (Hamsilos) Bay","s. 24, 32","Denizin karaya uzanan koyu.","Hamsilos Koyu Sinop"],
+ ["Akliman Sahili","Akliman Beach","s. 33","Merkeze yaklaşık 8 km.","Akliman Sinop"],
+ ["Sarıkum Gölü","Sarıkum Nature Reserve","s. 34","Korunan alan: kumullara basmadan seyret.","Sarıkum Tabiatı Koruma Alanı"],
+ ["Tatlıca Şelaleleri","Tatlıca Waterfalls","s. 35","Erfelek'te, yaklaşık 4,5 km'lik vadide art arda şelaleler.","Tatlıca Şelaleleri Erfelek"],
+ ["Boyabat Kalesi","Boyabat Castle","s. 27","135 metrelik bir kayanın üstünde.","Boyabat Kalesi"],
+ ["Durak Hanı","Durak Han caravanserai","s. 28","Durağan'da, yol üstünde bir han.","Durak Hanı Durağan"],
+ ["İnaltı Mağarası","İnaltı Cave, Ayancık","s. 30","Ayancık'ta.","İnaltı Mağarası Ayancık"],
+ ["Türkeli kıyısı","Türkeli coast","s. 31","Kıyı yolunda mola verilecek yerler.","Türkeli Sinop"],
+ ["Gerze","Gerze (ancient Carusa)","s. 31","Antik adıyla Carusa.","Gerze Sinop"]
+];
+const PROMPTS=[
+ ["ilk","İlk izlenim","First impression","Sinop'a vardığında ilk neyi fark ettin?"],
+ ["kalan","Bana kalan","What stayed with me","Bugün aklında ne kaldı?"],
+ ["sofra","Sofradan","From the table","Hangi tadı hatırlayacaksın?"],
+ ["gunbatimi","Gün batımı noktam","My sunset spot","Güneşi nerede batırdın?"],
+ ["diyojen","Diyojen'in sorusu","Diogenes' question","Gerçekten neye ihtiyacın var?"],
+ ["dahaki","Bir dahaki sefere","Next time","Gitmek, yemek, yanında getirmek istediklerin."]
+];
+const STORIES=[
+ ["Diyojen'in fıçısı","Diogenes and his barrel","Az şeyle yetinen filozofun hikâyesi.",140],
+ ["Kotra nasıl yapılır?","How a kotra is built","Ustanın elinden geçen tekne: tahtadan denize.",125],
+ ["Sinop sofrası","The Sinop table","Mantı, nokul, lakerda: masaya ne gelir, neden?",120]
+];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+let visited=store.get('ugrak.sinop.visited',[]);
+let unlocked=store.get('ugrak.sinop.unlocked',false);
+let notes=store.get('ugrak.sinop.notes',{});
+
+function saveNote(key,val,el){notes[key]=val;const ok=store.set('ugrak.sinop.notes',notes);if(el)el.textContent=ok?'Kaydedildi':'Kaydedilemedi: tarayıcı depolamaya izin vermiyor'}
+function bindArea(id,key,status){const ta=$('#'+id);let t;ta.value=notes[key]||'';ta.addEventListener('input',()=>{clearTimeout(t);status.textContent='';t=setTimeout(()=>saveNote(key,ta.value,status),400)})}
+
+function renderPlaces(){
+  $('#places').innerHTML=PLACES.map((p,i)=>`<div class="item"><span class="num">${i+1}</span><div style="min-width:0"><h3>${p[0]}</h3><span class="meta">${p[2]} · ${p[1]}</span><p>${p[3]}</p><div class="row"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p[4])}">Yol tarifi</a></div><details class="place-note"><summary>Bu yer için not</summary><textarea id="pn${i}" aria-label="${p[0]} notu"></textarea><span class="saved" id="ps${i}"></span></details></div><input class="check" type="checkbox" id="v${i}" aria-label="${p[0]}: uğradım" ${visited.includes(i)?'checked':''}></div>`).join('');
+  document.querySelectorAll('#places .check').forEach((c,i)=>c.addEventListener('change',()=>{visited=c.checked?[...new Set([...visited,i])]:visited.filter(x=>x!==i);store.set('ugrak.sinop.visited',visited);progress()}));
+  PLACES.forEach((p,i)=>bindArea('pn'+i,'yer'+i,$('#ps'+i)));
+}
+function renderPrompts(){
+  $('#prompts').innerHTML=PROMPTS.map(p=>`<div class="prompt"><label for="np-${p[0]}">${p[1]}</label><span class="en">${p[2]}</span><textarea id="np-${p[0]}" placeholder="${esc(p[3])}"></textarea><span class="saved noprint" id="ns-${p[0]}"></span></div>`).join('');
+  PROMPTS.forEach(p=>bindArea('np-'+p[0],p[0],$('#ns-'+p[0])));
+}
+function notesText(){
+  let out='SİNOP · UĞRAK NOTLARIM\n\n';
+  PROMPTS.forEach(p=>{if(notes[p[0]])out+=p[1].toUpperCase()+'\n'+notes[p[0]]+'\n\n'});
+  PLACES.forEach((p,i)=>{if(notes['yer'+i])out+=(i+1)+'. '+p[0].toUpperCase()+'\n'+notes['yer'+i]+'\n\n'});
+  return out;
+}
+$('#print').addEventListener('click',()=>window.print());
+$('#export').addEventListener('click',()=>{const b=new Blob([notesText()],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='sinop-notlarim.txt';document.body.appendChild(a);a.click();a.remove();$('#notes-msg').className='msg ok';$('#notes-msg').textContent='Notların indirildi.'});
+let clearArmed=false;
+$('#clear').addEventListener('click',()=>{const m=$('#notes-msg');if(!clearArmed){clearArmed=true;m.className='msg err';m.textContent='Bütün notlar silinecek. Emin isen tekrar bas.';setTimeout(()=>{clearArmed=false},5000);return}
+  notes={};store.set('ugrak.sinop.notes',notes);renderPrompts();renderPlaces();clearArmed=false;m.className='msg';m.textContent='Notlar silindi.'});
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')}
+function renderStories(){
+  $('#stories').innerHTML=STORIES.map((s,i)=>`<div class="story ${unlocked?'':'locked'}"><span class="lock">${unlocked?'Ses kaydı hazırlanıyor':'Defter koduyla açılır'}</span><h2>${s[0]}</h2><span class="en">${s[1]}</span><p style="margin:0;font-size:15.5px">${s[2]}</p><div class="player"><button class="play" type="button" aria-label="${s[0]} dinle" disabled><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg></button><div class="bar"><i></i></div><span class="dur">${fmt(s[3])}</span></div></div>`).join('')
+  + (unlocked?'':'<div class="note"><b>Kilitli</b>Anlatımları açmak için <a href="#defterim">defter kodunu</a> yaz.</div>');
+}
+function progress(){$('#progress').textContent=`İşaretlediğin durak: ${visited.length}`}
+$('#codeform').addEventListener('submit',e=>{e.preventDefault();const v=$('#code').value.trim().toUpperCase();const m=$('#msg');
+  if(!/^SNP-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(v)){m.className='msg err';m.textContent='Kod SNP-XXXX-XXXX biçiminde olmalı. Defterin son sayfasına tekrar bak.';return}
+  if(v!=='SNP-DENE-2027'){m.className='msg err';m.textContent='Bu kod tanınmadı. Harfleri ve rakamları kontrol et; olmazsa satis@ugrakjournal.com adresine yaz.';return}
+  unlocked=true;store.set('ugrak.sinop.unlocked',true);m.className='msg ok';m.textContent='Defterin açıldı. Sesli anlatımlar Dinle bölümünde.';renderStories()});
+const VIEWS=['kesfet','yerler','notlar','dinle','muhurler','defterim'];
+function show(){const h=location.hash.slice(1);const v=VIEWS.includes(h)?h:'kesfet';VIEWS.forEach(x=>{$('#v-'+x).hidden=x!==v});document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-current',t.dataset.v===v?'page':'false'));window.scrollTo(0,0)}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{location.hash=t.dataset.v}));
+window.addEventListener('hashchange',show);
+function net(){$('#offline').hidden=navigator.onLine}
+window.addEventListener('online',net);window.addEventListener('offline',net);
+// Ana ekrana ekle
+let deferred=null;
+const standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+if(!standalone){const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);if(ios){$('#install').hidden=false;$('#install-txt').textContent='Safari\'de Paylaş düğmesine, sonra "Ana Ekrana Ekle"ye bas.'}}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;$('#install').hidden=false;$('#install-btn').hidden=false});
+$('#install-btn').addEventListener('click',async()=>{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;$('#install').hidden=true});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+renderPlaces();renderPrompts();renderStories();progress();net();show();
+</script>
+</body>
+</html>

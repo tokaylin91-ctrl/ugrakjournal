@@ -1,4 +1,4 @@
-const V='ugrak-sinop-v2';
+const V='ugrak-sinop-v3';
 const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','../logo-krem.png','../kusak-kale.webp','../kusak-hamsaroz.webp','../favicon.svg','ses/diyojen.mp3','ses/kotra.mp3','ses/sofra.mp3'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('ugrak-sinop-')&&k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});

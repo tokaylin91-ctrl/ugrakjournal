@@ -8,7 +8,7 @@
 <meta property="og:description" content="7–8 yaş için dokunarak ve çizerek ilerlenen dijital etkinlik defterleri. Tablet + telefon.">
 <meta property="og:image" content="https://ugrakjournal.com/dijital/set.webp?v=4">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img,video{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@500;600;700&display=swap">
 <style>
 /* Layout: tek sütun, defter sayfası gibi; geniş kenar boşlukları, ince çizgiler, deri kırmızısı yalnızca vurguda */
 :root{
@@ -23,10 +23,10 @@
   --gold:#B8954A;       /* Altın yaldız */
   --leather:#5E2318;    /* deri kapak, kızıl kahve */
   --on-leather:#F5F0E8;
-  --f-display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;
-  --f-serif:"Libre Caslon Text",Georgia,serif;
-  --f-body:"Karla",system-ui,-apple-system,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --f-display:"Newsreader",Georgia,serif;
+  --f-serif:"Newsreader",Georgia,serif;
+  --f-body:"Newsreader",Georgia,serif;
+  --f-mono:"Hanken Grotesk",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -36,7 +36,7 @@
   --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--sinopia);outline-offset:3px}
@@ -361,7 +361,7 @@ img{height:auto}
   <div style="display:grid;gap:12px;min-width:0">
    <span><span class="badge">En avantajlı</span></span>
    <h2 style="margin:0;font-size:clamp(30px,4vw,44px);line-height:1.08">Üç defter bir arada</h2>
-   <div class="setprice"><b>299 TL</b><s>367 TL</s><span>68 TL avantaj</span></div>
+   <div class="setprice"><b>299 TL</b><span>ayrı ayrı 367 TL · 68 TL avantaj</span></div>
    <p style="margin:0">Merak Defteri, İlk Kelimeler İngilizce ve Şehrini Keşfet. Her biri tablet + telefon sürümüyle, toplam 6 PDF. Ayrı ayrı alındığında toplamı 367 TL.</p>
    <a class="btn" href="https://www.shopier.com/ugrakjournal/52785336" target="_blank" rel="noopener" style="justify-self:start">Üçlü seti al ▶</a>
   </div>
@@ -445,7 +445,7 @@ img{height:auto}
 <footer style="border-top:1px solid var(--rule)"><div class="wrap" style="padding-block:32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
  <span class="note">© 2026 Uğrak · Sinop · <a href="bilgilendirme.html">Ön bilgilendirme ve satış koşulları</a></span><a class="note" href="https://ugrakjournal.com/">ugrakjournal.com</a></div></footer>
 
-<div class="stick"><span class="sp"><b>Üçlü set · 299 TL</b><small>3 defter · 6 PDF · <s>367 TL</s></small></span><a class="btn" href="https://www.shopier.com/ugrakjournal/52785336" target="_blank" rel="noopener">Seti al</a></div>
+<div class="stick"><span class="sp"><b>Üçlü set · 299 TL</b><small>3 defter · 6 PDF · ayrı ayrı 367 TL</small></span><a class="btn" href="https://www.shopier.com/ugrakjournal/52785336" target="_blank" rel="noopener">Seti al</a></div>
 <script>
 (function(){var st=document.querySelector('.stick'),h=document.querySelector('.hero'),sb=document.getElementById('set');if(st&&h&&'IntersectionObserver' in window){var vis={h:true,s:false};var up=function(){st.classList.toggle('show',!vis.h&&!vis.s)};new IntersectionObserver(function(e){e.forEach(function(x){vis[x.target===h?'h':'s']=x.isIntersecting});up()}).observe(h);new IntersectionObserver(function(e){e.forEach(function(x){vis[x.target===h?'h':'s']=x.isIntersecting});up()}).observe(sb)}else if(st){st.classList.add('show')}})();
 (function(){var v=document.querySelector('.tablet video');if(!v)return;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){v.style.display='none';document.querySelector('.tablet .poster').style.display='block'});})();

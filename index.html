@@ -9,7 +9,7 @@
 <meta property="og:description" content="Ekranı kapat, şehre uğra. Şehir şehir defterler: Sinop ve Amasra satışta, Kapadokya ve Safranbolu yolda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ugrakjournal.com/">
-<meta property="og:image" content="https://ugrakjournal.com/urunler.jpg">
+<meta property="og:image" content="https://ugrakjournal.com/og-ugrak.jpg">
 <meta property="og:locale" content="tr_TR">
 <meta name="theme-color" content="#F5F0E8">
 <link rel="canonical" href="https://ugrakjournal.com/">
@@ -19,7 +19,7 @@
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&family=Karla:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@500;600&display=swap">
 <style>
 /* Layout: tek sütun, defter sayfası gibi; geniş kenar boşlukları, ince çizgiler, deri kırmızısı yalnızca vurguda */
 :root{
@@ -34,10 +34,10 @@
   --gold:#B8954A;       /* Altın yaldız */
   --leather:#5E2318;    /* deri kapak, kızıl kahve */
   --on-leather:#F5F0E8;
-  --f-display:"Libre Caslon Display","Libre Caslon Text",Georgia,serif;
-  --f-serif:"Libre Caslon Text",Georgia,serif;
-  --f-body:"Karla",system-ui,-apple-system,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --f-display:"Newsreader",Georgia,serif;
+  --f-serif:"Newsreader",Georgia,serif;
+  --f-body:"Newsreader",Georgia,serif;
+  --f-mono:"Hanken Grotesk",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -47,14 +47,14 @@
   --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;font-weight:400;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--sinopia);outline-offset:3px}
 h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.005em}
 p{margin:0}
 .en{font-family:var(--f-serif);font-style:italic;color:var(--muted);font-size:.9em}
-.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.label{font-family:var(--f-mono);font-weight:600;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
 /* üst şerit */
 .strip{background:var(--leather);color:var(--on-leather)}
@@ -90,7 +90,7 @@ footer .brand .wordmark{width:96px}
 
 /* hero */
 .hero .wrap{padding-block:clamp(56px,9vw,112px) clamp(48px,7vw,88px);display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,6vw,80px);align-items:end}
-.hero h1{font-size:clamp(46px,8vw,92px);line-height:.98}
+.hero h1{font-size:clamp(44px,6.6vw,84px);line-height:1;letter-spacing:-.01em}@media (min-width:761px){.hero h1{white-space:nowrap}}
 .hero h1 em{font-family:var(--f-serif);font-style:italic;color:var(--sinopia);font-size:.82em}
 .hero .en.big{display:block;margin-top:14px;font-size:clamp(18px,2.2vw,22px)}
 .hero aside{display:grid;gap:18px;min-width:0}
@@ -177,9 +177,9 @@ section > .wrap{padding-block:clamp(56px,8vw,96px)}
 .product h3{font-size:26px;line-height:1.15}
 .product .en{display:block;font-size:15px;margin-top:2px}
 .product p.desc{color:var(--ink);max-width:40ch}
-.specs{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--rule);display:grid;gap:4px;font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
+.specs{list-style:none;margin:0;padding:12px 0 0;border-top:1px solid var(--rule);display:grid;gap:7px;font-family:var(--f-serif);font-style:italic;font-size:17.5px;color:var(--muted)}
 .specs li{display:flex;justify-content:space-between;gap:12px}
-.specs li b{font-weight:400;color:var(--ink)}
+.specs li b{font-weight:400;font-style:normal;color:var(--ink);text-align:right}
 
 /* kurumsal */
 .corporate{background:var(--leather);color:var(--on-leather);border-top:0}
@@ -212,7 +212,7 @@ section > .wrap{padding-block:clamp(56px,8vw,96px)}
 .stock{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--rule)}
 .stock h3{font-size:22px}
 .stock p{color:var(--muted);font-size:15px}
-.pill{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--rule);padding:3px 9px;border-radius:999px;color:var(--muted);white-space:nowrap}
+.pill{font-family:var(--f-serif);font-style:italic;font-size:15px;color:var(--muted);white-space:nowrap}.pill.on{color:var(--sinopia)}.pill.on::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sinopia);margin-right:7px;vertical-align:1px}
 .pill.on{border-color:var(--sinopia);color:var(--sinopia)}
 
 /* haberdar ol */
@@ -281,9 +281,9 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
     </a>
     <nav aria-label="Bölümler">
       <a href="#sehirler">Şehirler</a>
-      <a href="#urunler">Ürünler</a>
+      <a href="#dijital-journal">Satışta</a>
       <a href="dijital/">Martı · Çocuk</a>
-      <a href="#kusaklar">Kuşaklar</a>
+      <a href="#kagit">Kâğıt seri</a>
       <a href="#kurumsal">Kurumsal hediye</a>
       <a href="#iletisim">İletişim</a>
     </nav>
@@ -294,14 +294,14 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
   <div class="hero">
     <div class="wrap">
       <div>
-        <p class="label" style="margin-bottom:22px">Şehir defterleri · Dijital ve kâğıt</p>
+        <p class="label" style="margin-bottom:22px">Şehir defterleri</p>
         <h1>Ekranı kapat,<br><em>şehre uğra.</em></h1>
         <span class="en big">Put the screen down. Stop by the city.</span>
       </div>
       <aside>
-        <p>Uğrak şehir defterleri yapar: bir şehri gezerken yazılan, oynanan ve yıllarca saklanan defterler. Her şehrin kendi defteri olur — kendi hikâyeleri, kendi gravürleri, kendi sofrası.</p>
-        <p>İki dilde iki sürüm: yetişkin için şehir defteri, çocuk için keşif defteri. Türkçe ve İngilizce, tek baskıda.</p>
-        <p class="en">City journals, written in while you walk the city. One for adults, one for children; Turkish and English in one edition.</p>
+        <p>Uğrak şehir defterleri yapar: bir şehri gezerken yazdığın, oynadığın ve sakladığın defterler. Her şehrin kendi defteri var; kendi hikâyeleri, kendi gravürleri, kendi sofrası.</p>
+        <p>Yetişkinler için şehir defterleri, çocuklar için Martı'nın keşif defterleri. Türkçe ve İngilizce.</p>
+        <p class="en">City journals you write in while you walk the city. For grown-ups and for children, in Turkish and English.</p>
         <p class="coords">Sinop · Amasra · Safranbolu · Kapadokya · İstanbul</p>
       </aside>
     </div>
@@ -310,11 +310,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
   <div class="showcase">
     <div class="wrap">
       <figure>
-        <div class="pair">
-          <img src="foto-acik-harita.webp" width="1000" height="1250" alt="Açık Sinop Journal: solda Sinop'un ilçeler haritası, sağda Sinop Kalesi sayfası; yanında pirinç dolma kalem ve deniz lavantası">
-          <div class="leather-panel"><img src="kapak-journal-4kusak.webp" width="600" height="790" alt="Kızıl kahve deri Sinop Journal, üzerinde alt alta dört Sinop kuşağı: Kale, Kotra, Hamsaroz, Diyojen; altta deriye kör baskı Uğrak logosu"></div>
-        </div>
-        <figcaption><span>Sinop Journal · İlçeler Haritası ve Sinop Kalesi sayfaları · Dört kuşak bir arada</span><span>Görseller temsilîdir · Illustrative images</span></figcaption>
+        <img src="dijital-defterler.webp" width="1200" height="750" alt="Sinop ve Amasra dijital defterlerinin telefondaki ana ekranı: kale gravürleri ve Bugün bir yere uğra başlığı" style="width:100%;height:auto;display:block">
+        <figcaption><span>Sinop ve Amasra Journal · telefondaki gerçek ekranlar</span><span>Satışta · Available now</span></figcaption>
       </figure>
     </div>
   </div>
@@ -344,7 +341,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
           <div style="display:grid;gap:16px;min-width:0">
             <div class="meta" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span class="label">Uğrak Şehir · Dijital</span><span class="label">Şimdi satışta</span></div>
             <div><h3>Sinop Journal · Dijital</h3><span class="en">The city journal on your phone</span></div>
-            <p class="desc">Serinin ilk defteri, telefonunda: hikâyeler, gravürler, yer sayfaları ve yol tarifi, sesli anlatımlar, günlük sudoku, kelime avı, gravür boyama, sticker ve kişiselleştirme. Bir kez açtıktan sonra internetsiz çalışır.</p>
+            <p class="desc">Serinin ilk defteri, telefonunda: hikâyeler, gravürler, yer sayfaları ve yol tarifi, sesli anlatımlar, günlük sudoku, kelime avı, gravür boyama, sticker ve kişiselleştirme. İlk açılışta içerik internetle telefonuna yüklenir; sonra internetsiz çalışır.</p>
             <ul class="specs">
               <li>Fiyat <b>790 TL · KDV dahil · tek seferlik</b></li>
               <li>Teslim <b>Ödemeden hemen sonra, ekranda ve e-postada</b></li>
@@ -409,134 +406,27 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
     </div>
   </section>
 
-  <section id="urunler">
+  <section id="kagit">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">Kâğıt seri · İlk baskı hazırlanıyor</p>
+        <p class="label">Kâğıt seri · Hazırlanıyor</p>
         <div>
-          <h2>Yetişkine bir defter, çocuğa bir defter</h2>
-          <span class="en">One journal for grown-ups, one for children.</span>
-          <p style="max-width:56ch;margin-top:14px">Uğrak'ın iki tasarım dili var. Yetişkin defteri sakin, gravürlü, uzun ömürlü; çocuk defteri oyunlu, büyük puntolu, sokağa çağıran. İkisi aynı şehirde, aynı sofrada buluşur. Aşağıdaki üç ürün serinin Sinop baskısıdır.</p>
+          <h2>Basılı Sinop Journal</h2>
+          <span class="en">The printed edition, in preparation.</span>
+          <p style="max-width:56ch;margin-top:14px">Sinop Journal'ın deri kapaklı, iplik dikişli basılı hâli ve onunla birlikte takılan Sinop kuşakları ilk baskıya hazırlanıyor. Tarih vermiyoruz; defter elimize geldiğinde burada ve Instagram'da duyuracağız.</p>
+          <p style="max-width:56ch">Dijital defteri bugün alanlar, basılı defter çıktığında bundan haberdar olacak ilk kişiler arasında olur.</p>
+          <p class="en" style="max-width:56ch">The leather-bound Sinop Journal and its collectible bands are being prepared for their first print run.</p>
         </div>
       </div>
-
-      <div class="products">
-        <article class="product">
-          <div class="shot b6"><img src="kapak-journal.webp" width="600" height="790" alt="Sinop Journal: kızıl kahve deri kapak, 01 Kale kuşağı ve altta deriye kör baskı Uğrak logosu"></div>
-          <div class="meta"><span class="label">Uğrak Şehir</span><span class="label">B6</span></div>
-          <div>
-            <h3>Sinop Journal</h3>
-            <span class="en">City journal</span>
-          </div>
-          <div style="display:grid;gap:14px">
-            <p class="desc">Yıllarca saklanacak bir şehir defteri. Planla, Yaşa, Oyna, Sakla bölümleri; 9 ilçe haritası, ulaşım sayfası, Hamsaroz'dan lakerdaya Sinop sofrası, koparılabilir kartpostallar. Her defter, seçtiğiniz bir Sinop kuşağıyla gelir.</p>
-            <ul class="specs">
-              <li>Sayfa <b>96</b></li>
-              <li>Kapak <b>Deri, kör baskı logo</b></li>
-              <li>Kuşak <b>1 adet · 4 modelden seçin</b></li>
-              <li>Cilt <b>İplik dikiş</b></li>
-              <li>Ek <b>Lastik · kurdele · arka cep</b></li>
-              <li>Dil <b>TR + EN</b></li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="shot"><img src="kapak-cocuk.webp" width="424" height="601" alt="Martı'yla Sinop'u Keşfet kapağı: kırmızı fularlı martı, arkada Sinop limanı ve kalesi"></div>
-          <div class="meta"><span class="label">Uğrak Çocuk</span><span class="label">A5</span></div>
-          <div>
-            <h3>Martı'yla Sinop'u Keşfet</h3>
-            <span class="en">Explore Sinop with Martı</span>
-          </div>
-          <div style="display:grid;gap:14px">
-            <p class="desc">5–10 yaş için boyama ve aktivite kitabı. Martı rehberliğinde kale, liman ve balıkçılar. Ebeveynle birlikte yapılan sayfalarla, ekran yerine sokağa çağıran bir kitap.</p>
-            <ul class="specs">
-              <li>Yaş <b>5–10</b></li>
-              <li>Kâğıt <b>Kalın, boya geçirmez</b></li>
-              <li>Yazı <b>Büyük punto</b></li>
-              <li>Dil <b>TR + EN</b></li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="product">
-          <div class="shot"><img src="kapak-ajanda.webp" width="600" height="841" alt="Zamansız Ajanda: düz koyu deri kapak, deri tonunda lastik ve Uğrak Gündelik kuşağı"></div>
-          <div class="meta"><span class="label">Uğrak Gündelik</span><span class="label">A5</span></div>
-          <div>
-            <h3>Zamansız Ajanda</h3>
-            <span class="en">Undated planner</span>
-          </div>
-          <div style="display:grid;gap:14px">
-            <p class="desc">İstediğiniz gün başlayın. Ay adlarını siz yazarsınız; her ay Sinop'tan bir gravürle açılır. Haftayı takvime değil, kendi ritminize göre kurmak için.</p>
-            <ul class="specs">
-              <li>Hafta <b>52, tarihsiz</b></li>
-              <li>Açılış <b>Her ay bir gravür</b></li>
-              <li>Kapak <b>Düz deri</b></li>
-              <li>Dil <b>TR + EN</b></li>
-            </ul>
-          </div>
-        </article>
-      </div>
-
+      <figure style="margin:36px 0 0;max-width:520px">
+        <div class="leather-panel"><img src="kapak-journal-4kusak.webp" width="600" height="790" loading="lazy" alt="Kızıl kahve deri Sinop Journal ve üzerinde dört Sinop kuşağı" style="width:100%;height:auto"></div>
+        <figcaption class="note" style="margin-top:10px">Tasarım önizlemesi · Design preview</figcaption>
+      </figure>
     </div>
   </section>
   <style>@media (max-width:760px){#dijital-journal,#amasra-journal,#marti-defterleri{grid-template-columns:1fr!important;gap:24px!important}}</style>
 
-  <section id="kusaklar">
-    <div class="wrap bands">
-      <p class="label">Sinop Kuşakları</p>
-      <div class="body">
-        <div class="intro">
-          <h2 style="font-size:clamp(30px,4.4vw,44px);line-height:1.08">Atılmayan kuşak</h2>
-          <span class="en">The band you keep.</span>
-          <p class="lead">Sinop Journal'ın kuşağı ambalaj değil, defterin imzası. Krem pamuklu kâğıt, gravür baskı, altın yaldız çerçeve; renkleri defterin derisiyle bir.</p>
-          <p>Dört kuşak, Sinop'un dört hikâyesini taşır. Her defter seçtiğiniz bir kuşakla gelir; kalanları ayrıca alıp koleksiyonu tamamlarsınız.</p>
-          <p class="en">Four bands, four Sinop stories. Each journal comes with the band of your choice; collect the rest separately.</p>
-        </div>
-
-        <div class="band-grid">
-          <figure class="band-card"><img src="kusak-kale.webp" width="780" height="216" loading="lazy" alt="01 Kale kuşağı: Sinop Kalesi surlarının gravürü"><figcaption><b>01 · Kale</b><span>The Fortress</span></figcaption></figure>
-          <figure class="band-card"><img src="kusak-kotra.webp" width="780" height="216" loading="lazy" alt="02 Kotra kuşağı: tek direkli ahşap Sinop kotrası ve liman evleri"><figcaption><b>02 · Kotra</b><span>The Kotra</span></figcaption></figure>
-          <figure class="band-card"><img src="kusak-hamsaroz.webp" width="780" height="216" loading="lazy" alt="03 Hamsaroz kuşağı: ağaçlı, durgun Hamsaroz koyu"><figcaption><b>03 · Hamsaroz</b><span>Hamsaroz Bay</span></figcaption></figure>
-          <figure class="band-card"><img src="kusak-diyojen.webp" width="780" height="216" loading="lazy" alt="04 Diyojen kuşağı: antik kandil, toprak küp ve sütun"><figcaption><b>04 · Diyojen</b><span>Diogenes</span></figcaption></figure>
-        </div>
-
-        <ol class="howto">
-          <li><span class="n">1</span><h3>Seçin</h3><p>Defterinizle gelecek kuşağı siz seçersiniz.</p></li>
-          <li><span class="n">2</span><h3>Biriktirin</h3><p>Kalan kuşaklar tek tek ya da üçlü paket olarak satılır.</p></li>
-          <li><span class="n">3</span><h3>Birleştirin</h3><p>Dört kuşak alt alta gelince arka yüzlerde gizli resim tamamlanır.</p></li>
-        </ol>
-
-        <div class="puzzle">
-          <img src="kusak-yapboz.webp" width="900" height="1039" loading="lazy" alt="Dört kuşağın arka yüzü alt alta: birleşince pusula gülü, Boztepe, kale ve şehir, liman ve kotradan oluşan eski gravür bir Sinop haritası çıkıyor; son kuşakta Uğrak mührü">
-          <div class="txt">
-            <p class="label">Gizli resim</p>
-            <h3 style="font-size:clamp(24px,3vw,32px);line-height:1.15">Dördü birleşince Sinop haritası çıkar</h3>
-            <p>Her kuşağın arkasında haritanın bir şeridi var: pusula ve martılar, Boztepe, kale ve şehir, liman ve kotra. Dördünü defterin üzerinde alt alta takın ya da masaya dizin; harita tamamlanır, son kuşaktaki mühür "Koleksiyon tamam" der.</p>
-            <p class="en">Each band carries one strip of an engraved map. Stack all four and Sinop appears.</p>
-          </div>
-        </div>
-
-        <ul class="extras">
-          <li><b>Numaralı ilk baskı</b><span>İlk baskı 500 adet; her kuşağın arkasında elle yazılan Nº.</span></li>
-          <li><b>İç yüzde hikâye</b><span>Kuşağın içinde, gravürün kısa hikâyesi Türkçe ve İngilizce.</span></li>
-          <li><b>Katlayın, ayraç olsun</b><span>Defterden çıkarıp ikiye katladığınızda sayfanızı tutar.</span></li>
-          <li><b>Kurumunuza özel</b><span>Kurumlar için aynı sistemle beşinci, kişisel bir kuşak.</span></li>
-        </ul>
-
-        <div class="card-row">
-          <img src="kusak-kart.webp" width="700" height="971" loading="lazy" alt="Koleksiyon kartı: soluk Sinop haritası üzerinde dört numaralı şerit ve dört kuşak için işaret kutuları">
-          <div class="collect">
-            <p class="label">Koleksiyonu tamamla</p>
-            <h3 style="font-size:clamp(24px,3vw,30px);line-height:1.15">Her defterde bir koleksiyon kartı</h3>
-            <p>Kartta haritanın silüeti ve dört kuşak için birer kutu var. Hangisinin eksik olduğunu bilirsiniz; arkasındaki kod sizi bu sayfaya getirir.</p>
-            <p class="en">A collector's card in every journal: tick off your bands, scan to find the rest.</p>
-          </div>
-        </div>
-        <p class="note">Görseller temsilîdir; gravürler baskıdan önce sanatçısıyla son haline getirilecek. · Illustrative images.</p>
-      </div>
-    </div>
-  </section>
+  
 
   <section id="kurumsal" class="corporate">
     <div class="wrap">
@@ -563,31 +453,15 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <div><h2>Az ama özenli</h2><span class="en">Few things, made with care.</span></div>
       </div>
       <div class="principles">
-        <div><h3>Kâğıt</h3><p>Asitsiz kâğıt, iplik dikiş cilt, net siyah-beyaz baskı. Yıllar sonra açtığınızda aynı kalsın diye.</p></div>
+        <div><h3>Ekran sözü</h3><p>Bildirim yok, akış yok, rozet yok. Dijital defter planını yaptırır, sonra telefonu cebine koymanı ister.</p></div>
         <div><h3>Çizim</h3><p>Gerçek yerler, gerçek sofra. Gravürler Uğrak'ın kendi stilinde, o şehir için çizilir; hazır çizim satın almıyoruz.</p></div>
-        <div><h3>İki dil</h3><p>Her ürün tek baskıda Türkçe ve İngilizce. Şehre gelen herkes için.</p></div>
+        <div><h3>İki dil</h3><p>Her defter Türkçe ve İngilizce. Şehre gelen herkes için.</p></div>
         <div><h3>Reklamsız</h3><p>Defterlerde işletme adı, fiyat ya da çalışma saati yazmıyoruz. İleride bir mekânın adı geçecekse, üzerinde "sponsorlu" yazar.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="satis-noktalari">
-    <div class="wrap stockists">
-      <div>
-        <p class="label">Satış noktaları</p>
-      </div>
-      <div style="display:grid;gap:24px">
-        <div>
-          <h2 style="font-size:clamp(30px,4.4vw,44px);line-height:1.08">Uğrak'ı nerede bulursunuz</h2>
-          <span class="en" style="display:block;margin-top:6px">Where to find Uğrak.</span>
-        </div>
-        <div class="stock-list">
-          <div class="stock"><div><h3>Teyzenin Yeri</h3><p>Sinop · İlk satış noktamız</p></div><span class="pill on">Yakında</span></div>
-          <div class="stock"><div><h3>Sizin dükkânınız?</h3><p>Defterini yaptığımız şehirlerde kitapçı, kafe, otel ya da hediyelik eşya dükkânıysanız bize yazın.</p></div><span class="pill">Başvuru açık</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <section id="haberdar-ol">
     <div class="wrap">
@@ -613,8 +487,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
       </div>
       <div style="display:grid;gap:24px">
         <div>
-          <h2 style="font-size:clamp(30px,4.4vw,44px);line-height:1.08">Ön sipariş, satış noktası ve kurumsal talepler</h2>
-          <span class="en" style="display:block;margin-top:6px">Pre-orders, stockists and corporate requests.</span>
+          <h2 style="font-size:clamp(30px,4.4vw,44px);line-height:1.08">Bize yazın</h2>
+          <span class="en" style="display:block;margin-top:6px">Questions, corporate requests, a city to suggest.</span>
         </div>
         <div class="cards">
           <div class="card"><span class="label">Telefon / WhatsApp</span><span class="value" id="v-tel">0546 846 62 88</span><button class="copy" data-target="v-tel" id="c-tel">Kopyala</button></div>
@@ -629,7 +503,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 <footer>
   <div class="wrap">
     <a class="brand" href="#" aria-label="Uğrak, başa dön"><img class="wordmark on-light" src="logo-kiremit.png" alt="Uğrak" width="1524" height="684"><img class="wordmark on-dark" src="logo-krem.png" alt="Uğrak" width="1524" height="684"></a>
-    <p>Bir şehrin denizini, taşını ve sofrasını kâğıda taşırız.</p>
+    <p>Bir şehrin denizini, taşını ve sofrasını deftere taşırız.</p>
     <span class="label">© 2026 Uğrak · Sinop'ta tasarlanır</span>
   </div>
 </footer>

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="theme-color" content="#F3E6CF"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Uğrak Çocuk · Martı'nın Defterleri</title>
 <meta name="description" content="7–8 yaş için Martı'lı dijital etkinlik defterleri: dokun, bul, çiz, haritaya mühür bas. Tablet ve telefon için PDF. Üçlü set 299 TL.">
 <link rel="canonical" href="https://ugrakjournal.com/dijital/">
@@ -28,15 +29,10 @@
   --f-body:"Newsreader",Georgia,serif;
   --f-mono:"Hanken Grotesk",system-ui,sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
-}
-:root[data-theme="dark"]{
-  --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
 
+:root{color-scheme:light}
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+body{background:#F3E6CF url(../keten-zemin.webp) 0 0/325px;color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--sinopia);outline-offset:3px}
@@ -64,9 +60,6 @@ nav a:hover{color:var(--sinopia)}
 /* logo: gerçek Uğrak yazı logosu (görsel) */
 .wordmark{display:block;height:auto}
 .wordmark.on-dark{display:none}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .wordmark.on-light{display:none}:root:not([data-theme="light"]) .wordmark.on-dark{display:block}}
-:root[data-theme="dark"] .wordmark.on-light{display:none}
-:root[data-theme="dark"] .wordmark.on-dark{display:block}
 .brand .wordmark{width:112px}
 footer .brand .wordmark{width:96px}
 .cover .seal img{width:46%;max-width:110px;height:auto;display:block;opacity:.9}

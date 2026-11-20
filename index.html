@@ -39,13 +39,8 @@
   --f-body:"Newsreader",Georgia,serif;
   --f-mono:"Hanken Grotesk",system-ui,sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
-}
-:root[data-theme="dark"]{
-  --paper:#1C1511;--paper-2:#251C17;--ink:#F0E8DC;--muted:#B3A391;--rule:#3A2C23;--sinopia:#E8784A;--sinop:#E0602A;--bordo:#C0614F;--gold:#D4AE6A;--leather:#4A1A12;--on-leather:#F5F0E8;color-scheme:dark}
 
+:root{color-scheme:light}
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;font-weight:400;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
@@ -75,9 +70,6 @@ nav a:hover{color:var(--sinopia)}
 /* logo: gerçek Uğrak yazı logosu (görsel) */
 .wordmark{display:block;height:auto}
 .wordmark.on-dark{display:none}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .wordmark.on-light{display:none}:root:not([data-theme="light"]) .wordmark.on-dark{display:block}}
-:root[data-theme="dark"] .wordmark.on-light{display:none}
-:root[data-theme="dark"] .wordmark.on-dark{display:block}
 .brand .wordmark{width:112px}
 footer .brand .wordmark{width:96px}
 .cover .seal img{width:46%;max-width:110px;height:auto;display:block;opacity:.9}
@@ -303,8 +295,6 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 .corporate .steps li{border-bottom-color:rgba(243,230,207,.2)}
 .leather-panel{background:#4E1C13 url(deri-zemin.webp) center/cover}
 .notify{background:var(--paper-2) url(keten-zemin.webp) center/325px;border:1px dashed color-mix(in srgb,var(--sinopia) 40%,transparent)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .notify{background-image:none}}
-:root[data-theme="dark"] .notify{background-image:none}
 
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr;padding-top:56px}

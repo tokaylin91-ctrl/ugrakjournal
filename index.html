@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://ugrakjournal.com/">
 <meta property="og:image" content="https://ugrakjournal.com/og-ugrak.jpg">
 <meta property="og:locale" content="tr_TR">
-<meta name="theme-color" content="#F5F0E8">
+<meta name="theme-color" content="#4E1C13">
 <link rel="canonical" href="https://ugrakjournal.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
@@ -255,6 +255,66 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
   .cover{transition:transform .4s ease}
   .product:hover .cover{transform:translateY(-4px) rotate(-.6deg)}
 }
+
+/* ===== Deri yön (A): açılış deri, kurdele, gerçek telefonlar ===== */
+.deri-ust{position:relative;color:#F3E6CF;background:#4E1C13 url(deri-zemin.webp) center/cover;overflow:hidden}
+.deri-ust::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 35% 30%,transparent 45%,rgba(20,6,3,.45));}
+.deri-ust > *{position:relative;z-index:1}
+.deri-ust header.top{border-bottom:1px solid rgba(243,230,207,.16)}
+.deri-ust nav a{color:rgba(243,230,207,.78)}
+.deri-ust nav a:hover{color:#fff}
+.deri-ust .brand .wordmark{width:104px}
+.kurdele{position:absolute;z-index:2;top:-2px;left:clamp(18px,7vw,120px);width:34px;height:clamp(96px,14vw,150px);background:linear-gradient(90deg,#B53A09,#D9521A 45%,#B53A09);clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);box-shadow:0 6px 10px rgba(0,0,0,.3)}
+.hero .wrap{padding-block:clamp(64px,8vw,104px) 0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end}
+.hero-txt{display:grid;gap:18px;padding-bottom:clamp(48px,6vw,84px);min-width:0}
+.hero .label{color:#E9A37B}
+.hero h1{font-size:clamp(44px,6.4vw,82px);line-height:1;letter-spacing:-.01em;color:#F3E6CF}
+.hero h1 em{color:#E9A37B}
+.hero .en.big{color:rgba(243,230,207,.72);margin-top:0}
+.hero-p{max-width:40ch;color:rgba(243,230,207,.9)}
+.hero-act{display:flex;flex-wrap:wrap;gap:12px}
+.btn.ghost{background:transparent;border:1px solid rgba(243,230,207,.5);color:#F3E6CF}
+.btn.ghost:hover{border-color:#F3E6CF;filter:none}
+.hero .coords{color:rgba(243,230,207,.6);border-top-color:rgba(243,230,207,.18)}
+.phones{display:flex;justify-content:center;gap:clamp(12px,2.2vw,26px);align-self:end;min-width:0}
+.phones img{width:min(48%,264px);height:auto;aspect-ratio:585/1000;object-fit:cover;object-position:top;border:9px solid #19100D;border-bottom:0;border-radius:34px 34px 0 0;box-shadow:0 -6px 40px rgba(0,0,0,.35)}
+.phones img:last-child{margin-top:42px}
+
+.mob-sat{display:none}
+@media (max-width:860px){.mob-sat{display:inline-block;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#F3E6CF;text-decoration:none;border:1px solid rgba(243,230,207,.45);padding:8px 12px;border-radius:2px}.deri-ust .brand .wordmark{width:92px}}
+/* Satışta: üç ürün kartı, dikiş kenarlı */
+.satista{border-top:0}
+.satista > .wrap{padding-block:clamp(48px,6vw,80px)}
+.sat-head{display:flex;justify-content:space-between;align-items:end;gap:16px 32px;flex-wrap:wrap;margin-bottom:28px}
+.sat-head h2{font-size:clamp(28px,3.8vw,40px);line-height:1.1;margin-top:8px}
+.sat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.sat{display:grid;gap:12px;text-decoration:none;color:inherit;padding:6px 6px 16px;border:1px dashed color-mix(in srgb,var(--sinopia) 45%,transparent);border-radius:4px;background:var(--paper)}
+.sat img{display:block;width:100%;height:auto;aspect-ratio:1/1;border-radius:2px}
+.sat-t{display:grid;gap:2px;padding-inline:4px}
+.sat-t b{font-weight:500;font-size:21px;line-height:1.2}
+.sat-t .en{font-size:15px}
+.sat-f{padding-inline:4px;font-size:18px;color:var(--sinopia)}
+.sat-f i{color:var(--muted);font-size:15px}
+@media (prefers-reduced-motion:no-preference){.sat{transition:transform .3s ease,box-shadow .3s ease}.sat:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(71,25,15,.14)}}
+
+/* malzeme sürekliliği */
+.corporate{background:#4E1C13 url(deri-zemin.webp) center/cover;color:#F3E6CF}
+.corporate .label,.corporate .en{color:rgba(243,230,207,.7)}
+.corporate .steps li{border-bottom-color:rgba(243,230,207,.2)}
+.leather-panel{background:#4E1C13 url(deri-zemin.webp) center/cover}
+.notify{background:var(--paper-2) url(keten-zemin.webp) center/325px;border:1px dashed color-mix(in srgb,var(--sinopia) 40%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .notify{background-image:none}}
+:root[data-theme="dark"] .notify{background-image:none}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:56px}
+  .hero-txt{padding-bottom:0;gap:14px}
+  .hero .wrap{gap:22px}
+  .phones img{width:min(44%,200px)}
+  .phones img:last-child{margin-top:28px}
+  .sat-grid{grid-template-columns:1fr;max-width:460px}
+  .kurdele{width:26px;left:auto;right:22px}
+}
 </style>
 </head>
 <body>
@@ -264,57 +324,72 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
   <symbol id="gull" viewBox="0 0 64 24"><path d="M1 18 Q15 2 32 14 Q49 2 63 18 Q48 9 32 20 Q16 9 1 18Z" fill="currentColor"/></symbol>
 </svg>
 
-<div class="strip">
-  <div class="wrap">
-    <a href="#sehirler">Şehirler</a>
-    <a href="#dijital-journal">Sinop · Amasra · Satışta</a>
-    <a href="#marti-defterleri">Çocuk · Martı</a>
-    <a href="#kurumsal">Kurumsal hediye</a>
-    <a href="#haberdar-ol">Haberdar ol</a>
-  </div>
-</div>
-
+<main>
+<div class="deri-ust">
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#" aria-label="Uğrak">
-      <img class="wordmark on-light" src="logo-kiremit.png" alt="Uğrak" width="1524" height="684"><img class="wordmark on-dark" src="logo-krem.png" alt="Uğrak" width="1524" height="684">
+      <img class="wordmark" src="logo-krem.png" alt="Uğrak" width="1524" height="684">
     </a>
     <nav aria-label="Bölümler">
+      <a href="#satista">Satışta</a>
       <a href="#sehirler">Şehirler</a>
-      <a href="#dijital-journal">Satışta</a>
       <a href="dijital/">Martı · Çocuk</a>
       <a href="#kagit">Kâğıt seri</a>
-      <a href="#kurumsal">Kurumsal hediye</a>
+      <a href="#kurumsal">Kurumsal</a>
       <a href="#iletisim">İletişim</a>
     </nav>
+    <a class="mob-sat" href="#satista">Satışta</a>
   </div>
 </header>
 
-<main>
   <div class="hero">
+    <span class="kurdele" aria-hidden="true"></span>
     <div class="wrap">
-      <div>
-        <p class="label" style="margin-bottom:22px">Şehir defterleri</p>
+      <div class="hero-txt">
+        <p class="label">Şehir defterleri · TR + EN</p>
         <h1>Ekranı kapat,<br><em>şehre uğra.</em></h1>
         <span class="en big">Put the screen down. Stop by the city.</span>
-      </div>
-      <aside>
-        <p>Uğrak şehir defterleri yapar: bir şehri gezerken yazdığın, oynadığın ve sakladığın defterler. Her şehrin kendi defteri var; kendi hikâyeleri, kendi gravürleri, kendi sofrası.</p>
-        <p>Yetişkinler için şehir defterleri, çocuklar için Martı'nın keşif defterleri. Türkçe ve İngilizce.</p>
-        <p class="en">City journals you write in while you walk the city. For grown-ups and for children, in Turkish and English.</p>
+        <p class="hero-p">Her şehrin kendi defteri: planını yap, anlatımı dinle, telefonu cebine koy ve şehri gez. Yetişkinler için şehir defterleri, çocuklar için Martı'nın defterleri.</p>
+        <div class="hero-act">
+          <a class="btn" href="#satista">Satıştaki defterler</a>
+          <a class="btn ghost" href="dijital/">Martı · Çocuk</a>
+        </div>
         <p class="coords">Sinop · Amasra · Safranbolu · Kapadokya · İstanbul</p>
-      </aside>
+      </div>
+      <div class="phones" aria-label="Sinop ve Amasra Journal dijital defterlerinin telefondaki gerçek ekranları">
+        <img src="ekran-sinop.webp" width="585" height="1266" alt="Sinop Journal Dijital ana ekranı: Sinop Kalesi gravürü">
+        <img src="ekran-amasra.webp" width="585" height="1266" alt="Amasra Journal Dijital ana ekranı: Amasra Kalesi gravürü">
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="showcase">
+  <section id="satista" class="satista">
     <div class="wrap">
-      <figure>
-        <img src="dijital-defterler.webp" width="1200" height="750" alt="Sinop ve Amasra dijital defterlerinin telefondaki ana ekranı: kale gravürleri ve Bugün bir yere uğra başlığı" style="width:100%;height:auto;display:block">
-        <figcaption><span>Sinop ve Amasra Journal · telefondaki gerçek ekranlar</span><span>Satışta · Available now</span></figcaption>
-      </figure>
+      <div class="sat-head">
+        <div><p class="label">Satışta · <span lang="en">Available now</span></p><h2>Bugün alabileceğin defterler</h2></div>
+        <p class="en">Delivered right after payment, on screen and by e-mail.</p>
+      </div>
+      <div class="sat-grid">
+        <a class="sat" href="#dijital-journal">
+          <img src="sinop-journal-dijital.webp?v=2" width="800" height="800" alt="Sinop Journal Dijital: deri zemin üzerinde telefonda açık uygulama">
+          <span class="sat-t"><b>Sinop Journal · Dijital</b><span class="en">The city journal on your phone</span></span>
+          <span class="sat-f">790 TL <i>· tek seferlik</i></span>
+        </a>
+        <a class="sat" href="#amasra-journal">
+          <img src="amasra-journal-dijital.webp" width="800" height="800" alt="Amasra Journal Dijital: deri zemin üzerinde telefonda açık uygulama">
+          <span class="sat-t"><b>Amasra Journal · Dijital</b><span class="en">Amasra, on your phone</span></span>
+          <span class="sat-f">790 TL <i>· tek seferlik</i></span>
+        </a>
+        <a class="sat" href="#marti-defterleri">
+          <img src="marti-defterleri.webp" width="800" height="800" alt="Martı'nın Defterleri: krem keten zeminde üç defter kapağı">
+          <span class="sat-t"><b>Martı'nın Defterleri</b><span class="en">For curious kids, 7–8</span></span>
+          <span class="sat-f">99–149 TL <i>· set 299 TL</i></span>
+        </a>
+      </div>
     </div>
-  </div>
+  </section>
 
   <section id="sehirler">
     <div class="wrap stockists">

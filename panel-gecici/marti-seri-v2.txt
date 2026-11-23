@@ -1,0 +1,30 @@
+PANEL 2. TUR — Martı serisi planı v2. Tüm önerileriniz işlendi; kapsam da sizin kapı önerinize göre daraltıldı. Lütfen beş alanı yeniden puanlayın; son satır: Üretim kararı (Merak Defteri 5–6 ve 9–10 için) Evet/Hayır.
+
+KAPSAM (v2): Üretime yalnız Merak Defteri 5–6 ve 9–10 giriyor. Aile paketi, ancak üç yaşın PDF'leri bitip kontrol edilince. 3–4, 11–13 ve Sinop uygulaması yol haritasında; her biri kendi panel kapısından geçecek (11–13 ve uygulama için ayrı çocuk gizliliği + ebeveyn onayı paneli). Aile paketi kalıcı seri paketi olarak konumlanır, kampanya gibi değil.
+
+5–6 DÜZELTMELERİ
+s.2: Büyüklere not: "Çocuk adını yazabilir, çizebilir ya da söyleyebilir; isterse bir büyük yazar."
+s.11: "Her kuş için bir kutu boya." (4 kuş, 6 kutu; fazla kutular boş kalır.)
+s.15: "Hangisi çalınır? İşaretle." Seçenekler: zil, tekne düdüğü, davul, taş, yaprak (çalınanlar: zil, düdük, davul).
+s.23: Birlikte Keşif Notları 5–6 sürümü yalnız somut gözlem: "Hangi sayfada en uzun kaldı?", "Hangi resmi size gösterdi?", "Neyi bulunca sevindi?", "Nerede yardım istedi?", "Bir daha hangisini yapmak istedi?" — büyük doldurur.
+Dış görev yok; s.21 "Bugün gördüğün bir şeyi çiz" evde hatırlayarak yapılır.
+
+9–10 DÜZELTMELERİ
+s.3: "Martı yağmur yağacak diyor. Resimde hangi ipuçları var? Sence haklı olabilir mi? Neden?" — kesin sonuç istenmez; Büyükler için: "Tek resimden hava kesin bilinemez; ipuçlarını tartışın."
+s.4–6 Gizli şehir: her sayfa kendi içinde çözülebilir; her aşamada bağımsız ipucu kutusu ("Takıldın mı? Martı'nın ipucu") ve s.31'de aşama aşama cevap. Bir aşama çözülmese de sonraki sayfa açık.
+s.8: "İki kişinin adımı farklı olabilir. Bu bir hata değil; ölçüm aracının farklı olduğunu gösterir. Herkesin aynı sonucu bulması için ne kullanabiliriz?"
+s.10: "Hangi iz daha çok benziyor? Tek bir iz kesin kanıt olmayabilir; başka hangi ipucu işine yarardı?"
+s.11: "Bir büyükle birlikte, güvenli bir yerden 10 dakika çevreyi gözlemle." Pencere kenarı/eğilme çağrışımı yok; çizimde içeriden, kapalı pencere arkasından bakan çocuk.
+s.15: Mantık bulmacası kodla tek çözüm kontrolünden geçer (birden çok çözüm çıkarsa ipucu değişir).
+s.16: Açıklama: "Martılar çoğu zaman yüzleri rüzgâra dönük durur; böylece tüyleri düz kalır, soğuk hava tüylerinin arasına daha az girer ve gerekirse rüzgâra karşı daha kolay havalanırlar." (Kaynak: Sussex Wildlife Trust; Natural Navigator.) Diğer iki soru da yalnız doğrulanmış açıklamayla girer.
+s.20: "Gördüğün 3 ilginç şeyi çiz ve etiketle." Toplama teşviki yok; not: "Taş, bitki, yuva ve canlıları yerinde bırakalım."
+s.24: Başlık "Martı'nın örnek pazar tablosu (uydurma veriler)".
+s.25: "Tanıdığın ve güvendiğin bir büyüğe, ailenin bilgisiyle 4 soru sor."
+s.26: Bir örnek mini bulmaca + "Arkadaşın çözünce cevabı sen kontrol et" kutusu.
+s.27: "Bir yer seç: ne gördün, ne duydun, uzaktan hangi kokuyu fark ettin?" Tatma ve bilinmeyen nesneye dokunma yok.
+
+GÜVENLİK KURALI: Dışarıyla ilgili her görevin kendi yönergesinde "Bir büyükle birlikte · Uygun yer yoksa bu görevi atla" satırı görünür (yalnız genel sayfada değil).
+
+SİPARİŞ NUMARASI: Kurucunun kuralı gereği hiçbir dijital ürün paylaşılabilir olmamalı; bu yüzden sipariş numarası sayfa altında küçük, görünür kalır (mevcut 7–8 ürünlerinde olduğu gibi) ve caydırıcı işlevi var. Kişisel veri (ad, e-posta) basılmaz. Üretimde kontrol.py her sayfada numarayı ve iç bağlantıları otomatik doğrular.
+
+3–4 İÇİN NOT (yol haritası): parmak boyası "basılı çıktı etkinliği" olarak işaretlenir; tablet sürümünde parmakla renklendirme alanı; malzeme notu: "Çocuklar için uygun, toksik olmayan boya; yanında bir büyük."

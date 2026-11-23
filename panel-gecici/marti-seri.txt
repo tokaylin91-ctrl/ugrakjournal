@@ -1,0 +1,76 @@
+PANEL GÖREVİ — Martı serisi büyütme planı v1 (Uğrak Çocuk). Panel: pedagog, çocuk kitabı editörü, oyun tasarımcısı, çocuk güvenliği uzmanı, dijital ürün mimarı, fiyatlama. Lütfen 10 üzerinden puanlayın: (1) yaş uygunluğu ve gelişim düzeyi, (2) merak/oyun değeri, (3) güvenlik ve etik, (4) ürün ailesi ve fiyat mantığı, (5) üretilebilirlik. 9,5 altı her madde için sayfa numarasıyla somut düzeltme yazın. Son satır: Üretim kararı Evet/Hayır.
+
+Kurucu (23 Kas): "Çocuk kitaplarımız ucuz mu? İçerik olarak daha da geliştirebilir miyiz? Yaş grupları çeşitli olabilir mi?" → "Tamam, içerikler hazırlansın."
+Mevcut satıştaki ürünler (hepsi 7–8 yaş, PDF, tablet + A4): Martı'nın Merak Defteri 20 s. 149 TL · Martı'yla İlk Kelimeler – İngilizce 18 s. 119 TL · Martı'yla Şehrini Keşfet 13 s. 99 TL · üçlü set 299 TL. Daha önceki panel kararı: 5–6 / 7–8 / 9–10 ayrı deneyim; yetişkin şehir defterleri 790 TL'lik uygulama.
+
+1. KARAR ÖZETİ
+- Mevcut 7–8 ürünlerinin fiyatı içerik büyümeden artırılmaz.
+- Seri yaşa göre büyür; her yaş ayrı ürün, aynı karakter ve görsel aile.
+- Fiyat kapsamla yükselir: kalın defter ve uygulama yeni ürün olarak çıkar. Eski fiyat üstü çizilmez.
+
+2. ÜRÜN HARİTASI (ürün · yaş · biçim · sayfa · önerilen fiyat · sıra)
+- Merak Defteri 5–6 · PDF · 24 s. · 149 TL · 1
+- Merak Defteri 9–10 · PDF · 32 s. · 179 TL · 1
+- Merak Defteri aile paketi (5–6 + 7–8 + 9–10) · 3 PDF · 76 s. · 349 TL · 2
+- Martı'yla İlk Renkler ve Şekiller · 3–4 · PDF, okuma gerektirmez · 20 s. · 119 TL · 3
+- Genç Kâşif Defteri · 11–13 · uygulama (Journal altyapısı) · ~40 ekran · 390 TL · 4
+- Martı'yla Sinop'u Keşfet · uygulama · 5–10 · ~36 ekran + ses · 390 TL · 4 (ses 15 Ara sonrası)
+- İlk Kelimeler – İngilizce 5–6 ve 9–10 · PDF · 16 / 22 s. · 119 / 139 TL · 5
+
+3. ORTAK KURALLAR
+Martı merak eden, yanılabilen, çocuğu küçümsemeyen karakter. Boyamada referans renk yok ("Senin denizin nasıl görünüyor?"). Cevaplar "Büyükler için" sayfasında, iç bağlantılı. Dışarı görevlerinde büyük eşliği, "uygun yer yoksa görevi atla". Birlikte Keşif Notları: yalnız gözlem soruları; yetenek/kişilik/meslek yorumu yok. Merak Defterlerinde şehir adı geçmez. Her PDF alıcının sipariş numarasıyla basılır.
+
+4. MERAK DEFTERİ 5–6 (24 s.)
+Yönerge 3–8 kelime, tek cümle; büyük okur. Punto 20–22 / başlık 28–34. Çizim alanı %50–60. Sayfa başına tek görev. İmza mekanikler: Martı'nın büyüteci · Hangisi değişti? · Yarım kalmış dünya.
+s.1 Kapak (Martı büyüteçle bakıyor)
+s.2 Merhaba, ben Martı! — "Senin adın ne? Buraya çiz ya da yaz." Not: adını yazamıyorsa harfleri birlikte çizin.
+s.3 Martı'nın büyüteci 1 — "Üç balığı bul." Büyük liman sahnesi. Not: yerini söylemeyin, "biraz daha sağa bak" deyin.
+s.4 Cevap (büyüteç halkalarında 3 balık)
+s.5 Renk benim — "Martı'nın teknesini boya." Not: renk doğrusu yok.
+s.6 Hangisi değişti? 1 — "Bir farkı bul." 2 sahne, 2 fark. Not: bir fark yeter.
+s.7 Cevap
+s.8 Çizgiyi takip et — "Martı yuvasına uçsun." 3 yol, biri yuvaya.
+s.9 Eşleştir: gölgeler — "Gölgesini bul." 4 nesne ↔ 4 gölge.
+s.10 Yarım kalmış dünya 1 — "Ağacın öbür yarısını çiz." Not: simetri beklemeyin.
+s.11 Say ve boya — "Kaç kuş var? O kadar kutu boya." 4 kuş, 6 kutu.
+s.12 Martı'nın büyüteci 2 — "Yıldızlı şemsiyeyi bul." Pazar sahnesi (renk yerine şekil ipucu).
+s.13 Cevap
+s.14 Büyük–küçük — "En küçük kabuğu göster." 5 kabuk.
+s.15 Sesler — "Hangisi ses çıkarır? İşaretle." Zil, taş, martı, yaprak, tekne düdüğü. Not: sesleri birlikte taklit edin.
+s.16 Hangisi değişti? 2 — "Bir farkı bul."
+s.17 Cevap
+s.18 Yarım kalmış dünya 2 — "Gökyüzüne ne uçuyor? Çiz."
+s.19 Benim evim — "Senin evin nasıl? Çiz."
+s.20 Labirent (kolay) — "Martı simidini bulsun." 2–3 dönüş.
+s.21 Bugün ne gördün? — "Bugün gördüğün bir şeyi çiz."
+s.22 Martı'dan madalya — "Yıldızları boya. Bitti!"
+s.23 Birlikte Keşif Notları (5 gözlem sorusu)
+s.24 Büyükler için (cevaplar, kullanım, güvenlik)
+
+5. MERAK DEFTERİ 9–10 (32 s.)
+Yönerge 2–3 cümle, 20–35 kelime; çocuk kendi okur. Punto 15–17 / 22–28. Çizim alanı %30–40, yazı satırları büyük. İmza mekanikler: Martı'nın yanlış tahmini · Gizli şehir · Gizli mesaj · Karışmış harita.
+s.1 Kapak · s.2 Kâşif kartın (ad, yaş, en merak ettiğim şey, kendi kâşif simgen)
+s.3 Martı'nın yanlış tahmini 1: Martı bulutun yağmur getireceğini söylüyor; resme bak, haklı mı? Kanıtını yaz (gölgeler, kuruyan çamaşır, rüzgâr yönü).
+s.4 Gizli şehir 1: büyük sahnede 8 ayrıntı; her biri bir harf verir · s.5 Gizli şehir 2: harflerle şifre → yeni bölümün adı · s.6 Gizli şehir 3: limanın gece hâli, gündüzle karşılaştır, 5 değişiklik yaz
+s.7 Karışmış harita: 6 parçayı sırala, rotayı çiz · s.8 Ölçen kâşif: odayı adımla ölç, bir büyükle karşılaştır, neden farklı?
+s.9 Gizli mesaj: simge–harf tablosu, 3 mesaj, kendi şifren · s.10 Yanlış tahmin 2: kumdaki izler kedinin mi? iz karşılaştırma tablosu
+s.11 Gözlem günlüğü: 10 dk pencereden bak · s.12 Kendi haritanı yap (lejant)
+s.13 Yarım kalmış hikâye 1: 3 kare çizgi roman, 4. kareyi çiz ve yaz · s.14 Yarım hikâye 2: başlangıç cümlesi, 6–8 satır
+s.15 Mantık bulmacası: 4 tekne, 4 bayrak, 4 ipucu · s.16 Neden böyle?: 3 gündelik soru (Martılar neden rüzgâra karşı durur?), önce tahmin, açıklama Büyükler için sayfasında
+s.17 Tasarımcı sayfası: Martı'ya yuva tasarla (malzeme, ölçü, neden) · s.18 Hangisi değişti? (8 fark) · s.19 Sayı avı (1–10 saklı rakam)
+s.20 Benim müzem: topladığın 3 nesneyi çiz, etiketle · s.21 Ters düşün: "Deniz gökyüzünde olsaydı?" · s.22 Labirent (zor, köprü ve tünel)
+s.23 Kelime zinciri (10 kelime) · s.24 Yanlış tahmin 3: grafik okuma ("Pazar günü en çok balık satıldı" — tablo başka söylüyor)
+s.25 Röportaj: bir büyüğe 4 soru · s.26 Kendi bulmacanı yap (8×8 ızgara) · s.27 Duyu haritası
+s.28 Gizli şehrin anahtarı (son şifre) · s.29 Kâşif sertifikası · s.30 Birlikte Keşif Notları · s.31–32 Büyükler için (cevaplar, kısa kaynaklı açıklamalar, güvenlik)
+
+6. İLK RENKLER VE ŞEKİLLER 3–4 (20 s., çerçeve)
+Okuma yok; yönergeler büyüğe. Kalın konturlu, büyük alanlı, sayfada tek nesne. Akış: serbest boyama → şekiller (daire, kare, üçgen: çevrede bul) → büyük–küçük → aynı olanı bul (2 seçenek) → parmak boyası → "bugün ne yaptık". Not: kısa oturumlar (10 dk).
+
+7. GENÇ KÂŞİF DEFTERİ 11–13 (uygulama, çerçeve)
+Gözlem, röportaj, fotoğraf, harita, mini araştırma ("bu sokağın adı nereden geliyor? bir büyüğe sor"). Konum paylaşmaz, fotoğraf cihazda kalır, yüz fotoğrafı istenmez. Aynı şehirde ebeveyn Journal'ı varsa ortak aile görevleri.
+
+8. MARTI'YLA SİNOP'U KEŞFET · UYGULAMA (çerçeve)
+Panelden geçmiş 36 sayfalık A5 defterin içeriği uygulamaya: dokunarak boyama, çıkartma, görev işaretleme, harita. Çocuk serisi için ayrı, sıcak bir anlatıcı sesi (15 Ara sonrası).
+
+9. ÜRETİM SIRASI
+Panel → çizim brifi (ChatGPT tasarım, tek renk boyanabilir) → PDF üretimi (iç bağlantılar, kontrol betiği) → panel son tur → kurucu → Shopier (onayla).

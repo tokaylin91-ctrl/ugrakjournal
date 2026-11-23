@@ -1,0 +1,89 @@
+# Kapadokya Journal · Dijital — sesli anlatım metinleri v1 (23 Kas 2026)
+
+Anlatıcı: Kenan (ElevenLabs `dVd0jss7LBpnOXAK1eqo`), model `eleven_v4`, TR + EN.
+Bütçe: bu ay kalan 6.491 karakter → 6 kayıt, her biri ~1.000 karakter (~60–75 sn). Yeniden çekime pay yok; metinler panelden geçmeden üretilmez.
+Kaynak: yalnız claude/kapadokya-arastirma.md ve kapadokya-journal-icerik.md v4 (panel 9,7). Rivayetler işaretli. Sayı/tarih yalnız doğrulanmış olanlar. İşletme, ücret, saat, balon şirketi yok.
+
+---
+
+## 1 · Kayanın içindeki mavi (TR)
+[softly] Göreme'de kayanın içine gir. Dışarıda yumuşak, açık renkli tüf; içeride bir başka dünya.
+
+Bu vadilerde dördüncü yüzyıldan itibaren keşişler yaşadı. Kayayı oydular, içine kiliseler yaptılar. Açık Hava Müzesi'nde on yedi kilise ve şapel var.
+
+Tokalı Kilise'ye gir. Bölgenin bilinen en eski kaya kiliselerinden biri. Duvarlarda İncil'den sahneler, sağdan sola bir kitap gibi okunur. Ve o renk: koyu, derin bir mavi.
+
+[short pause] Biraz ötede Karanlık Kilise. Adını girişteki tek küçük pencereden alır. İçeri çok az ışık girer. O az ışık, renkleri yüzyıllarca korumuş.
+
+Şimdi bir dakika dur. Işık nereden giriyor? Sence bu renkler neden bugüne kalmış?
+
+Defterinde koyu mavinin sayfası var. Gördüğün en mavi yeri oraya yaz.
+
+## 1 · The blue inside the rock (EN)
+[softly] In Göreme, step inside the rock. Outside, soft pale tuff; inside, another world.
+
+From the fourth century, monks lived in these valleys. They carved the rock and made churches within it. The open-air museum holds seventeen churches and chapels.
+
+Enter Tokalı Church, one of the earliest known rock churches in the region. Its walls tell Gospel stories, read from right to left like a book. And that colour: a deep, dark blue.
+
+[short pause] Nearby is the Dark Church. It takes its name from a single small window by the entrance. Very little light gets in, and that little light has kept the colours for centuries.
+
+Pause for a minute. Where does the light come in? Why do you think these colours survived?
+
+Your journal has a page for the deep blue. Write down the bluest place you saw.
+
+---
+
+## 2 · Güvercin, bağ, pekmez (TR)
+Güvercinlik Vadisi'nde kayaya bak. Yüzlerce küçük delik. Bunlar güvercinlik.
+
+İnsanlar kayaya kuşlar için yuva oydu. Güvercinler de karşılığında gübre bıraktı. Bu gübre bağlara ve tarlalara gitti; yakın zamana kadar böyle sürdü.
+
+Bağda üzüm olgunlaşır. Üzüm kazanda kaynar ve pekmez olur. Pestil olur, köftür olur.
+
+[short pause] Yani bu vadide kuş, kaya ve üzüm aynı hikâyenin parçası. Biri olmadan öbürü eksik kalır.
+
+Yürürken say: Bir kayada kaç delik var? Bazı güvercinliklerin içinde fresk bile olduğu biliniyor.
+
+Defterinde bir zincir sayfası var: kaya, güvercin, bağ, üzüm, pekmez. Halkaları kendi gözünle doldur.
+
+## 2 · Pigeons, vines and molasses (EN)
+In Pigeon Valley, look at the rock. Hundreds of small openings. These are pigeon houses.
+
+People carved homes for the birds, and the birds gave something back. Pigeon manure was traditionally used to fertilise the vineyards and fields, until recent times.
+
+In the vineyards the grapes ripen. In the cauldron they boil into molasses. They become fruit leather, and köftür.
+
+[short pause] So in this valley, bird, rock and grape belong to one story. Take one away and the others are incomplete.
+
+As you walk, count: how many openings in a single rock face? Some pigeon houses are even known to hold frescoes.
+
+Your journal has a page for this chain: rock, pigeon, vineyard, grape, molasses. Fill in the links with your own eyes.
+
+---
+
+## 3 · Kapadokya sofrası (TR)
+Kapadokya sofrası bağdan, tandırdan ve toprak kaptan gelir.
+
+Testi kebabı ile başla. Et ve sebze kapalı bir toprak testide uzun uzun pişer. Masaya gelince testi kırılarak açılır. O sesi dinle.
+
+Fasulye tandırda ya da çömlekte pişer. Sofrada tarhana ya da düğün çorbası olur; çiçek dolması, yeşil domatesten göyönü dolması.
+
+[short pause] Tatlı tarafı bağdan gelir: pekmez, pestil, köftür. Bir de ayva ve kabak tatlısı, kayısı dolması.
+
+Her biri bir mevsimin ve bir emeğin sonucu. Üzüm toplanır, kazan kaynar, testi ateşe girer.
+
+Bir sofraya oturduğunda tabağa bakmadan önce masaya bak. Sonra defterine yaz: Kapadokya'da en çok hangi tadı hatırlayacaksın?
+
+## 3 · The Cappadocian table (EN)
+The Cappadocian table comes from the vineyard, the tandır oven and the clay pot.
+
+Start with testi kebab. Meat and vegetables cook slowly in a sealed clay jar. At the table, the jar is broken open. Listen for that sound.
+
+Beans are cooked in the tandır or in an earthenware pot. There may be tarhana or wedding soup, stuffed flowers, and göyönü, stuffed green tomatoes.
+
+[short pause] The sweet side comes from the vineyard: grape molasses, fruit leather, köftür. And quince and pumpkin desserts, stuffed apricots.
+
+Each one is the result of a season and of work. Grapes are picked, the cauldron boils, the jar goes into the fire.
+
+When you sit at a table, look at the table before your plate. Then write in your journal: which taste of Cappadocia will you remember most?

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Uğrak Journal · Şehir Defterleri</title>
-<meta name="description" content="Uğrak şehir defterleri: bir şehri gezerken yazılan, oynanan ve saklanan defterler. Sinop, Amasra ve Kapadokya Journal Dijital ile çocuklar için Martı'nın Defterleri satışta; Safranbolu, Kapadokya ve İstanbul hazırlanıyor. Yetişkin ve çocuk sürümleri, Türkçe ve İngilizce.">
+<meta name="description" content="Uğrak şehir defterleri: bir şehri gezerken yazılan, oynanan ve saklanan defterler. Sinop, Amasra ve Kapadokya Journal Dijital ile çocuklar için Martı'nın Defterleri satışta; Safranbolu ve İstanbul hazırlanıyor. Yetişkin ve çocuk sürümleri, Türkçe ve İngilizce.">
 <meta property="og:title" content="Uğrak Journal · Şehir Defterleri">
 <meta property="og:description" content="Ekranı kapat, şehre uğra. Şehir şehir defterler: Sinop, Amasra ve Kapadokya satışta; Safranbolu ve İstanbul yolda.">
 <meta property="og:type" content="website">
@@ -268,7 +268,9 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 .hero-act{display:flex;flex-wrap:wrap;gap:12px}
 .btn.ghost{background:transparent;border:1px solid rgba(243,230,207,.5);color:#F3E6CF}
 .btn.ghost:hover{border-color:#F3E6CF;filter:none}
-.hero .coords{color:rgba(243,230,207,.6);border-top-color:rgba(243,230,207,.18)}
+.hero .coords{color:rgba(243,230,207,.6);border-top-color:rgba(243,230,207,.18);display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px}.hero .coords .on{color:#F3E6CF}
+.guven{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:16px}.guven li{display:flex;gap:10px;align-items:baseline}.guven li::before{content:'✓';color:var(--sinopia);font-weight:600}
+.icerik{margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:17px}.icerik li::marker{color:var(--sinopia)}
 .phones{display:flex;justify-content:center;gap:clamp(12px,2.2vw,26px);align-self:end;min-width:0}
 .phones img{width:min(32%,230px);height:auto;aspect-ratio:585/1000;object-fit:cover;object-position:top;border:9px solid #19100D;border-bottom:0;border-radius:34px 34px 0 0;box-shadow:0 -6px 40px rgba(0,0,0,.35)}
 .phones img:nth-child(2){margin-top:42px}
@@ -343,12 +345,12 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <p class="label">Şehir defterleri · TR + EN</p>
         <h1>Ekranı kapat,<br><em>şehre uğra.</em></h1>
         <span class="en big">Put the screen down. Stop by the city.</span>
-        <p class="hero-p">Her şehrin kendi defteri: planını yap, anlatımı dinle, telefonu cebine koy ve şehri gez. Yetişkinler için şehir defterleri, çocuklar için Martı'nın defterleri.</p>
+        <p class="hero-p">Her şehir için Türkçe ve İngilizce dijital şehir defterleri: hikâyeler, gravürler, haritalar, sesli anlatımlar ve küçük keşif görevleri. Çocuklar için Martı'nın defterleri.</p>
         <div class="hero-act">
           <a class="btn" href="#satista">Satıştaki defterler</a>
           <a class="btn ghost" href="dijital/">Uğrak Çocuk</a>
         </div>
-        <p class="coords">Sinop · Amasra · Safranbolu · Kapadokya · İstanbul</p>
+        <p class="coords"><span class="on">Satışta: Sinop · Amasra · Kapadokya</span><span>Sırada: Safranbolu · İstanbul</span></p>
       </div>
       <div class="phones" aria-label="Sinop, Amasra ve Kapadokya Journal dijital defterlerinin telefondaki gerçek ekranları">
         <img src="ekran-sinop.webp" width="585" height="1266" alt="Sinop Journal Dijital ana ekranı: Sinop Kalesi gravürü">
@@ -415,12 +417,17 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
           <div style="display:grid;gap:16px;min-width:0">
             <div class="meta" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span class="label">Uğrak Şehir · Dijital</span><span class="label">Şimdi satışta</span></div>
             <div><h3>Sinop Journal · Dijital</h3><span class="en">The city journal on your phone</span></div>
-            <p class="desc">Serinin ilk defteri, telefonunda: hikâyeler, gravürler, yer sayfaları ve yol tarifi, sesli anlatımlar, günlük sudoku, kelime avı, gravür boyama, sticker ve kişiselleştirme. İlk açılışta içerik internetle telefonuna yüklenir; sonra internetsiz çalışır.</p>
+            <p class="desc">Serinin ilk defteri, telefonunda.</p>
+            <ul class="icerik"><li>Hikâyeler, gravürler, yer sayfaları ve yol tarifi</li><li>Sesli anlatımlar</li><li>Günlük, gravür boyama ve çıkartmalar</li><li>Sudoku, kelime avı ve görevler</li></ul>
             <ul class="specs">
               <li>Fiyat <b>790 TL · KDV dahil · tek seferlik</b></li>
-              <li>Teslim <b>Ödemeden hemen sonra, ekranda ve e-postada</b></li>
-              <li>Kullanım <b>Sana özel kod · 2 cihaz (ör. telefon + tablet)</b></li>
               <li>Cihaz <b>iPhone (iOS 16.4+) · Android</b></li>
+              <li>Dil <b>Türkçe ve İngilizce</b></li>
+            </ul>
+            <ul class="guven">
+              <li>Ödemeden hemen sonra teslim: kod ekranda ve e-postada</li>
+              <li>Sana özel kod · 2 cihazda kullanım (ör. telefon + tablet)</li>
+              <li>İlk açılışta internetle yüklenir, sonra internetsiz çalışır</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
               <a class="btn" href="https://sinop.ugrakjournal.com/satin-al">Satın al · 790 TL</a>
@@ -434,12 +441,17 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
           <div style="display:grid;gap:16px;min-width:0">
             <div class="meta" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span class="label">Uğrak Şehir · Dijital</span><span class="label">Yeni · satışta</span></div>
             <div><h3>Amasra Journal · Dijital</h3><span class="en">Amasra, on your phone</span></div>
-            <p class="desc">İki limanlı küçük kasaba, telefonunda: Amasra Kalesi ve Kemere Köprüsü, Boztepe Feneri, Çekiciler Çarşısı, Çakraz ve Yardibi koyları, yol tarifi, üç sesli anlatım, Amasradoku, kelime avı, bilgi yarışması, gravür boyama ve Amasra çıkartmaları. İlk açılışta içerik internetle telefonuna yüklenir; sonra internetsiz çalışır.</p>
+            <p class="desc">İki limanlı küçük kasaba, telefonunda.</p>
+            <ul class="icerik"><li>Amasra Kalesi, Kemere Köprüsü, Boztepe Feneri, Çekiciler Çarşısı, Çakraz ve Yardibi</li><li>Yol tarifi ve üç sesli anlatım</li><li>Günlük, gravür boyama ve Amasra çıkartmaları</li><li>Amasradoku, kelime avı ve bilgi yarışması</li></ul>
             <ul class="specs">
               <li>Fiyat <b>790 TL · KDV dahil · tek seferlik</b></li>
-              <li>Teslim <b>Ödemeden hemen sonra, ekranda ve e-postada</b></li>
-              <li>Kullanım <b>Sana özel kod · 2 cihaz (ör. telefon + tablet)</b></li>
               <li>Cihaz <b>iPhone (iOS 16.4+) · Android</b></li>
+              <li>Dil <b>Türkçe ve İngilizce</b></li>
+            </ul>
+            <ul class="guven">
+              <li>Ödemeden hemen sonra teslim: kod ekranda ve e-postada</li>
+              <li>Sana özel kod · 2 cihazda kullanım (ör. telefon + tablet)</li>
+              <li>İlk açılışta internetle yüklenir, sonra internetsiz çalışır</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
               <a class="btn" href="https://amasra.ugrakjournal.com/satin-al">Satın al · 790 TL</a>
@@ -453,12 +465,17 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
           <div style="display:grid;gap:16px;min-width:0">
             <div class="meta" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span class="label">Uğrak Şehir · Dijital</span><span class="label">Yeni · satışta</span></div>
             <div><h3>Kapadokya Journal · Dijital</h3><span class="en">Cappadocia, on your phone</span></div>
-            <p class="desc">Peribacaları, vadiler ve kaya kiliseleri, telefonunda: Göreme Açık Hava Müzesi, Uçhisar, vadiler, yeraltı şehirleri, yol tarifi, Türkçe ve İngilizce üç sesli anlatım, kelime avı, bilgi yarışması, görevler, günlük ve yirmiden fazla Kapadokya çıkartması. İlk açılışta içerik internetle telefonuna yüklenir; sonra internetsiz çalışır.</p>
+            <p class="desc">Peribacaları, vadiler ve kaya kiliseleri, telefonunda.</p>
+            <ul class="icerik"><li>Göreme Açık Hava Müzesi, Uçhisar, vadiler ve yeraltı şehirleri</li><li>Yol tarifi ve üç sesli anlatım</li><li>Günlük ve yirmiden fazla Kapadokya çıkartması</li><li>Kelime avı, bilgi yarışması ve görevler</li></ul>
             <ul class="specs">
               <li>Fiyat <b>790 TL · KDV dahil · tek seferlik</b></li>
-              <li>Teslim <b>Ödemeden hemen sonra, ekranda ve e-postada</b></li>
-              <li>Kullanım <b>Sana özel kod · 2 cihaz (ör. telefon + tablet)</b></li>
               <li>Cihaz <b>iPhone (iOS 16.4+) · Android</b></li>
+              <li>Dil <b>Türkçe ve İngilizce</b></li>
+            </ul>
+            <ul class="guven">
+              <li>Ödemeden hemen sonra teslim: kod ekranda ve e-postada</li>
+              <li>Sana özel kod · 2 cihazda kullanım (ör. telefon + tablet)</li>
+              <li>İlk açılışta internetle yüklenir, sonra internetsiz çalışır</li>
             </ul>
             <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
               <a class="btn" href="https://kapadokya.ugrakjournal.com/satin-al">Satın al · 790 TL</a>

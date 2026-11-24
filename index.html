@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Uğrak Journal · Şehir Defterleri</title>
-<meta name="description" content="Uğrak şehir defterleri: bir şehri gezerken yazılan, oynanan ve saklanan defterler. Sinop ve Amasra Journal Dijital ile çocuklar için Martı'nın Defterleri satışta; Safranbolu, Kapadokya ve İstanbul hazırlanıyor. Yetişkin ve çocuk sürümleri, Türkçe ve İngilizce.">
+<meta name="description" content="Uğrak şehir defterleri: bir şehri gezerken yazılan, oynanan ve saklanan defterler. Sinop, Amasra ve Kapadokya Journal Dijital ile çocuklar için Martı'nın Defterleri satışta; Safranbolu, Kapadokya ve İstanbul hazırlanıyor. Yetişkin ve çocuk sürümleri, Türkçe ve İngilizce.">
 <meta property="og:title" content="Uğrak Journal · Şehir Defterleri">
-<meta property="og:description" content="Ekranı kapat, şehre uğra. Şehir şehir defterler: Sinop ve Amasra satışta; Safranbolu, Kapadokya ve İstanbul yolda.">
+<meta property="og:description" content="Ekranı kapat, şehre uğra. Şehir şehir defterler: Sinop, Amasra ve Kapadokya satışta; Safranbolu ve İstanbul yolda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ugrakjournal.com/">
 <meta property="og:image" content="https://ugrakjournal.com/og-ugrak.jpg">
@@ -270,8 +270,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 .btn.ghost:hover{border-color:#F3E6CF;filter:none}
 .hero .coords{color:rgba(243,230,207,.6);border-top-color:rgba(243,230,207,.18)}
 .phones{display:flex;justify-content:center;gap:clamp(12px,2.2vw,26px);align-self:end;min-width:0}
-.phones img{width:min(48%,264px);height:auto;aspect-ratio:585/1000;object-fit:cover;object-position:top;border:9px solid #19100D;border-bottom:0;border-radius:34px 34px 0 0;box-shadow:0 -6px 40px rgba(0,0,0,.35)}
-.phones img:last-child{margin-top:42px}
+.phones img{width:min(32%,230px);height:auto;aspect-ratio:585/1000;object-fit:cover;object-position:top;border:9px solid #19100D;border-bottom:0;border-radius:34px 34px 0 0;box-shadow:0 -6px 40px rgba(0,0,0,.35)}
+.phones img:nth-child(2){margin-top:42px}
 
 .mob-sat{display:none}
 @media (max-width:860px){.mob-sat{display:inline-block;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#F3E6CF;text-decoration:none;border:1px solid rgba(243,230,207,.45);padding:8px 12px;border-radius:2px}.deri-ust .brand .wordmark{width:92px}}
@@ -280,7 +280,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
 .satista > .wrap{padding-block:clamp(48px,6vw,80px)}
 .sat-head{display:flex;justify-content:space-between;align-items:end;gap:16px 32px;flex-wrap:wrap;margin-bottom:28px}
 .sat-head h2{font-size:clamp(28px,3.8vw,40px);line-height:1.1;margin-top:8px}
-.sat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+.sat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
+@media (max-width:1100px) and (min-width:761px){.sat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .sat{display:grid;gap:12px;text-decoration:none;color:inherit;padding:6px 6px 16px;border:1px dashed color-mix(in srgb,var(--sinopia) 45%,transparent);border-radius:4px;background:var(--paper)}
 .sat img{display:block;width:100%;height:auto;aspect-ratio:1/1;border-radius:2px}
 .sat-t{display:grid;gap:2px;padding-inline:4px}
@@ -301,8 +302,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
   .hero .wrap{grid-template-columns:1fr;padding-top:56px}
   .hero-txt{padding-bottom:0;gap:14px}
   .hero .wrap{gap:22px}
-  .phones img{width:min(44%,200px)}
-  .phones img:last-child{margin-top:28px}
+  .phones img{width:min(31%,150px);border-width:6px;border-radius:22px 22px 0 0}
+  .phones img:nth-child(2){margin-top:28px}
   .sat-grid{grid-template-columns:1fr;max-width:460px}
   .kurdele{width:26px;left:auto;right:22px}
 }
@@ -349,9 +350,10 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         </div>
         <p class="coords">Sinop · Amasra · Safranbolu · Kapadokya · İstanbul</p>
       </div>
-      <div class="phones" aria-label="Sinop ve Amasra Journal dijital defterlerinin telefondaki gerçek ekranları">
+      <div class="phones" aria-label="Sinop, Amasra ve Kapadokya Journal dijital defterlerinin telefondaki gerçek ekranları">
         <img src="ekran-sinop.webp" width="585" height="1266" alt="Sinop Journal Dijital ana ekranı: Sinop Kalesi gravürü">
         <img src="ekran-amasra.webp" width="585" height="1266" alt="Amasra Journal Dijital ana ekranı: Amasra Kalesi gravürü">
+        <img src="ekran-kapadokya.webp" width="585" height="1266" alt="Kapadokya Journal Dijital ana ekranı: Göreme üzerinde gün doğumunda balonlar gravürü">
       </div>
     </div>
   </div>
@@ -372,6 +374,11 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <a class="sat" href="#amasra-journal">
           <img src="amasra-journal-dijital.webp" width="800" height="800" alt="Amasra Journal Dijital: deri zemin üzerinde telefonda açık uygulama">
           <span class="sat-t"><b>Amasra Journal · Dijital</b><span class="en">Amasra, on your phone</span></span>
+          <span class="sat-f">790 TL <i>· tek seferlik</i></span>
+        </a>
+        <a class="sat" href="#kapadokya-journal">
+          <img src="kapadokya-journal-dijital.webp" width="800" height="800" alt="Kapadokya Journal Dijital: telefonda açık uygulama">
+          <span class="sat-t"><b>Kapadokya Journal · Dijital</b><span class="en">Cappadocia, on your phone</span></span>
           <span class="sat-f">790 TL <i>· tek seferlik</i></span>
         </a>
         <a class="sat" href="#marti-defterleri">
@@ -397,7 +404,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
           <div class="stock"><div><h3>Sinop</h3><p>Dijital sürüm satışta · basılı defter ilk baskıya hazırlanıyor</p></div><span class="pill on">Satışta</span></div>
           <div class="stock"><div><h3>Amasra</h3><p>Dijital sürüm satışta · gravürleri bu şehir için çizildi</p></div><span class="pill on">Satışta</span></div>
           <div class="stock"><div><h3>Safranbolu</h3><p>Amasra ile birlikte Batı Karadeniz seti</p></div><span class="pill">Hazırlanıyor</span></div>
-          <div class="stock"><div><h3>Kapadokya</h3><p>Tek şehir değil, bölge keşif defteri: Göreme, Ürgüp, Uçhisar, Avanos ve vadiler</p></div><span class="pill">Hazırlanıyor</span></div>
+          <div class="stock"><div><h3>Kapadokya</h3><p>Dijital sürüm satışta · tek şehir değil, bölge keşif defteri</p></div><span class="pill on">Satışta</span></div>
           <div class="stock"><div><h3>İstanbul · Galata–Karaköy</h3><p>Şehrin tamamı değil, yürünebilir tek bir semt</p></div><span class="pill">Pilot</span></div>
           <div class="stock"><div><h3>Şehrinizi önerin</h3><p>Yaz kış ziyaretçi ağırlayan, yürünebilir bir şehirde yaşıyorsanız bize yazın.</p></div><a class="pill" href="https://wa.me/905468466288?text=Merhaba%2C%20U%C4%9Frak%20i%C3%A7in%20bir%20%C5%9Fehir%20%C3%B6nermek%20istiyorum%3A%20" target="_blank" rel="noopener">Öneriye açık · Yazın</a></div>
         </div>
@@ -438,7 +445,25 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
               <a class="btn" href="https://amasra.ugrakjournal.com/satin-al">Satın al · 790 TL</a>
               <a href="https://amasra.ugrakjournal.com/bilgilendirme" style="color:inherit;font-size:14px">Ön bilgilendirme ve koşullar</a>
             </div>
-            <p class="desc" style="font-size:14px;opacity:.8">Sinop Journal ve Amasra Journal birbirinden bağımsız defterlerdir; her defterin kodu yalnız satın alınan şehri açar.</p>
+            <p class="desc" style="font-size:14px;opacity:.8">Sinop, Amasra ve Kapadokya Journal birbirinden bağımsız defterlerdir; her defterin kodu yalnız satın alınan şehri açar.</p>
+          </div>
+        </article>
+        <article id="kapadokya-journal" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center;border-top:1px solid var(--rule);padding-top:40px">
+          <div class="shot" style="aspect-ratio:1/1;max-width:100%"><img src="kapadokya-journal-dijital.webp" width="800" height="800" loading="lazy" alt="Kapadokya Journal Dijital: telefonda açık uygulama, Göreme üzerinde balonlar gravürü" style="width:100%;height:auto"></div>
+          <div style="display:grid;gap:16px;min-width:0">
+            <div class="meta" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span class="label">Uğrak Şehir · Dijital</span><span class="label">Yeni · satışta</span></div>
+            <div><h3>Kapadokya Journal · Dijital</h3><span class="en">Cappadocia, on your phone</span></div>
+            <p class="desc">Peribacaları, vadiler ve kaya kiliseleri, telefonunda: Göreme Açık Hava Müzesi, Uçhisar, vadiler, yeraltı şehirleri, yol tarifi, Türkçe ve İngilizce üç sesli anlatım, kelime avı, bilgi yarışması, görevler, günlük ve yirmiden fazla Kapadokya çıkartması. İlk açılışta içerik internetle telefonuna yüklenir; sonra internetsiz çalışır.</p>
+            <ul class="specs">
+              <li>Fiyat <b>790 TL · KDV dahil · tek seferlik</b></li>
+              <li>Teslim <b>Ödemeden hemen sonra, ekranda ve e-postada</b></li>
+              <li>Kullanım <b>Sana özel kod · 2 cihaz (ör. telefon + tablet)</b></li>
+              <li>Cihaz <b>iPhone (iOS 16.4+) · Android</b></li>
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+              <a class="btn" href="https://kapadokya.ugrakjournal.com/satin-al">Satın al · 790 TL</a>
+              <a href="https://kapadokya.ugrakjournal.com/bilgilendirme" style="color:inherit;font-size:14px">Ön bilgilendirme ve koşullar</a>
+            </div>
           </div>
         </article>
         <article id="marti-defterleri" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center;border-top:1px solid var(--rule);padding-top:40px">
@@ -470,8 +495,8 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
         <p>Uğramak, yolun üstünde durup gerçekten bakmak demek. Bazen bir şehri gezerken etrafımıza bakmayı unutuyoruz. Uğrak, dikkatimizi yeniden bulunduğumuz yere çevirmek için var: insanlar kendi ritmini bulsun, gördüğünü hissetsin diye.</p>
         <p>Her şehrin kendi defterini hazırlıyoruz: o şehrin hikâyeleri ve gravürleri, harita ve yürüyüş rotaları, sesli anlatımlar, sofrası, küçük görevler, boyama sayfaları ve çıkartmalar. Defter telefonunda açılır. Planını yaparsın, anlatımı dinlersin, sonra telefonu cebine koyup şehri gezersin; akşam gördüklerini, notlarını ve fotoğraflarını defterinde saklarsın.</p>
         <p>Çocuklar için Martı var: bulmacalar, çizimler ve görevlerle çocuğun etrafına merakla bakmasını isteyen defterler.</p>
-        <p>Sinop'ta doğduk. Sinop ve Amasra'nın defterleri çıktı, yeni şehirler yolda; deri kapaklı basılı seri de hazırlanıyor.</p>
-        <p class="en" lang="en">Uğrak makes city journals. Our aim is simple: when you visit a place, look at the place, not your phone. We create a digital journal for each city, bringing together its stories, engravings, maps, walking routes and audio guides, along with local food, small missions, colouring pages and stickers. It opens on your phone: you plan, you listen, then you put the phone away and walk; in the evening you keep your notes and photos in your journal. For children there is Martı, with puzzles, drawings and missions. We started in Sinop. Our Sinop and Amasra journals are now available, more cities are on the way, and a leather-bound printed series is in the works.</p>
+        <p>Sinop'ta doğduk. Sinop, Amasra ve Kapadokya'nın defterleri çıktı, yeni şehirler yolda; deri kapaklı basılı seri de hazırlanıyor.</p>
+        <p class="en" lang="en">Uğrak makes city journals. Our aim is simple: when you visit a place, look at the place, not your phone. We create a digital journal for each city, bringing together its stories, engravings, maps, walking routes and audio guides, along with local food, small missions, colouring pages and stickers. It opens on your phone: you plan, you listen, then you put the phone away and walk; in the evening you keep your notes and photos in your journal. For children there is Martı, with puzzles, drawings and missions. We started in Sinop. Our Sinop, Amasra and Cappadocia journals are now available, more cities are on the way, and a leather-bound printed series is in the works.</p>
       </div>
     </div>
   </section>
@@ -494,7 +519,7 @@ footer p{font-family:var(--f-serif);font-style:italic;color:var(--muted)}
       </figure>
     </div>
   </section>
-  <style>@media (max-width:760px){#dijital-journal,#amasra-journal,#marti-defterleri{grid-template-columns:1fr!important;gap:24px!important}}</style>
+  <style>@media (max-width:760px){#dijital-journal,#amasra-journal,#kapadokya-journal,#marti-defterleri{grid-template-columns:1fr!important;gap:24px!important}}</style>
 
   
 

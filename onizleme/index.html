@@ -59,7 +59,7 @@ header.sc{border-color:var(--cizgi)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
 .hero .ticker{margin-top:28px;font:500 14px/1.5 var(--sans);color:var(--mut)}
 .hero .ticker b{color:var(--grav);font-weight:600}
-.stage{position:relative;height:620px}
+.stage{position:relative;height:690px}
 .phone{position:absolute;right:8%;top:0;width:300px;aspect-ratio:585/1266;border-radius:46px;background:#1d1410;padding:11px;box-shadow:0 40px 80px -30px rgba(67,23,15,.55),0 0 0 1px rgba(0,0,0,.2);z-index:3;animation:float 7s ease-in-out infinite}
 .phone .scr{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--kagit)}
 .phone .scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
@@ -68,12 +68,13 @@ header.sc{border-color:var(--cizgi)}
 @keyframes float{50%{transform:translateY(-10px)}}
 .tag{position:absolute;z-index:4;background:var(--kagit);border:1px solid var(--cizgi);border-radius:14px;padding:10px 14px;font:500 13.5px/1.35 var(--sans);box-shadow:0 14px 30px -18px rgba(67,23,15,.5)}
 .tag b{display:block;font:500 17px/1.2 var(--serif)}
-.tag.t1{left:0;top:120px}.tag.t2{right:0;bottom:140px}
+.tag.t1{left:0;top:110px}.tag.t2{left:0;bottom:160px}
 .tag .wave{display:flex;gap:3px;align-items:center;height:16px;margin-top:6px}
 .tag .wave i{width:3px;background:var(--kiremit);border-radius:2px;animation:wv 1.2s ease-in-out infinite}
 .tag .wave i:nth-child(2n){animation-delay:.2s}.tag .wave i:nth-child(3n){animation-delay:.4s}
 @keyframes wv{0%,100%{height:4px}50%{height:16px}}
-.cityname{position:absolute;right:8%;width:300px;bottom:-4px;text-align:center;font:italic 400 18px/1 var(--serif);color:var(--deri)}
+.cityname{position:absolute;right:8%;width:300px;bottom:4px;text-align:center;font:italic 400 18px/1 var(--serif);color:var(--deri)}
+.dots3{position:absolute;right:8%;width:300px;bottom:-44px;display:flex;justify-content:center;gap:4px;z-index:5;pointer-events:auto}.dots3 button{width:44px;height:44px;border:0;background:none;cursor:pointer;display:grid;place-items:center;padding:0}.dots3 button::after{content:"";width:9px;height:9px;border-radius:50%;background:rgba(94,35,24,.32);transition:background .3s,transform .3s}.dots3 button.on::after{background:var(--kiremit);transform:scale(1.2)}
 .pano{position:relative;margin-top:-70px;height:300px;z-index:1;pointer-events:none}
 .pano{-webkit-mask-image:linear-gradient(transparent 0,#000 38%);mask-image:linear-gradient(transparent 0,#000 38%)}
 .pano img{position:absolute;left:50%;bottom:0;width:min(1500px,130%);max-width:none;transform:translateX(-50%);mix-blend-mode:multiply;opacity:0;transition:opacity 1.6s}
@@ -81,8 +82,8 @@ header.sc{border-color:var(--cizgi)}
 .pano::after{content:"";position:absolute;inset:auto 0 0;height:60px;background:linear-gradient(transparent,var(--krem))}
 @media(max-width:900px){
  .hero{padding-top:28px}.hero-grid{grid-template-columns:1fr;gap:10px}
- .stage{height:520px;margin-top:10px}.phone{width:240px;left:50%;right:auto;margin-left:-120px}.cityname{left:50%;right:auto;margin-left:-120px;width:240px}
- .tag.t1{left:0;top:10px}.tag.t2{right:0;bottom:70px}.tag{font-size:12.5px;padding:8px 11px}.tag b{font-size:15px}
+ .stage{height:600px;margin-top:10px}.phone{width:240px;left:50%;right:auto;margin-left:-120px}.cityname{left:50%;right:auto;margin-left:-120px;width:240px;bottom:-30px}.dots3{left:50%;right:auto;margin-left:-120px;width:240px;bottom:-74px}
+ .stage{padding-top:0}.tag.t1{left:0;top:-6px}.tag.t2{display:none}.tag{font-size:12.5px;padding:7px 10px}.tag b{font-size:14.5px}.phone{top:46px}
  .pano{margin-top:-60px;height:170px}.pano img{width:200%}
 }
 
@@ -106,13 +107,13 @@ section{padding:110px 0}
 .city .body{padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.12)),url(../deri-zemin.webp) center/cover;}
 .city h3{font-size:36px;line-height:1}
 .city h3 small{display:block;font:italic 400 17px/1.3 var(--serif);color:#E8CDB6;margin-top:6px;letter-spacing:0}
-.city p{margin:0;font-size:15.5px;line-height:1.5;color:#F0DDC8}
+.city p{margin:0;font-size:16px;line-height:1.5;color:#F0DDC8}
 .city .row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid rgba(243,230,207,.2)}
 .city .price b{display:block;font:500 30px/1 var(--serif);color:#fff}
-.city .price span{font-size:12.5px;color:#E8CDB6;letter-spacing:.02em}
+.city .price span{display:block;margin-top:6px;font-size:13px;line-height:1.4;color:#E8CDB6}.city .price i{font-style:normal;color:var(--gunes)}
 .city .go{width:52px;height:52px;border-radius:50%;background:var(--krem);color:var(--deri);display:grid;place-items:center;font-size:22px;flex:none;transition:transform .25s}
 .city:hover .go{transform:rotate(-35deg)}
-.cities-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:14.5px;color:var(--mut)}
+.cities-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:15px;color:var(--mut)}
 .cities-foot a{color:var(--deri)}
 @media(max-width:980px){.cities{grid-template-columns:1fr 1fr}.cities .city:last-child{grid-column:1/-1}.cities .city:last-child .art{aspect-ratio:16/7}}
 @media(max-width:640px){.cities{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}.cities::-webkit-scrollbar{display:none}.city{flex:0 0 84%;scroll-snap-align:center}.cities .city:last-child .art{aspect-ratio:4/3.3}.city h3{font-size:32px}}
@@ -142,7 +143,7 @@ body.kis .gift{display:block;padding:0 0 110px}
 .f .ill{height:120px;border-radius:14px;background:var(--kagit);display:grid;place-items:center;overflow:hidden;color:var(--grav)}
 .f .ill img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
 .f h3{font-size:24px;line-height:1.1}
-.f p{margin:0;font-size:15px;line-height:1.5;color:#EAD3BD}
+.f p{margin:0;font-size:16px;line-height:1.5;color:#EAD3BD}
 .f .k{font:italic 400 15px/1 var(--serif);color:var(--gunes)}
 .mini-task{display:flex;flex-direction:column;gap:7px;padding:14px;font:500 13px/1.25 var(--sans);width:100%}
 .mini-task span{display:flex;gap:8px;align-items:center}
@@ -171,7 +172,7 @@ body.kis .gift{display:block;padding:0 0 110px}
 .index{list-style:none;margin:0;padding:0;border-top:1px solid var(--cizgi)}
 .index li{display:flex;align-items:baseline;gap:14px;padding:20px 0;border-bottom:1px solid var(--cizgi)}
 .index .nm{font:400 clamp(26px,3vw,34px)/1.05 var(--serif)}
-.index .nm small{display:block;font:400 14.5px/1.4 var(--sans);color:var(--mut);margin-top:5px;letter-spacing:0}
+.index .nm small{display:block;font:400 15px/1.4 var(--sans);color:var(--mut);margin-top:5px;letter-spacing:0}
 .index .dots{flex:1;border-bottom:2px dotted var(--cizgi);transform:translateY(-8px);min-width:20px}
 .index .st2{font:600 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
 .st2.on{color:var(--kiremit)}.st2.yol{color:var(--mut)}
@@ -224,7 +225,7 @@ body.kis .gift{display:block;padding:0 0 110px}
 .cc{border:1px solid var(--cizgi);border-radius:20px;padding:22px 24px;background:var(--kagit);display:flex;flex-direction:column;gap:6px}
 .cc span{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 .cc a,.cc b{font:400 23px/1.2 var(--serif);text-decoration:none;color:var(--grav)}
-.cc button{align-self:flex-start;margin-top:6px;background:none;border:1px solid var(--cizgi);border-radius:999px;padding:6px 12px;font:600 13px/1 var(--sans);color:var(--deri);cursor:pointer}
+.cc button{align-self:flex-start;margin-top:6px;min-height:44px;background:none;border:1px solid var(--cizgi);border-radius:999px;padding:0 16px;font:600 13px/1 var(--sans);color:var(--deri);cursor:pointer}
 @media(max-width:760px){.contact{grid-template-columns:1fr}}
 footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px solid var(--cizgi)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:14px;color:var(--mut)}
@@ -243,7 +244,7 @@ body.kis .hero-eyebrow-def{display:none}
 .sprig{position:absolute;pointer-events:none;color:var(--altin);opacity:.8}
 .sprig.s1{left:-6px;top:110px;width:120px}
 .sprig.s2{right:2%;top:40px;width:70px}
-@media(max-width:900px){.sprig.s1{display:none}.sprig.s2{width:44px;top:96px;right:14px}}
+@media(max-width:900px){body.kis .sprig.s1{display:none}.sprig.s2{width:44px;top:96px;right:14px}}
 </style>
 </head>
 <body>
@@ -270,7 +271,7 @@ body.kis .hero-eyebrow-def{display:none}
    <div class="tag t1"><b>Sesli anlatım</b><span id="aud">Sinop'u dinle · TR + EN</span><div class="wave"><i style="height:6px"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
    <div class="phone"><div class="scr"><img class="on" src="../ekran-sinop.webp" alt=""><img src="../ekran-amasra.webp" alt=""><img src="../ekran-kapadokya.webp" alt=""></div></div>
    <div class="tag t2"><b>Küçük görevler</b>Yaptıkça defterinde işaretle.</div>
-   <div class="cityname" id="cityname">Sinop Journal</div>
+   <div class="cityname" id="cityname">Sinop Journal</div><div class="dots3" role="group" aria-label="Ekran seç"><button aria-label="Sinop" class="on"></button><button aria-label="Amasra"></button><button aria-label="Kapadokya"></button></div>
   </div>
  </div>
  <div class="pano" aria-hidden="true"><img class="on" src="../g/sinop-kale.webp" alt=""></div>
@@ -280,23 +281,23 @@ body.kis .hero-eyebrow-def{display:none}
  <div class="wrap">
   <div class="sec-head rv">
    <div><span class="eyebrow">Satışta · 3 şehir</span><h2>Bir şehir seç,<br><em>defterini aç.</em></h2></div>
-   <div><span class="intro-note"><i>Tanışma fiyatı</i>10 Aralık'a kadar her biri 390 TL</span></div>
+   <div><span class="intro-note tn"><i>Tanışma fiyatı</i>10 Aralık'a kadar her biri 390 TL</span></div>
   </div>
   <div class="cities">
    <a class="city rv" href="https://sinop.ugrakjournal.com/satin-al">
     <div class="art"><img src="../g/sinop-kale.webp" alt="Sinop Kalesi gravürü" loading="lazy" style="object-position:72% 50%"><span class="ribbon"></span><span class="no">No. 01</span></div>
     <div class="body"><h3>Sinop<small>Kale, liman ve tarihi cezaevi</small></h3><p>Serinin ilk defteri. Yer sayfaları, sesli anlatımlar, 18 küçük görev, günlük ve sudoku.</p>
-     <div class="row"><div class="price"><b>390 TL</b><span>tanışma fiyatı · TR + EN</span></div><span class="go" aria-hidden="true">→</span></div></div>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Dijital defter · Türkçe + English<br><i class="tn">Tanışma fiyatı, 10 Aralık'a kadar</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
    <a class="city rv" href="https://amasra.ugrakjournal.com/satin-al">
     <div class="art"><img src="../g/amasra-kemere.webp" alt="Kemere Köprüsü gravürü" loading="lazy"><span class="ribbon"></span><span class="no">No. 02</span></div>
     <div class="body"><h3>Amasra<small>İki limanlı küçük kasaba</small></h3><p>Kale, Kemere Köprüsü, Boztepe Feneri ve Çekiciler Çarşısı. Üç sesli anlatım, Amasradoku.</p>
-     <div class="row"><div class="price"><b>390 TL</b><span>tanışma fiyatı · TR + EN</span></div><span class="go" aria-hidden="true">→</span></div></div>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Dijital defter · Türkçe + English<br><i class="tn">Tanışma fiyatı, 10 Aralık'a kadar</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
    <a class="city rv" href="https://kapadokya.ugrakjournal.com/satin-al">
     <div class="art"><img src="../g/kapadokya-balon.webp" alt="Kapadokya balonları gravürü" loading="lazy"><span class="ribbon"></span><span class="no">No. 03</span></div>
     <div class="body"><h3>Kapadokya<small>Peribacaları, vadiler, balonlar</small></h3><p>Göreme, Uçhisar, vadiler ve yeraltı şehirleri. Yirmiden fazla çıkartma ve bilgi yarışması.</p>
-     <div class="row"><div class="price"><b>390 TL</b><span>tanışma fiyatı · TR + EN</span></div><span class="go" aria-hidden="true">→</span></div></div>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Dijital defter · Türkçe + English<br><i class="tn">Tanışma fiyatı, 10 Aralık'a kadar</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
   </div>
   <div class="cities-foot"><span>Ödemeden hemen sonra kod ekranda ve e-postada · 2 cihazda çalışır · ilk açılıştan sonra internetsiz.</span><span>Koşullar: <a href="https://sinop.ugrakjournal.com/bilgilendirme">Sinop</a> · <a href="https://amasra.ugrakjournal.com/bilgilendirme">Amasra</a> · <a href="https://kapadokya.ugrakjournal.com/bilgilendirme">Kapadokya</a></span></div>
@@ -440,7 +441,11 @@ body.kis .hero-eyebrow-def{display:none}
  var scr=[].slice.call(document.querySelectorAll('.phone .scr img')),pan=[].slice.call(document.querySelectorAll('.pano img')),nm=['Sinop Journal','Amasra Journal','Kapadokya Journal'],cn=document.getElementById('cityname'),i=0;
  var panSet=[0,1,2];
  var au=['Sinop\'u dinle · TR + EN','Amasra\'yı dinle · TR + EN','Kapadokya\'yı dinle · TR + EN'],ae=document.getElementById('aud');
- if(!rm)setInterval(function(){scr[i].classList.remove('on');i=(i+1)%3;scr[i].classList.add('on');cn.textContent=nm[i];ae.textContent=au[i];},4200);
+ var dt=[].slice.call(document.querySelectorAll('.dots3 button'));function go(k){scr[i].classList.remove('on');dt[i].classList.remove('on');i=k;scr[i].classList.add('on');dt[i].classList.add('on');cn.textContent=nm[i];ae.textContent=au[i];}
+ var tm=rm?null:setInterval(function(){go((i+1)%3)},6500);
+ dt.forEach(function(b,k){b.addEventListener('click',function(){go(k);if(tm){clearInterval(tm);tm=null;}})});
+ // tanışma fiyatı 11 Aralık 2026'da kendiliğinden biter
+ if(d>=new Date(2026,11,11)){[].forEach.call(document.querySelectorAll('.tn'),function(e){e.style.display='none'});[].forEach.call(document.querySelectorAll('.pr'),function(e){e.textContent='790 TL'});}
  // atlas görseli
  var ai=[].slice.call(document.querySelectorAll('.atlas-art img')),cap=document.getElementById('atlascap'),caps=['Sinop · Kotra','Amasra · Kale','Kapadokya · Peribacaları','Sinop · Diyojen'];
  [].forEach.call(document.querySelectorAll('.index li'),function(li){var k=+li.dataset.img;function s(){ai.forEach(function(x,j){x.classList.toggle('on',j===k)});cap.textContent=caps[k];}li.addEventListener('mouseenter',s);li.addEventListener('focusin',s);});

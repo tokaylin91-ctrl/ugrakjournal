@@ -275,9 +275,9 @@ body.pvon #pal{z-index:49}
 .alb{display:flex;flex-direction:column;align-items:center;gap:1mm;text-align:center}.alb em{font:600 7pt/1.1 'Grandstander';color:#5E2318;font-style:normal}.alb.lk em{color:#B9A58F}
 #stkbtn{display:flex;align-items:center;justify-content:center;gap:2mm;background:#E8B53A;color:#5E2318;border-bottom-color:#8A5A12;font-size:12.5pt;padding:2.6mm}#stkbtn b{background:#fff;border-radius:3mm;padding:0 2mm;font-size:10pt}
 .pk{position:absolute;z-index:6;transform:translate(-50%,-50%) rotate(-6deg);pointer-events:none}.pk .stk{width:16mm;height:16mm}
-body.stk .page.on .pk{pointer-events:auto;cursor:grab;touch-action:none}
+body.stkm .page.on .pk{pointer-events:auto;cursor:grab;touch-action:none}
 .pkx{display:none;position:absolute;right:-2mm;top:-2mm;width:7mm;height:7mm;border-radius:50%;border:0;background:#5E2318;color:#fff;font:700 12pt/1 sans-serif;cursor:pointer;padding:0}
-body.stk .pk .pkx{display:block}body.stk .pk.sel .stk{box-shadow:0 0 0 .8mm #CB410B}
+body.stkm .pk .pkx{display:block}body.stkm .pk.sel .stk{box-shadow:0 0 0 .8mm #CB410B}
 #tray{position:fixed;left:0;right:0;bottom:0;z-index:49;background:#FBF6EC;border-top:2.5px solid #5E2318;padding:10px max(12px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:8px;font:600 14px 'Grandstander',sans-serif;color:#5E2318}
 #tray[hidden]{display:none}#tray .row{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 6px}#tray .tk{border:0;background:none;padding:0;cursor:pointer;flex:none}#tray .tk .stk{width:50px;height:50px;border-width:3px}
 #tray a.tl{display:inline-flex;align-items:center;text-decoration:none}
@@ -706,7 +706,7 @@ pal.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)
   else if(b.dataset.u){if(mode==='draw'&&cur){strokes[cur.id].pop();S.set('d_'+cur.id,strokes[cur.id]);drawStrokes(cur)}else if(mode==='paint'&&PP){PP.undo();pvDraw()}}
   buildPal()});
 function setMode(m){if(m==='paint'&&color==='#2C4A6B')color='#9DCCD0';if(m==='draw'&&color==='#9DCCD0')color='#2C4A6B';mode=m;document.body.classList.toggle('draw',m==='draw');document.body.classList.toggle('paint',m==='paint');
-  $('#bD').classList.toggle('on',m==='draw');$('#bP').classList.toggle('on',m==='paint');var kb=$('#bK');if(kb)kb.classList.toggle('on',m==='stk');document.body.classList.toggle('stk',m==='stk');
+  $('#bD').classList.toggle('on',m==='draw');$('#bP').classList.toggle('on',m==='paint');var kb=$('#bK');if(kb)kb.classList.toggle('on',m==='stk');document.body.classList.toggle('stkm',m==='stk');
   pal.hidden=!(m==='draw'||m==='paint');var tr=$('#tray');if(tr){tr.hidden=m!=='stk';if(m==='stk')buildTray()}if(m==='draw'||m==='paint'){eraser=false;buildPal()}
   if(document.activeElement&&document.activeElement.blur)document.activeElement.blur()}
 var sound=S.get('ses',1);function sndUI(){document.body.classList.toggle('mute',!sound)}sndUI();$('#bS').addEventListener('click',function(){sound=sound?0:1;S.set('ses',sound);sndUI();if(!sound)stopSpeech();else chime(1);toast(sound?'Sesler açık.':'Sesler kapalı. Dinle düğmesi yine çalışır.')});

@@ -527,7 +527,7 @@ html,body{overflow-x:hidden;max-width:100vw}
  </div>
  <p class="nsm">Ölçen kâşif: farklı adım sayıları beklenen sonuçtur; amaç ortak ölçü birimine neden ihtiyaç duyulduğunu keşfetmektir. Hikâye, tasarım ve ters dünya sayfalarında her fikir geçerli.</p>
  <div class="navrow"><a class="btn iz" href="#icindekiler">◀ Görevlere dön</a></div></section></div>
-<script>window.MCONF={"key": "merak910", "start": "kapak", "toc": "icindekiler", "ses": ["02a3f82ba1", "0aaed5d337", "111c1b2058", "1249de48bb", "2e61ba78e2", "6926fdd5de", "6d6c6c4448", "8a6c9c4eda", "bec4494414", "c347047a1b", "c6116ad664", "cb665dd870", "cheer-0", "cheer-1", "cheer-2", "cheer-3", "cheer-4", "cheer-5", "e3e18b7678"], "title": "Martı'nın Merak Defteri", "yas": "9–10 yaş"};</script>
+<script>window.MCONF={"key": "merak910", "start": "kapak", "toc": "icindekiler", "ses": ["02a3f82ba1", "0aaed5d337", "111c1b2058", "1249de48bb", "2e61ba78e2", "6926fdd5de", "6d6c6c4448", "8a6c9c4eda", "bec4494414", "c347047a1b", "c6116ad664", "cb665dd870", "cheer-0", "cheer-1", "cheer-2", "cheer-3", "cheer-4", "cheer-5", "e3e18b7678", "tur-0", "tur-1", "tur-2", "tur-3", "tur-4", "tur-5", "tur-6", "tur-7"], "title": "Martı'nın Merak Defteri", "yas": "9–10 yaş"};</script>
 <script>(function(){
 'use strict';
 var C=window.MCONF,P='m_'+C.key+'_';
@@ -773,7 +773,7 @@ function tour(){var back=cur?cur.id:C.start,demo=null;for(var i=0;i<pages.length
     var hole=r?'<div class="th" style="left:'+(r.left-6)+'px;top:'+(r.top-6)+'px;width:'+(r.width+12)+'px;height:'+(r.height+12)+'px"></div>':'<div class="th none"></div>';
     var low=r&&r.top>window.innerHeight*.5;var mi=$('.say img');
     ov.innerHTML=hole+'<div class="tc2'+(low?' up':'')+'">'+(mi?'<img src="'+mi.getAttribute('src')+'" alt="">':'')+'<p>'+t[1]+'</p><div class="tb2"><button type="button" class="tl" data-s="1">geç</button><span>'+(i+1)+' / '+TOURS.length+'</span><button type="button" class="tl ok" data-n="1">'+(i===TOURS.length-1?'Başla ▶':'İleri ▶')+'</button></div></div>';
-    if(sound&&!C.ses.length&&'speechSynthesis' in window){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t[1]);u.lang='tr-TR';if(voice)u.voice=voice;u.pitch=1.15;speechSynthesis.speak(u)}catch(e){}}}
+    if(sound&&C.ses.indexOf('tur-'+i)>=0){try{stopSpeech();aud=new Audio('ses/tur-'+i+'.mp3');aud.play().catch(function(){})}catch(e){}}else if(sound&&!C.ses.length&&'speechSynthesis' in window){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t[1]);u.lang='tr-TR';if(voice)u.voice=voice;u.pitch=1.15;speechSynthesis.speak(u)}catch(e){}}}
   function end(){ov.remove();S.set('tur',1);stopSpeech();location.hash=back}
   ov.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.s){end();return}if(b.dataset.n){i++;if(i>=TOURS.length)end();else{tick();step()}}});
   setTimeout(step,450)}

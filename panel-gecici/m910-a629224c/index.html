@@ -167,7 +167,7 @@ html,body{margin:0;background:#E9DFCF;-webkit-text-size-adjust:100%;overscroll-b
 body{min-height:100dvh;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
 img{-webkit-user-drag:none;user-drag:none;pointer-events:auto}
 #app{width:calc(92mm * var(--z,1));margin:0 auto;position:relative}
-.page{display:none!important;zoom:var(--z,1);height:auto!important;min-height:max(200mm,calc(100dvh / var(--z,1)));overflow:hidden;page-break-after:auto;padding-bottom:calc(16mm + env(safe-area-inset-bottom,0px)/var(--z,1))!important}
+.page{display:none!important;zoom:var(--z,1);height:auto!important;min-height:calc(100dvh / var(--z,1));overflow:hidden;page-break-after:auto;padding-bottom:calc(16mm + env(safe-area-inset-bottom,0px)/var(--z,1))!important}
 .page.on{display:flex!important;animation:pin .38s cubic-bezier(.2,.8,.2,1)}
 .page.cover.on,.page.dark.on{padding-bottom:0!important}
 @keyframes pin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
@@ -235,6 +235,22 @@ body.paint .pw canvas{pointer-events:auto;touch-action:manipulation}
 #a2hs[hidden]{display:none}#a2hs b{color:#F6E7B8}#a2hs button{position:absolute;right:8px;top:8px;width:30px;height:30px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:18px;cursor:pointer}
 @media (min-width:700px){body{background:#D8CBB6}#app{box-shadow:0 0 0 1px rgba(0,0,0,.06),0 20px 60px rgba(0,0,0,.12)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+#a2hs.tip{font-size:13px;padding:9px 40px 9px 12px;border-radius:14px}
+#a2hs.toast{bottom:auto;top:calc(62px + env(safe-area-inset-top));background:#5E2318;box-shadow:0 3px 0 #2b120c}
+.sw{width:42px;height:42px}.tl{height:42px;font-size:15px;padding:0 13px}.tl.ok{background:#CB410B;border-color:#CB410B;color:#fff}
+#pal{gap:9px}
+body.mute #bS .w{display:none}#bS .x{display:none}body.mute #bS .x{display:inline}
+body.mute .sesb{opacity:.85}
+#cheer{position:fixed;left:50%;top:38%;transform:translate(-50%,-50%);z-index:62;display:flex;align-items:center;gap:10px;background:#FBF6EC;border:3px solid #5E2318;border-radius:22px;box-shadow:0 5px 0 #5E2318;padding:10px 18px 10px 10px;font:800 19px/1.2 'Grandstander',sans-serif;color:#CB410B;animation:chin .45s cubic-bezier(.2,1.6,.4,1),chout .4s ease-in 2.2s forwards;pointer-events:none;max-width:86vw}
+#cheer img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid #D9C7AE;background:#fff;animation:bob 1s ease-in-out infinite}
+@keyframes chin{from{transform:translate(-50%,-50%) scale(.4);opacity:0}}@keyframes chout{to{transform:translate(-50%,-80%) scale(.9);opacity:0}}
+
+#pal{flex-wrap:nowrap;flex-direction:column;align-items:stretch;gap:8px}
+#pal .row{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}#pal .row::-webkit-scrollbar{display:none}
+#pal .sw{flex:none}#pal .tl{flex:none}#palh{margin:0}
+#gate .a2{margin-top:12px;background:#EAF3F3;border:2px dashed #2F6F73;border-radius:12px;padding:8px 10px;font-size:13.5px;line-height:1.35;color:#24504f}#gate .a2 b{color:#2F6F73}
+.page.cover,.page.dark{min-height:max(200mm,calc(100dvh / var(--z,1)))}
 </style></head><body>
 <div id="app"><section class="page cover c9" id="kapak" style=""><div class="moon"></div><div class="hill h1"></div><div class="hill h2"></div>
  <div class="badge b9">9–10<br><small>yaş</small></div>
@@ -244,11 +260,12 @@ body.paint .pw canvas{pointer-events:auto;touch-action:manipulation}
  <div class="cpill p9">24 görev · şifre · kanıt · harita</div>
  <a class="btn start" href="#buyukler">Keşfe başla ▶</a></section><section class="page plain" id="buyukler" style=""><h2 class="ph">Büyükler için · Kısaca</h2><div class="prose">
  <p><b>Nasıl kullanılır?</b> Düğmeler görevler arasında gezdirir. Çizgilere dokununca yazılır, kutulara dokununca ✓ çıkar.</p>
- <p><b>Kalem ve boya:</b> sağ alttaki kalemle her sayfaya çizilir; resimlerde 🎨 ile dokunduğun yer boyanır.</p>
+ <p><b>Kalem ve boya:</b> sağ üstteki kalemle sayfaya çizilir; boya düğmesiyle resimde dokunduğun alan boyanır. Ses düğmesi efektleri açar/kapatır.</p>
  <p><b>Dinle:</b> Martı'nın konuşma balonundaki 🔊 düğmesi yönergeyi sesli okur.</p>
  <p><b>Sıra yok.</b> Çocuğunuz Görevler sayfasından istediğini seçsin.</p>
  <p><b>Dışarıdaki görevlerde</b> (adım ölçme, müze, duyu haritası) bir büyük eşlik etsin. Pencere gözlemi kapalı pencere arkasından yapılır.</p>
  <p><b>Cevaplar</b> en sondaki mühürlü zarfta. Önce kendisi denesin.</p>
+ <p><b>Ana ekrana ekle:</b> iPhone'da Safari → Paylaş → Ana Ekrana Ekle; Android'de tarayıcı menüsü → Ana ekrana ekle. Defter uygulama gibi açılır, internetsiz çalışır.</p>
  <p><b>Ne saklanıyor?</b> Yazılanlar ve çizimler yalnızca bu cihazda kalır; bize gelmez. Reklam, takip, satın alma düğmesi yoktur.</p>
  <p class="small">Etkinlik defteridir; test ya da tanı aracı değildir. Yalnızca satın alan ailenin kişisel kullanımı içindir. Kopyalanamaz, paylaşılamaz. © 2026 Uğrak.</p></div>
  <div class="navrow"><a class="btn iz" href="#kart">Çocuğa geç ▶</a></div></section><section class="page toc9" id="icindekiler" style=""><h2 class="ph tch">Görevler</h2><p class="lead s2">Bir göreve dokun. Sıra yok, istediğinden başla!</p>
@@ -490,8 +507,8 @@ function show(id,back){
   var p=document.getElementById(id);if(!p||!p.classList.contains('page'))p=document.getElementById(C.start);
   if(cur===p)return;if(cur)cur.classList.remove('on','back');
   p.classList.add('on');if(back)p.classList.add('back');cur=p;window.scrollTo(0,0);
-  S.set('son',p.id);stopSpeech();ensureCanvas(p);
-  var dark=p.classList.contains('cover')||p.classList.contains('dark');
+  S.set('son',p.id);stopSpeech();ensureCanvas(p);var tp=$('#a2hs.tip');if(tp&&!p.classList.contains('cover')){tp.remove();S.set('a2hs',1)}
+  var dark=p.classList.contains('cover')||p.classList.contains('dark')||p.classList.contains('plain')||p.classList.contains('toc9');
   $('#tb').hidden=dark;if(dark){setMode(null)}
   var m=$('meta[name=theme-color]');if(m)m.content=getComputedStyle(p).backgroundColor||'#FBF6EC';
 }
@@ -538,7 +555,7 @@ $$('.bub[data-ses]').forEach(function(b){
 /* ---------- çizim ---------- */
 var mode=null,color='#2C4A6B',width=3,eraser=false;
 var COLORS=['#2C4A6B','#3E8FB0','#9DCCD0','#4E8B4A','#A8D08D','#E8B53A','#F3D58E','#CB410B','#F2C3A6','#E58AA8','#B89AD6','#8A5A3C','#222222'];
-var strokes={};
+var strokes={},armed=false,armT;
 function ensureCanvas(p){
   if(p.__cv)return;var cv=el('canvas',{'class':'dcv'});p.appendChild(cv);p.__cv=cv;
   strokes[p.id]=S.get('d_'+p.id,[]);sizeCanvas(p);drawStrokes(p);
@@ -593,51 +610,63 @@ $$('img[data-paint]').forEach(function(img){
 /* ---------- araç çubuğu ---------- */
 var PEN='<svg viewBox="0 0 24 24" fill="none" stroke="#5E2318" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.2-4.6L16 4.6a2 2 0 0 1 2.8 0l.6.6a2 2 0 0 1 0 2.8L8.6 18.8z"/><path d="M14 7l3 3"/></svg>';
 var BRUSH='<svg viewBox="0 0 24 24" fill="none" stroke="#5E2318" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 2-2 0-1.4-1-1.6-1-3 0-1.2 1-2 2.2-2H17a4 4 0 0 0 4-4c0-3.9-4-7-9-7z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7" r="1.2"/></svg>';
-var tb=el('div',{id:'tb'});tb.innerHTML='<button class="fab" id="bP" aria-label="Boya" type="button">'+BRUSH+'</button><button class="fab" id="bD" aria-label="Kalem" type="button">'+PEN+'</button>';document.body.appendChild(tb);
+var SND='<svg viewBox="0 0 24 24" fill="none" stroke="#5E2318" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/><path class="x" d="M16 9l6 6M22 9l-6 6"/></svg>';
+var tb=el('div',{id:'tb'});tb.innerHTML='<button class="fab" id="bS" aria-label="Ses" type="button">'+SND+'</button><button class="fab" id="bP" aria-label="Boya" type="button">'+BRUSH+'</button><button class="fab" id="bD" aria-label="Kalem" type="button">'+PEN+'</button>';document.body.appendChild(tb);
 var pal=el('div',{id:'pal'});pal.hidden=true;document.body.appendChild(pal);
-function buildPal(){pal.innerHTML='<div id="palh"></div>'+COLORS.map(function(c){return '<button class="sw'+(c===color&&!eraser?' on':'')+'" style="background:'+c+'" data-c="'+c+'" type="button"></button>'}).join('')+
+function buildPal(){pal.innerHTML='<div id="palh"></div><div class="row">'+COLORS.map(function(c){return '<button class="sw'+(c===color&&!eraser?' on':'')+'" style="background:'+c+'" data-c="'+c+'" type="button"></button>'}).join('')+'</div><div class="row">'+
   (mode==='draw'?'<button class="tl'+(width===3&&!eraser?' on':'')+'" data-w="3" type="button">ince</button><button class="tl'+(width===7&&!eraser?' on':'')+'" data-w="7" type="button">kalın</button>':'')+
-  '<button class="tl'+(eraser?' on':'')+'" data-e="1" type="button">silgi</button><button class="tl" data-u="1" type="button">geri al</button>';
+  '<button class="tl'+(eraser?' on':'')+'" data-e="1" type="button">silgi</button><button class="tl" data-u="1" type="button">↶ geri al</button><button class="tl" data-x="1" type="button">'+(armed?'emin misin? dokun':'sayfayı temizle')+'</button><button class="tl ok" data-k="1" type="button">bitti ✓</button></div>';
   $('#palh').textContent=mode==='draw'?'Kalem: sayfanın istediğin yerine çiz.':'Boya: resimde bir alana dokun, o alan boyansın.';}
 pal.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
   if(b.dataset.c){color=b.dataset.c;eraser=false}else if(b.dataset.w){width=+b.dataset.w;eraser=false}else if(b.dataset.e){eraser=!eraser}
+  else if(b.dataset.k){setMode(null);return}
+  else if(b.dataset.x){if(!armed){armed=true;clearTimeout(armT);armT=setTimeout(function(){armed=false;if(mode)buildPal()},3000)}else{armed=false;if(cur){if(mode==='draw'){strokes[cur.id]=[];S.set('d_'+cur.id,[]);drawStrokes(cur)}else{$$('.pw',cur).forEach(function(w){if(w.__clear)w.__clear()})}}}}
   else if(b.dataset.u){if(mode==='draw'&&cur){strokes[cur.id].pop();S.set('d_'+cur.id,strokes[cur.id]);drawStrokes(cur)}else if(mode==='paint'&&cur){var ws=$$('.pw',cur);for(var i=ws.length-1;i>=0;i--){if(ws[i].__undo){ws[i].__undo();break}}}}
   buildPal()});
 function setMode(m){if(m==='paint'&&color==='#2C4A6B')color='#9DCCD0';if(m==='draw'&&color==='#9DCCD0')color='#2C4A6B';mode=m;document.body.classList.toggle('draw',m==='draw');document.body.classList.toggle('paint',m==='paint');
   $('#bD').classList.toggle('on',m==='draw');$('#bP').classList.toggle('on',m==='paint');pal.hidden=!m;if(m){eraser=false;buildPal()}
   if(document.activeElement&&document.activeElement.blur)document.activeElement.blur()}
+var sound=S.get('ses',1);function sndUI(){document.body.classList.toggle('mute',!sound)}sndUI();$('#bS').addEventListener('click',function(){sound=sound?0:1;S.set('ses',sound);sndUI();if(!sound)stopSpeech();else chime(1);toast(sound?'Sesler açık.':'Sesler kapalı. Dinle düğmesi yine çalışır.')});
 $('#bD').addEventListener('click',function(){setMode(mode==='draw'?null:'draw')});
 $('#bP').addEventListener('click',function(){if(mode!=='paint'&&cur&&!$('img[data-paint]',cur)){toast('Bu sayfada boyanacak resim yok. Kalemle çizebilirsin!');return}setMode(mode==='paint'?null:'paint')});
 
 /* ---------- kutlama ---------- */
-var tk=0;function tick(){var n=Date.now();if(n-tk<120)return;tk=n;try{if(navigator.vibrate)navigator.vibrate(8)}catch(e){}}
+var AC=null;function chime(kind){if(!sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();var t0=AC.currentTime,notes=kind===2?[659,784,988,1319]:kind===1?[880,1175]:[1047];
+  notes.forEach(function(f,i){var o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t0+i*.09);g.gain.linearRampToValueAtTime(.18,t0+i*.09+.01);g.gain.exponentialRampToValueAtTime(.001,t0+i*.09+.5);o.connect(g);g.connect(AC.destination);o.start(t0+i*.09);o.stop(t0+i*.09+.55)})}catch(e){}}
+var tk=0;function tick(){var n=Date.now();if(n-tk<120)return;tk=n;chime(0);try{if(navigator.vibrate)navigator.vibrate(8)}catch(e){}}
+var CHEER=['Harika iş, kâşif!','Bu izi de buldun!','Kanıtların sağlam, aferin!','Bir görev daha tamam!','Merakın pusulan oldu!','Ben bile bu kadar dikkatli bakamazdım!'];
+function cheer(){var m=CHEER[Math.floor(Math.random()*CHEER.length)];var c=el('div',{id:'cheer'},'<img src="'+($('.say img')?$('.say img').getAttribute('src'):'')+'" alt=""><span>'+m+'</span>');var o=$('#cheer');if(o)o.remove();document.body.appendChild(c);setTimeout(function(){if(c.parentNode)c.remove()},2600);
+  chime(2);if(sound&&'speechSynthesis' in window){try{var u=new SpeechSynthesisUtterance(m);u.lang='tr-TR';if(voice)u.voice=voice;u.pitch=1.2;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}}
 function konfeti(x,y){var cs=['#CB410B','#F3D58E','#2C4A6B','#4E8B4A','#E58AA8','#3E8FB0'];for(var i=0;i<26;i++){var k=el('i',{'class':'konf'});k.style.left=x+'px';k.style.top=y+'px';k.style.background=cs[i%cs.length];
   var a=Math.random()*Math.PI*2,d=80+Math.random()*140;k.style.setProperty('--dx',Math.cos(a)*d+'px');k.style.setProperty('--dy',(Math.sin(a)*d-60)+'px');k.style.setProperty('--r',(Math.random()*720-360)+'deg');document.body.appendChild(k);setTimeout(k.remove.bind(k),1400)}}
 var GULLSVG=$('.cgull svg')?$('.cgull svg').outerHTML:'';
 function ucur(){if(!GULLSVG)return;var u=el('div',{'class':'ucan'},GULLSVG);var s=$('svg',u);if(s){s.style.width='100%';s.style.height='auto';$$('path',s).forEach(function(p){p.setAttribute('fill','#5E2318')})}document.body.appendChild(u);setTimeout(u.remove.bind(u),2300)}
 document.addEventListener('click',function(e){var a=e.target.closest('a.btn');if(!a)return;var t=a.textContent;
-  if(/Sonraki görev|buldum|tamam|bitti|✓/i.test(t)){var r=a.getBoundingClientRect();konfeti(r.left+r.width/2,r.top);ucur()}});
+  if(/Sonraki görev|buldum|tamam|bitti|✓/i.test(t)){var r=a.getBoundingClientRect();konfeti(r.left+r.width/2,r.top);ucur();setTimeout(cheer,350)}});
 
 /* ---------- mesaj ---------- */
-function toast(m){var t=el('div',{id:'a2hs'},m+'<button type="button" aria-label="Kapat">×</button>');var o=$('#a2hs');if(o)o.remove();document.body.appendChild(t);$('button',t).onclick=function(){t.remove()};setTimeout(function(){if(t.parentNode)t.remove()},4200)}
+function toast(m){var t=el('div',{id:'a2hs','class':'toast'},m+'<button type="button" aria-label="Kapat">×</button>');var o=$('#a2hs');if(o)o.remove();document.body.appendChild(t);$('button',t).onclick=function(){t.remove()};setTimeout(function(){if(t.parentNode)t.remove()},4200)}
 
 /* ---------- kod ekranı ---------- */
 var standalone=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone;
-function a2hs(){if(standalone||S.get('a2hs',0))return;var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
-  var t=el('div',{id:'a2hs'},(ios?'<b>Ana ekrana ekle:</b> Safari’de Paylaş düğmesine, sonra “Ana Ekrana Ekle”ye dokun. Defter uygulama gibi açılır, internetsiz de çalışır.':'<b>Ana ekrana ekle:</b> Tarayıcı menüsünden (⋮) “Ana ekrana ekle”ye dokun. Defter uygulama gibi açılır, internetsiz de çalışır.')+'<button type="button" aria-label="Kapat">×</button>');
+function a2hs(){if(standalone||S.get('a2hs',0)||!cur||!cur.classList.contains('cover'))return;var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  var t=el('div',{id:'a2hs','class':'tip'},(ios?'<b>Ana ekrana ekle:</b> Safari’de Paylaş düğmesine, sonra “Ana Ekrana Ekle”ye dokun. Defter uygulama gibi açılır, internetsiz de çalışır.':'<b>Ana ekrana ekle:</b> Tarayıcı menüsünden (⋮) “Ana ekrana ekle”ye dokun. Defter uygulama gibi açılır, internetsiz de çalışır.')+'<button type="button" aria-label="Kapat">×</button>');
   document.body.appendChild(t);$('button',t).onclick=function(){t.remove();S.set('a2hs',1)}}
 function normCode(x){var r=x.toLocaleUpperCase('tr-TR').replace(/İ/g,'I').replace(/[^A-Z0-9]/g,'');return r.length===11?r.slice(0,3)+'-'+r.slice(3,7)+'-'+r.slice(7):x.trim().toUpperCase()}
-function start(){var id=location.hash.slice(1)||S.get('son',C.start);hist=[id];show(id);if(location.hash.slice(1)!==id)history.replaceState(null,'','#'+id);setTimeout(a2hs,1500)}
+function start(){var id=location.hash.slice(1)||S.get('son',C.start);hist=[id];show(id);if(location.hash.slice(1)!==id)history.replaceState(null,'','#'+id);}
 var g=el('div',{id:'gate'});g.innerHTML='<div class="gc"><div class="gull">'+(GULLSVG||'')+'</div><h1>'+C.title.replace("'","’")+'</h1><span class="yas">'+C.yas+'</span>'+
   '<p style="margin:14px 0 0">Defterini açmak için e-postana gelen kodu yaz. Bir kez yazman yeter; bu cihaz hatırlar.</p>'+
   '<form id="gf" novalidate><input id="gk" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="MRT-XXXX-XXXX" maxlength="16" inputmode="text"><button type="submit">Defterimi aç ▶</button><div class="msg" id="gm"></div></form>'+
-  '<small>Hesap, isim ya da konum istenmez. Yazılanlar yalnızca bu cihazda kalır. Kod tek aileye özeldir.</small></div>';
+  '<div class="a2" id="ga2"></div><small>Hesap, isim ya da konum istenmez. Yazılanlar yalnızca bu cihazda kalır. Kod tek aileye özeldir.</small></div>';
 document.body.appendChild(g);
+(function(){var ios=/iphone|ipad|ipod/i.test(navigator.userAgent);var a=$('#ga2');if(standalone){a.remove();return}a.innerHTML='<b>İpucu:</b> '+(ios?'Safari’de Paylaş → “Ana Ekrana Ekle”':'tarayıcı menüsü (⋮) → “Ana ekrana ekle”')+'. Defter uygulama gibi açılır, internetsiz de çalışır.'})();
 var gs=$('svg',g);if(gs){gs.style.width='100%';gs.style.height='auto'}
 if(S.get('kod','')){g.hidden=true;start()}
 $('#gf').addEventListener('submit',function(e){e.preventDefault();var v=normCode($('#gk').value);$('#gk').value=v;var m=$('#gm');
+  var lk=S.get('kilit',0);if(Date.now()<lk){m.textContent='Çok fazla deneme oldu. Bir dakika sonra yeniden dene.';return}
   if(!/^MRT-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(v)){m.textContent='Kod MRT-XXXX-XXXX biçiminde olmalı.';return}
-  if(v!=='MRT-DENE-2027'){m.textContent='Bu kod tanınmadı. Harfleri ve rakamları kontrol et.';return}
+  if(v!=='MRT-DENE-2027'){var n=S.get('hata',0)+1;S.set('hata',n);if(n>=5){S.set('kilit',Date.now()+60000);S.set('hata',0)}m.textContent='Bu kod tanınmadı. Harfleri ve rakamları kontrol et; olmazsa bir büyüğüne sor.';return}
+  S.set('hata',0);
   S.set('kod',v);g.hidden=true;start();var r=$('#app').getBoundingClientRect();konfeti(window.innerWidth/2,window.innerHeight/2)});
 
 /* ---------- çevrimdışı ---------- */

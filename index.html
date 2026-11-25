@@ -248,7 +248,8 @@ body.kis .hero-eyebrow-def{display:none}
 .sprig{position:absolute;pointer-events:none;color:var(--altin);opacity:.8}
 .sprig.s1{left:-6px;top:110px;width:120px}
 .sprig.s2{right:2%;top:40px;width:70px}
-@media(max-width:900px){body.kis .sprig.s1{display:none}.sprig.s2{width:44px;top:96px;right:14px}}
+@media(max-width:900px){body.kis .sprig.s1,body.kis .sprig.s2{display:none}}
+body.kis .hero{padding-top:96px}@media(max-width:900px){body.kis .hero{padding-top:104px}}
 
 /* ===== YILBAŞI (coşkulu) ===== */
 body.kis header{background:rgba(42,14,9,.94);border-color:rgba(233,194,122,.25)}
@@ -487,13 +488,18 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
   if(m!==0&&ge)ge.textContent='Yeni yıla '+gs+' gün kaldı.';else if(ge)ge.textContent='Mutlu yıllar! Yeni yılda yeni şehirler yolda.';
   // yıldızlar
   var hero=document.querySelector('.hero');
-  for(var k=0;k<16;k++){var st=document.createElement('span');st.className='tw';st.setAttribute('aria-hidden','true');st.innerHTML='<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>';st.style.left=(Math.random()*96)+'%';st.style.top=(8+Math.random()*60)+'%';st.style.animationDelay=(Math.random()*3)+'s';var z=8+Math.random()*10;st.style.width=st.style.height=z+'px';hero.appendChild(st);}
+  // yazı alanları: süs ve kar bunların üstüne binmez
+  function boxes(){var hr=hero.getBoundingClientRect(),out=[];[].forEach.call(hero.querySelectorAll('.hero-grid h1,.hero-grid .eyebrow,.hero-grid .lede,.hero-grid .ctas,.hero-grid .ticker,.tag,.phone,.cityname,.dots3'),function(e){if(e.offsetParent===null)return;var r=e.getBoundingClientRect();out.push([r.left-hr.left-16,r.top-hr.top-16,r.right-hr.left+16,r.bottom-hr.top+16])});return out}
+  function free(x,y,bx){for(var i=0;i<bx.length;i++){var b=bx[i];if(x>b[0]&&x<b[2]&&y>b[1]&&y<b[3])return false}return true}
+  var BX=boxes(),HW=hero.clientWidth,HH=hero.clientHeight,placed=0,tries=0;
+  while(placed<(HW<700?8:14)&&tries<400){tries++;var x=Math.random()*HW,y=40+Math.random()*(HH*.72);if(!free(x,y,BX))continue;var st=document.createElement('span');st.className='tw';st.setAttribute('aria-hidden','true');st.innerHTML='<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>';st.style.left=x+'px';st.style.top=y+'px';st.style.animationDelay=(Math.random()*3)+'s';var z=8+Math.random()*9;st.style.width=st.style.height=z+'px';hero.appendChild(st);placed++;}
   // hafif kar (yalnız kahraman)
   var cv=document.getElementById('snow');
   if(cv&&!rm){var cx=cv.getContext('2d'),fl=[],W,H,dpr=Math.min(2,window.devicePixelRatio||1);
    function rs(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}rs();addEventListener('resize',rs);
    var N=W<700?40:80;for(var j=0;j<N;j++)fl.push({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*2.2,v:.25+Math.random()*.6,o:Math.random()*6});
-   (function f(){cx.clearRect(0,0,W,H);for(var j=0;j<fl.length;j++){var p=fl[j];p.y+=p.v;p.o+=.01;p.x+=Math.sin(p.o)*.3;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fillStyle='rgba(255,248,236,'+(.35+p.r/6)+')';cx.fill()}requestAnimationFrame(f)})();}
+   addEventListener('resize',function(){BX=boxes()});
+   (function f(){cx.clearRect(0,0,W,H);for(var j=0;j<fl.length;j++){var p=fl[j];p.y+=p.v;p.o+=.01;p.x+=Math.sin(p.o)*.3;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}if(!free(p.x,p.y,BX))continue;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fillStyle='rgba(255,248,236,'+(.35+p.r/6)+')';cx.fill()}requestAnimationFrame(f)})();}
  }
 
  // header gölgesi

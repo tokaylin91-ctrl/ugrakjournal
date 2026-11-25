@@ -66,7 +66,7 @@ header.sc{border-color:var(--cizgi)}
 .phone .scr img.on{opacity:1}
 .phone::before{content:"";position:absolute;top:22px;left:50%;width:84px;height:24px;margin-left:-42px;border-radius:20px;background:#1d1410;z-index:2}
 @keyframes float{50%{transform:translateY(-10px)}}
-.tag{position:absolute;z-index:4;background:var(--kagit);border:1px solid var(--cizgi);border-radius:14px;padding:10px 14px;font:500 13.5px/1.35 var(--sans);box-shadow:0 14px 30px -18px rgba(67,23,15,.5)}
+.tag{position:absolute;z-index:4;color:var(--grav);background:var(--kagit);border:1px solid var(--cizgi);border-radius:14px;padding:10px 14px;font:500 13.5px/1.35 var(--sans);box-shadow:0 14px 30px -18px rgba(67,23,15,.5)}
 .tag b{display:block;font:500 17px/1.2 var(--serif)}
 .tag.t1{left:0;top:110px}.tag.t2{left:0;bottom:160px;max-width:168px}
 .tag .wave{display:flex;gap:3px;align-items:center;height:16px;margin-top:6px}
@@ -245,10 +245,48 @@ body.kis .hero-eyebrow-def{display:none}
 .sprig.s1{left:-6px;top:110px;width:120px}
 .sprig.s2{right:2%;top:40px;width:70px}
 @media(max-width:900px){body.kis .sprig.s1{display:none}.sprig.s2{width:44px;top:96px;right:14px}}
+
+/* ===== YILBAŞI (coşkulu) ===== */
+body.kis header{background:rgba(42,14,9,.94);border-color:rgba(233,194,122,.25)}
+body.kis header .nav nav a{color:#F3E6CF}
+body.kis header .logo img{content:url(../logo-krem.png)}
+body.kis .hero{background:radial-gradient(120% 90% at 72% 18%,#7A3020 0%,#4A190F 48%,#2A0E09 100%);color:#FBF1E0}
+body.kis .hero h1{color:#FBF1E0}body.kis .hero h1 em{color:#E9C27A}
+body.kis .hero .lede{color:#EAD3BD}body.kis .hero .eyebrow{color:#E9C27A}
+body.kis .hero .ticker{color:#CDB39E}body.kis .hero .ticker b{color:#FBF1E0}
+body.kis .hero .btn.ghost{color:#FBF1E0;box-shadow:inset 0 0 0 1.5px #E9C27A}
+body.kis .hero .btn.ghost:hover{background:#E9C27A;color:#2A0E09}
+body.kis .cityname{color:#E9C27A}
+body.kis .dots3 button::after{background:rgba(243,230,207,.35)}body.kis .dots3 button.on::after{background:#E9C27A}
+body.kis .pano{-webkit-mask-image:linear-gradient(transparent 0,#000 45%);mask-image:linear-gradient(transparent 0,#000 45%)}
+body.kis .pano img.on{filter:invert(1) sepia(.7) saturate(1.3) brightness(.9);mix-blend-mode:screen;opacity:.5}
+body.kis .pano::after{background:linear-gradient(transparent,#2A0E09)}
+body.kis .phone{box-shadow:0 40px 90px -20px rgba(0,0,0,.7),0 0 0 1px rgba(233,194,122,.35),0 0 60px rgba(233,194,122,.18)}
+.snow{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;display:none}
+body.kis .snow{display:block}
+.tw{position:absolute;width:14px;height:14px;color:#E9C27A;pointer-events:none;z-index:1;animation:tw 3.2s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+.garland{display:none;position:relative;z-index:3;height:60px;margin-bottom:-60px;pointer-events:none}
+body.kis .garland{display:block}
+.garland svg{width:100%;height:60px;display:block}
+.garland .orn{transform-origin:top center;animation:sway 4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.hero-edge{display:none;height:26px;background:#2A0E09;position:relative}
+body.kis .hero-edge{display:block}
+.hero-edge::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:radial-gradient(circle at 10px -2px,#2A0E09 12px,transparent 13px) 0 0/20px 14px repeat-x}
+body.kis .kis-strip{background:linear-gradient(90deg,#8E1F0C,#CB410B 50%,#8E1F0C);font-weight:600}
+body.kis .kis-strip b{color:#FFE7A8}
+.city .gtag{display:none;position:absolute;right:14px;bottom:14px;background:#2A0E09;color:#E9C27A;font:600 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px}
+body.kis .city .gtag{display:block}
+.bow{display:none;position:absolute;right:28px;top:-6px;width:110px;z-index:2}
+body.kis .bow{display:block}
+body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px),#CB410B calc(72% - 9px),#CB410B calc(72% + 9px),transparent calc(72% + 9px)),var(--kagit)}
+@media(max-width:800px){body.kis .gift-card{background:var(--kagit)}.bow{width:80px;right:16px}}
+@media(prefers-reduced-motion:reduce){.snow{display:none!important}}
 </style>
 </head>
 <body>
-<div class="kis-strip">Yeni bir yıl, keşfedilecek yeni şehirler. <b>Yılbaşında bir şehrin defterini hediye et.</b></div>
+<div class="kis-strip"><span id="geri">Yeni bir yıl, keşfedilecek yeni şehirler.</span> <b>Yılbaşında bir şehrin defterini hediye et.</b></div>
 <header id="top"><div class="wrap nav">
  <a class="logo" href="#" aria-label="Uğrak"><img src="../logo-kiremit.png" alt="Uğrak" width="76" height="34"></a>
  <nav aria-label="Ana menü"><a href="#defterler">Defterler</a><a href="#icinde">Defterin içi</a><a href="#atlas">Şehirler</a><a href="#marti">Martı</a><a href="#hikaye">Hikâyemiz</a><a href="#iletisim">İletişim</a></nav>
@@ -256,6 +294,8 @@ body.kis .hero-eyebrow-def{display:none}
 </div></header>
 
 <section class="hero" style="padding-bottom:0">
+ <div class="garland" aria-hidden="true"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 6 Q180 46 360 6 T720 6 T1080 6 T1440 6" fill="none" stroke="#E9C27A" stroke-width="1.4" opacity=".8"/><path d="M0 2 Q180 30 360 2 T720 2 T1080 2 T1440 2" fill="none" stroke="#7DA36B" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" opacity=".6"/></svg></div>
+ <canvas class="snow" id="snow" aria-hidden="true"></canvas>
  <svg class="sprig s1 kis-only" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M20 150C40 110 55 70 60 10"/><path d="M58 30c-10-6-20-6-30-2M56 50c-12-6-24-5-34 1M53 72c-12-5-25-3-35 4M48 96c-12-4-24-1-33 7M58 30c9-8 19-10 30-8M56 50c11-8 23-9 34-5M53 72c11-6 24-6 35-1M48 96c11-5 23-4 33 2"/></svg>
  <svg class="sprig s2 kis-only" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M30 4v52M4 30h52M12 12l36 36M48 12L12 48"/><circle cx="30" cy="30" r="4"/></svg>
  <div class="wrap hero-grid">
@@ -276,6 +316,7 @@ body.kis .hero-eyebrow-def{display:none}
  </div>
  <div class="pano" aria-hidden="true"><img class="on" src="../g/sinop-kale.webp" alt=""></div>
 </section>
+<div class="hero-edge" aria-hidden="true"></div>
 
 <section id="defterler" style="padding-top:70px">
  <div class="wrap">
@@ -285,17 +326,17 @@ body.kis .hero-eyebrow-def{display:none}
   </div>
   <div class="cities">
    <a class="city rv" href="https://sinop.ugrakjournal.com/satin-al">
-    <div class="art"><img src="../g/sinop-kale.webp" alt="Sinop Kalesi gravürü" loading="lazy" style="object-position:72% 50%"><span class="ribbon"></span><span class="no">No. 01</span></div>
+    <div class="art"><img src="../g/sinop-kale.webp" alt="Sinop Kalesi gravürü" loading="lazy" style="object-position:72% 50%"><span class="ribbon"></span><span class="gtag">Hediye fikri</span><span class="no">No. 01</span></div>
     <div class="body"><h3>Sinop<small>Kale, liman ve tarihi cezaevi</small></h3><p>Serinin ilk defteri. Yer sayfaları, sesli anlatımlar, 18 küçük görev, günlük ve sudoku.</p>
      <div class="row"><div class="price"><b class="pr">390 TL</b><span>Dijital defter · Türkçe + English<br><i class="tn">Tanışma fiyatı, 10 Aralık'a kadar</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
    <a class="city rv" href="https://amasra.ugrakjournal.com/satin-al">
-    <div class="art"><img src="../g/amasra-kemere.webp" alt="Kemere Köprüsü gravürü" loading="lazy"><span class="ribbon"></span><span class="no">No. 02</span></div>
+    <div class="art"><img src="../g/amasra-kemere.webp" alt="Kemere Köprüsü gravürü" loading="lazy"><span class="ribbon"></span><span class="gtag">Hediye fikri</span><span class="no">No. 02</span></div>
     <div class="body"><h3>Amasra<small>İki limanlı küçük kasaba</small></h3><p>Kale, Kemere Köprüsü, Boztepe Feneri ve Çekiciler Çarşısı. Üç sesli anlatım, Amasradoku.</p>
      <div class="row"><div class="price"><b class="pr">390 TL</b><span>Dijital defter · Türkçe + English<br><i class="tn">Tanışma fiyatı, 10 Aralık'a kadar</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
    <a class="city rv" href="https://kapadokya.ugrakjournal.com/satin-al">
-    <div class="art"><img src="../g/kapadokya-balon.webp" alt="Kapadokya balonları gravürü" loading="lazy"><span class="ribbon"></span><span class="no">No. 03</span></div>
+    <div class="art"><img src="../g/kapadokya-balon.webp" alt="Kapadokya balonları gravürü" loading="lazy"><span class="ribbon"></span><span class="gtag">Hediye fikri</span><span class="no">No. 03</span></div>
     <div class="body"><h3>Kapadokya<small>Peribacaları, vadiler, balonlar</small></h3><p>Göreme, Uçhisar, vadiler ve yeraltı şehirleri. Yirmiden fazla çıkartma ve bilgi yarışması.</p>
      <div class="row"><div class="price"><b class="pr">390 TL</b><span>Dijital defter · Türkçe + English<br><i class="tn">Tanışma fiyatı, 10 Aralık'a kadar</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
@@ -305,7 +346,8 @@ body.kis .hero-eyebrow-def{display:none}
 </section>
 
 <div class="gift"><div class="wrap">
- <div class="gift-card rv">
+ <div class="gift-card rv" style="overflow:visible">
+  <svg class="bow" viewBox="0 0 120 80" aria-hidden="true"><path d="M60 40C40 10 10 8 12 28s30 18 48 12M60 40c20-30 50-32 48-12s-30 18-48 12" fill="#CB410B" stroke="#8E1F0C" stroke-width="2"/><path d="M56 42l-18 36 10-4 6 8 6-38M64 42l18 36-10-4-6 8-6-38" fill="#B23808"/><circle cx="60" cy="40" r="8" fill="#8E1F0C"/></svg>
   <div>
    <span class="eyebrow" style="color:var(--altin)">Yılbaşı hediyesi</span>
    <h2 style="margin-top:14px">Yeni yıla bir şehir<br><em>hediye et.</em></h2>
@@ -435,6 +477,21 @@ body.kis .hero-eyebrow-def{display:none}
  var kis=(m===11)||(m===0&&g<=7); if(q==='1')kis=true; if(q==='0')kis=false;
  if(kis)document.body.classList.add('kis');
  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ if(kis){
+  // geri sayım
+  var ny=new Date(d.getFullYear()+(m===0?0:1),0,1),gs=Math.ceil((ny-d)/864e5),ge=document.getElementById('geri');
+  if(m!==0&&ge)ge.textContent='Yeni yıla '+gs+' gün kaldı.';else if(ge)ge.textContent='Mutlu yıllar! Yeni yılda yeni şehirler yolda.';
+  // yıldızlar
+  var hero=document.querySelector('.hero');
+  for(var k=0;k<16;k++){var st=document.createElement('span');st.className='tw';st.setAttribute('aria-hidden','true');st.innerHTML='<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 0l2 8 8 2-8 2-2 8-2-8-8-2 8-2z"/></svg>';st.style.left=(Math.random()*96)+'%';st.style.top=(8+Math.random()*60)+'%';st.style.animationDelay=(Math.random()*3)+'s';var z=8+Math.random()*10;st.style.width=st.style.height=z+'px';hero.appendChild(st);}
+  // hafif kar (yalnız kahraman)
+  var cv=document.getElementById('snow');
+  if(cv&&!rm){var cx=cv.getContext('2d'),fl=[],W,H,dpr=Math.min(2,window.devicePixelRatio||1);
+   function rs(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0)}rs();addEventListener('resize',rs);
+   var N=W<700?40:80;for(var j=0;j<N;j++)fl.push({x:Math.random()*W,y:Math.random()*H,r:.8+Math.random()*2.2,v:.25+Math.random()*.6,o:Math.random()*6});
+   (function f(){cx.clearRect(0,0,W,H);for(var j=0;j<fl.length;j++){var p=fl[j];p.y+=p.v;p.o+=.01;p.x+=Math.sin(p.o)*.3;if(p.y>H+5){p.y=-5;p.x=Math.random()*W}cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fillStyle='rgba(255,248,236,'+(.35+p.r/6)+')';cx.fill()}requestAnimationFrame(f)})();}
+ }
+
  // header gölgesi
  var h=document.getElementById('top');addEventListener('scroll',function(){h.classList.toggle('sc',scrollY>10)},{passive:true});
  // kahraman: telefon ekranı + gravür döngüsü

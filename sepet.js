@@ -32,7 +32,7 @@ ort.innerHTML='<div class="ugs-kart"><button class="x" type="button" aria-label=
  '<label><input type="checkbox" id="ugs-c1"><span><a target="_blank" rel="noopener" id="ugs-kl">Ön bilgilendirme ve satış koşullarını</a> okudum.</span></label>'+
  '<label><input type="checkbox" id="ugs-c2"><span>Kodlarımın ödemeden hemen sonra verilmesini istiyorum; dijital içerikte bu şekilde teslimle cayma hakkımın olmadığını biliyorum. Çalışmayan içerikle ilgili haklarım saklıdır.</span></label>'+
  '<button class="ode" type="button">Shopier\'de öde →</button><div class="m" role="status"></div>'+
- '<p class="not">🔒 Adını, e-postanı ve kart bilgini yalnız Shopier\'in güvenli sayfasında yazarsın. Ödeme biter bitmez kodun bu sayfada ve e-postanda.</p></div>';
+ '<p class="not">🔒 Adını, e-postanı ve kart bilgini yalnız Shopier\'in güvenli sayfasında yazarsın. Ödemeden sonra kodun e-postana gelir; bu siteye dönersen burada da görürsün.</p></div>';
 document.body.appendChild(ort);
 function kapat(){ort.classList.remove('on')}
 ort.addEventListener('click',function(e){if(e.target===ort)kapat()});ort.querySelector('.x').onclick=kapat;
@@ -48,13 +48,11 @@ ort.querySelector('.ode').addEventListener('click',function(){
  var m=ort.querySelector('.m'),b=this;
  if(!document.getElementById('ugs-c1').checked||!document.getElementById('ugs-c2').checked){m.textContent='Devam etmek için iki kutuyu da işaretle.';return}
  b.disabled=true;b.textContent='Shopier açılıyor…';
- var w=null;try{w=window.open('','_blank')}catch(x){}
  fetch(ODEME+'api/sepet/baslat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({u:S,c1:true,c2:true,v:'2026-11-26'})}).then(function(r){return r.json()}).then(function(r){
   if(!r||!r.ok||!r.url)throw new Error(r&&r.err||'hata');
-  var tm=ODEME+'tamam?t='+encodeURIComponent(r.t)+'&git='+encodeURIComponent(r.url);
-  S=[];kaydet();
-  if(w&&!w.closed){w.location.href=r.url;location.href=tm}else location.href=tm;
- }).catch(function(x){try{w&&w.close()}catch(y){}b.disabled=false;b.textContent='Shopier\'de öde →';m.textContent=String(x&&x.message)==='kapali'?'Sepet şu an kapalı; birazdan tekrar dene.':'Bir sorun oldu, tekrar dene. Sürerse satis@ugrakjournal.com'})});
+  S=[];kaydet();try{localStorage.setItem('ug_son',JSON.stringify({t:r.t,z:Date.now()}))}catch(x){}
+  location.href=r.url;
+ }).catch(function(x){b.disabled=false;b.textContent='Shopier\'de öde →';m.textContent=String(x&&x.message)==='kapali'?'Sepet şu an kapalı; birazdan tekrar dene.':'Bir sorun oldu, tekrar dene. Sürerse satis@ugrakjournal.com'})});
 function ciz(pul){
  var t=S.reduce(function(a,k){return a+F[k]},0);
  bar.querySelector('b').textContent=S.length+' defter · '+tl(t);
@@ -75,5 +73,11 @@ document.querySelectorAll('a[href*=".ugrakjournal.com/satin-al"]').forEach(funct
 // 2) data-ugs-ekle düğmeleri (ör. ana sayfadaki Martı listesi)
 document.querySelectorAll('button[data-ugs]').forEach(function(b){b.classList.add('ugs-ekle');b.addEventListener('click',function(e){e.preventDefault();tog(b.getAttribute('data-ugs'))})});
 ciz(false);
+(function(){var s=null;try{s=JSON.parse(localStorage.getItem('ug_son')||'null')}catch(e){}
+ if(!s||!s.t||Date.now()-s.z>3*864e5)return;
+ fetch(ODEME+'api/sepet/durum?t='+encodeURIComponent(s.t)).then(function(r){return r.json()}).then(function(r){
+  if(!r||!r.ok||!r.paid)return;var d=document.createElement('a');d.href=ODEME+'tamam?t='+encodeURIComponent(s.t);
+  d.style.cssText='position:fixed;left:12px;right:12px;top:calc(10px + env(safe-area-inset-top));z-index:85;display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:560px;margin:0 auto;background:#2f6b4f;color:#fff;border-radius:16px;padding:14px 18px;text-decoration:none;font:600 16px "Hanken Grotesk",system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)';
+  d.innerHTML='<span>✓ Ödemen alındı, defterlerin hazır</span><b>Kodunu gör →</b>';document.body.appendChild(d)}).catch(function(){})})();
 fetch(ODEME+'api/sepet/urunler').then(function(r){return r.json()}).then(function(r){(r.urunler||[]).forEach(function(x){if(F[x.k]&&x.fiyat>0)F[x.k]=x.fiyat});ciz(false)}).catch(function(){});
 })();

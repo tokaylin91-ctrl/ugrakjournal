@@ -23,7 +23,7 @@ var st=document.createElement('style');st.textContent=
 '.ugs-kart ul{list-style:none;margin:12px 0;padding:0;border-top:1px solid #e3d6c3}.ugs-kart li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #e3d6c3}.ugs-kart li.top{font-weight:700;border:0}'+
 '.ugs-kart label{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px;line-height:1.45}.ugs-kart input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:#5E2318}.ugs-kart label a{color:#5E2318}'+
 '.ugs-kart .ode{display:flex;width:100%;align-items:center;justify-content:center;min-height:54px;margin-top:12px;border:0;border-radius:14px;background:#5E2318;color:#fff;font:700 17px "Hanken Grotesk",system-ui,sans-serif;cursor:pointer}.ugs-kart .ode[disabled]{opacity:.6}'+
-'.ugs-kart .not{font-size:13.5px;color:#6b5a4c;margin:10px 0 0;text-align:center}.ugs-kart .m{color:#b23808;font-size:14px;min-height:1em;margin-top:6px}';
+'.ugs-kart .bil{font-size:14px;line-height:1.45;color:#2B1D17;background:#FBF4E6;border:1.5px solid #E9C27A;border-radius:12px;padding:10px 12px;margin:12px 0 0}.ugs-kart .not{font-size:13.5px;color:#6b5a4c;margin:10px 0 0;text-align:center}.ugs-kart .m{color:#b23808;font-size:14px;min-height:1em;margin-top:6px}';
 document.head.appendChild(st);
 var bar=document.createElement('div');bar.className='ugs-bar';bar.setAttribute('role','region');bar.setAttribute('aria-label','Sepet');
 bar.innerHTML='<div class="t"><b></b><small></small></div><a href="#" role="button">Ödemeye geç →</a>';document.body.appendChild(bar);
@@ -31,8 +31,9 @@ var ort=document.createElement('div');ort.className='ugs-ort';ort.setAttribute('
 ort.innerHTML='<div class="ugs-kart"><button class="x" type="button" aria-label="Kapat">×</button><h3>Ödemeye geç</h3><ul></ul>'+
  '<label><input type="checkbox" id="ugs-c1"><span><a target="_blank" rel="noopener" id="ugs-kl">Ön bilgilendirme ve satış koşullarını</a> okudum.</span></label>'+
  '<label><input type="checkbox" id="ugs-c2"><span>Kodlarımın ödemeden hemen sonra verilmesini istiyorum; dijital içerikte bu şekilde teslimle cayma hakkımın olmadığını biliyorum. Çalışmayan içerikle ilgili haklarım saklıdır.</span></label>'+
+ '<p class="bil"><b>Kodun nasıl gelir?</b> Ödeme bitince Shopier sayfasındaki <b>“Kodunu almak için tıkla”</b> bağlantısıyla buraya dön, kodun hemen ekranda. Kod ayrıca e-postana <b>en geç 1 saat içinde</b> gelir. Shopier\'in “ödemeniz onaylandı” e-postasında kod yazmaz; bu normal.</p>'+
  '<button class="ode" type="button">Shopier\'de öde →</button><div class="m" role="status"></div>'+
- '<p class="not">🔒 Adını, e-postanı ve kart bilgini yalnız Shopier\'in güvenli sayfasında yazarsın. Ödemeden sonra kodun e-postana gelir; bu siteye dönersen burada da görürsün.</p></div>';
+ '<p class="not">🔒 Adını, e-postanı ve kart bilgini yalnız Shopier\'in güvenli sayfasında yazarsın.</p></div>';
 document.body.appendChild(ort);
 function kapat(){ort.classList.remove('on')}
 ort.addEventListener('click',function(e){if(e.target===ort)kapat()});ort.querySelector('.x').onclick=kapat;
@@ -74,6 +75,12 @@ document.querySelectorAll('a[href*=".ugrakjournal.com/satin-al"]').forEach(funct
 document.querySelectorAll('button[data-ugs]').forEach(function(b){b.classList.add('ugs-ekle');b.addEventListener('click',function(e){e.preventDefault();tog(b.getAttribute('data-ugs'))})});
 ciz(false);
 (function(){var s=null;try{s=JSON.parse(localStorage.getItem('ug_son')||'null')}catch(e){}
+ var don=/[?&]odeme=tamam\b/.test(location.search);
+ if(don&&s&&s.t&&Date.now()-s.z<3*864e5){location.replace(ODEME+'tamam?t='+encodeURIComponent(s.t));return}
+ if(don){var n=document.createElement('div');n.setAttribute('role','status');
+  n.style.cssText='position:fixed;left:12px;right:12px;top:calc(10px + env(safe-area-inset-top));z-index:85;max-width:560px;margin:0 auto;background:#2f6b4f;color:#fff;border-radius:16px;padding:14px 44px 14px 18px;font:500 15.5px/1.45 "Hanken Grotesk",system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)';
+  n.innerHTML='<b>✓ Siparişin için teşekkürler!</b><br>Kodun e-postana en geç 1 saat içinde gelir. Shopier\'in “ödemeniz onaylandı” e-postasında kod yazmaz; bu normal. Gelmezse satis@ugrakjournal.com\'a yaz.<button type="button" aria-label="Kapat" style="position:absolute;right:10px;top:8px;border:0;background:none;color:#fff;font-size:24px;cursor:pointer">×</button>';
+  n.querySelector('button').onclick=function(){n.remove()};document.body.appendChild(n);return}
  if(!s||!s.t||Date.now()-s.z>3*864e5)return;
  fetch(ODEME+'api/sepet/durum?t='+encodeURIComponent(s.t)).then(function(r){return r.json()}).then(function(r){
   if(!r||!r.ok||!r.paid)return;var d=document.createElement('a');d.href=ODEME+'tamam?t='+encodeURIComponent(s.t);

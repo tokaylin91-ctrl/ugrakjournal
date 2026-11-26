@@ -458,5 +458,5 @@ img{height:auto}
 (function(){var st=document.querySelector('.stick'),h=document.querySelector('.hero'),sb=document.getElementById('set');if(st&&h&&'IntersectionObserver' in window){var vis={h:true,s:false};var up=function(){st.classList.toggle('show',!vis.h&&!vis.s)};new IntersectionObserver(function(e){e.forEach(function(x){vis[x.target===h?'h':'s']=x.isIntersecting});up()}).observe(h);new IntersectionObserver(function(e){e.forEach(function(x){vis[x.target===h?'h':'s']=x.isIntersecting});up()}).observe(sb)}else if(st){st.classList.add('show')}})();
 (function(){var v=document.querySelector('.tablet video');if(!v)return;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){v.style.display='none';document.querySelector('.tablet .poster').style.display='block'});})();
 </script>
-<script src="../sepet.js?v=1" defer></script>
+<script src="../sepet.js?v=2" defer></script>
 </body></html>

@@ -289,6 +289,15 @@ body.kis .bow{display:block}
 body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px),#CB410B calc(72% - 9px),#CB410B calc(72% + 9px),transparent calc(72% + 9px)),var(--kagit)}
 @media(max-width:800px){body.kis .gift-card{background:var(--kagit)}.bow{width:80px;right:16px}}
 @media(prefers-reduced-motion:reduce){.snow{display:none!important}}
+
+.shop{padding:56px 0 30px}.shop h2{font-size:clamp(30px,5vw,44px);margin:12px 0 18px}
+.kat{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.kat button{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--grav);background:transparent;color:var(--grav);font:600 15px/1 var(--sans);cursor:pointer}.kat button[aria-selected="true"]{background:var(--grav);color:var(--krem)}.kat button small{font-weight:500;opacity:.7;margin-left:6px}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.sgrid>div{min-width:0}.sg-h{font:600 12.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:0 0 10px}.sg-h.c{color:var(--deniz)}
+.shop .mi{background:#fff;border-color:var(--cizgi)}.shop .mi img{width:54px;height:54px;object-fit:cover;mix-blend-mode:multiply;background:var(--kagit)}
+.yk{display:inline-block;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;background:var(--gunes);color:var(--grav);padding:5px 8px;border-radius:6px;margin-left:6px;vertical-align:2px}
+.shop .mi a.hv{flex:none;min-height:40px;display:inline-flex;align-items:center;padding:0 14px;border-radius:999px;border:1.5px dashed var(--grav);color:var(--grav);text-decoration:none;font:600 14px/1 var(--sans)}
+.sgrid[hidden]{display:none!important}#magaza{scroll-margin-top:90px}.shop .mi i.yk{font-style:normal}
+@media(max-width:760px){.sgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -296,7 +305,7 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
 <header id="top"><div class="wrap nav">
  <a class="logo" href="#" aria-label="Uğrak"><img src="logo-kiremit.png" alt="Uğrak" width="76" height="34"></a>
  <nav aria-label="Ana menü"><a href="#defterler">Uğrak Journal</a><a href="#icinde">Defterin içi</a><a href="#atlas">Şehirler</a><a href="#marti">Uğrak Çocuk</a><a href="#hikaye">Hikâyemiz</a><a href="#iletisim">İletişim</a></nav>
- <a class="btn" href="#defterler">Dijital defterler</a>
+ <a class="btn" href="#magaza">Mağaza</a>
 </div></header>
 
 <section class="hero" style="padding-bottom:0">
@@ -310,7 +319,7 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
    <div class="eyebrow kis-only">Kış edisyonu · Telefonda açılan şehir defterleri</div>
    <h1 style="margin-top:22px">Ekranı kapat,<em>şehre uğra.</em></h1>
    <p class="lede">Her şehir için telefonunda açılan bir defter: gravürler, hikâyeler, sesli anlatımlar, rotalar ve küçük görevler. Basılı değil; uygulama gibi çalışır, sonra seni sokağa çıkarır.</p>
-   <div class="ctas"><a class="btn arrow" href="#defterler">Dijital defterleri gör </a><a class="btn ghost" href="#nasil">Nasıl çalışır?</a></div>
+   <div class="ctas"><a class="btn arrow" href="#magaza">Mağazaya git </a><a class="btn ghost" href="#nasil">Nasıl çalışır?</a></div>
    <div class="ticker">Satışta: <b>Sinop · Amasra · Kapadokya</b> &nbsp;·&nbsp; Sırada: Safranbolu · İstanbul</div>
   </div>
   <div class="stage" aria-hidden="true">
@@ -323,6 +332,20 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
  <div class="pano" aria-hidden="true"><img class="on" src="g/sinop-kale.webp" alt=""></div>
 </section>
 <div class="hero-edge" aria-hidden="true"></div>
+<section id="magaza" class="shop"><div class="wrap">
+ <span class="eyebrow">Mağaza</span><h2>Defterini seç, <em>sepete ekle.</em></h2>
+ <div class="kat" role="tablist" aria-label="Kategori"><button type="button" role="tab" aria-selected="true" data-kat="d">Dijital defterler</button><button type="button" role="tab" aria-selected="false" data-kat="b">Basılı defterler<small>yakında</small></button></div>
+ <div data-kp="d" class="sgrid">
+  <div><p class="sg-h">Uğrak Journal · Telefon uygulaması · Türkçe + İngilizce</p><div class="mlist"><div class="mi"><img src="g/sinop-kale.webp" alt="" loading="lazy"><div><b>Sinop Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="sinop">Sepete ekle</button></div><div class="mi"><img src="g/amasra-kemere-g.webp" alt="" loading="lazy"><div><b>Amasra Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="amasra">Sepete ekle</button></div><div class="mi"><img src="g/kapadokya-balon-g.webp" alt="" loading="lazy"><div><b>Kapadokya Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="kapadokya">Sepete ekle</button></div></div></div>
+  <div><p class="sg-h c">Uğrak Çocuk · Martı · 5–10 yaş · Türkçe</p><div class="mlist"><div class="mi"><img src="dijital/m56-0.webp" alt="" loading="lazy"><div><b>Merak Defteri · 5–6 yaş</b><span>199 TL · uygulama</span></div><button type="button" data-ugs="marti56">Sepete ekle</button></div><div class="mi"><img src="dijital/merak-0.webp" alt="" loading="lazy"><div><b>Merak Defteri · 7–8 yaş</b><span>199 TL · uygulama</span></div><button type="button" data-ugs="marti78">Sepete ekle</button></div><div class="mi"><img src="dijital/m910-0.webp" alt="" loading="lazy"><div><b>Merak Defteri · 9–10 yaş</b><span>249 TL · uygulama</span></div><button type="button" data-ugs="marti910">Sepete ekle</button></div></div></div>
+ </div>
+ <div data-kp="b" class="sgrid" hidden>
+  <div><p class="sg-h">Uğrak Journal · Basılı</p><div class="mlist"><div class="mi"><img src="g/sinop-kale.webp" alt="" loading="lazy"><div><b>Sinop Journal · basılı defter <i class="yk">Yakında</i></b><span>Kâğıt defter · Türkçe + İngilizce</span></div><a class="hv" href="#haber">Haber ver</a></div></div></div>
+  <div><p class="sg-h c">Hazır olunca ilk sen duy</p><p style="margin:0;color:var(--mut);font-size:15px">Basılı defterler hazırlanıyor. Şimdilik dijital defterler satışta; basılı Sinop çıkınca e-postayla haber veririz.</p></div>
+ </div>
+ <p style="margin:16px 0 0;font-size:14px;color:var(--mut)">Birden fazla defter alırsan tek ödeme, tek kod. Kod ekranda ve e-postanda; 2 cihazda çalışır.</p>
+</div></section>
+<script>(function(){var b=document.querySelectorAll('#magaza [data-kat]');b.forEach(function(x){x.addEventListener('click',function(){b.forEach(function(y){y.setAttribute('aria-selected',y===x)});document.querySelectorAll('#magaza [data-kp]').forEach(function(p){p.hidden=p.getAttribute('data-kp')!==x.getAttribute('data-kat')})})})})();</script>
 
 <section id="defterler" style="padding-top:70px"><span id="satista"></span><span id="dijital-journal"></span><span id="amasra-journal"></span><span id="kapadokya-journal"></span>
  <div class="wrap">

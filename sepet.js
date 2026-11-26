@@ -1,12 +1,12 @@
 /* Uğrak sepeti (site tarafı): "Sepete ekle" + alt çubuk + onay kartı → doğrudan Shopier ödemesi. 26 Kas 2026 */
 (function(){
 var ODEME='https://odeme.ugrakjournal.com/';
-var F={sinop:390,amasra:390,kapadokya:390,marti56:199,marti78:199,marti910:249};
-var AD2={sinop:'Sinop Journal · Dijital',amasra:'Amasra Journal · Dijital',kapadokya:'Kapadokya Journal · Dijital',marti56:'Merak Defteri · 5–6 yaş',marti78:'Merak Defteri · 7–8 yaş',marti910:'Merak Defteri · 9–10 yaş'};
-var AD={sinop:'Sinop',amasra:'Amasra',kapadokya:'Kapadokya',marti56:'Merak 5–6',marti78:'Merak 7–8',marti910:'Merak 9–10'};
+var F={sinop:390,amasra:390,kapadokya:390,safranbolu:390,marti56:199,marti78:199,marti910:249};
+var AD2={sinop:'Sinop Journal · Dijital',amasra:'Amasra Journal · Dijital',kapadokya:'Kapadokya Journal · Dijital',safranbolu:'Safranbolu Journal · Dijital',marti56:'Merak Defteri · 5–6 yaş',marti78:'Merak Defteri · 7–8 yaş',marti910:'Merak Defteri · 9–10 yaş'};
+var AD={sinop:'Sinop',amasra:'Amasra',kapadokya:'Kapadokya',safranbolu:'Safranbolu',marti56:'Merak 5–6',marti78:'Merak 7–8',marti910:'Merak 9–10'};
 var S=[];try{S=JSON.parse(localStorage.getItem('ug_sepet')||'[]').filter(function(k){return F[k]})}catch(e){}
 function kaydet(){try{localStorage.setItem('ug_sepet',JSON.stringify(S))}catch(e){}}
-function anahtar(href){var m=/^https:\/\/(sinop|amasra|kapadokya|marti56|marti78|marti910)\.ugrakjournal\.com\/satin-al/.exec(href||'');return m?m[1]:null}
+function anahtar(href){var m=/^https:\/\/(sinop|amasra|kapadokya|safranbolu|marti56|marti78|marti910)\.ugrakjournal\.com\/satin-al/.exec(href||'');return m?m[1]:null}
 function tl(n){return n.toLocaleString('tr-TR')+' TL'}
 var st=document.createElement('style');st.textContent=
 '.ugs-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:80;display:flex;align-items:center;gap:12px;background:#47190F;color:#F7F2E8;border-radius:18px;padding:10px 10px 10px 18px;box-shadow:0 10px 30px rgba(40,15,8,.35);transform:translateY(140%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-width:560px;margin:0 auto}'+

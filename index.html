@@ -8,9 +8,9 @@
 <meta property="og:url" content="https://ugrakjournal.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
-<meta name="description" content="Uğrak şehir defterleri: Sinop, Amasra ve Kapadokya Journal Dijital ile çocuklar için Martı'nın Defterleri. Gravürler, sesli anlatımlar, rotalar ve küçük keşif görevleri telefonunda.">
+<meta name="description" content="Uğrak şehir defterleri: Sinop, Amasra, Kapadokya ve Safranbolu Journal Dijital ile çocuklar için Martı'nın Defterleri. Gravürler, sesli anlatımlar, rotalar ve küçük keşif görevleri telefonunda.">
 <meta property="og:title" content="Uğrak Journal · Şehir Defterleri">
-<meta property="og:description" content="Ekranı kapat, şehre uğra. Sinop, Amasra ve Kapadokya satışta.">
+<meta property="og:description" content="Ekranı kapat, şehre uğra. Sinop, Amasra, Kapadokya ve Safranbolu satışta.">
 <meta property="og:image" content="https://ugrakjournal.com/og-ugrak.jpg">
 <meta name="theme-color" content="#5E2318">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -100,7 +100,7 @@ section{padding:110px 0}
 /* şehir kartları */
 .intro-note{display:inline-flex;gap:10px;align-items:center;background:var(--kagit);border:1px solid var(--cizgi);border-radius:999px;padding:8px 16px 8px 10px;font:500 14.5px/1.3 var(--sans)}
 .intro-note i{font-style:normal;background:var(--kiremit);color:#fff;border-radius:999px;padding:4px 10px;font-weight:600;font-size:12.5px;letter-spacing:.04em}
-.cities{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cities{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .city{position:relative;display:flex;flex-direction:column;border-radius:26px;overflow:hidden;background:var(--deri);color:var(--krem);text-decoration:none;min-width:0;isolation:isolate}
 .city .art{position:relative;aspect-ratio:4/3.3;background:var(--kagit);overflow:hidden;border-bottom:6px solid var(--deri)}
 .city .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
@@ -118,7 +118,7 @@ section{padding:110px 0}
 .city:hover .go{transform:rotate(-35deg)}
 .cities-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:15px;color:var(--mut)}
 .cities-foot a{color:var(--deri)}
-@media(max-width:980px){.cities{grid-template-columns:1fr 1fr}.cities .city:last-child{grid-column:1/-1}.cities .city:last-child .art{aspect-ratio:16/7}}
+@media(max-width:1100px){.cities{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.cities{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}.cities::-webkit-scrollbar{display:none}.city{flex:0 0 84%;scroll-snap-align:center}.cities .city:last-child .art{aspect-ratio:4/3.3}.city h3{font-size:32px}}
 
 /* kış hediyesi */
@@ -324,13 +324,13 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
    <p class="lede"><b>Uğrak nedir?</b> Gezdiğin şehirleri keşfetmen ve hatırlaman için dijital gezi defteri. Telefonda açılır; gravürler, sesli anlatımlar, gezi rotaları ve küçük keşif görevleri sunar. Gezdiğin yerleri işaretler, notlarını defterinde saklarsın.</p>
    <ul class="ne"><li><b>1</b>Defterini seç</li><li><b>2</b>Öde</li><li><b>3</b>Kodla telefonunda aç</li></ul>
    <div class="ctas"><a class="btn arrow" href="#magaza">Mağazaya git </a><a class="btn ghost" href="#nasil">Nasıl çalışır?</a></div>
-   <div class="ticker">Satışta: <b>Sinop · Amasra · Kapadokya</b> &nbsp;·&nbsp; Sırada: Safranbolu · İstanbul</div>
+   <div class="ticker">Satışta: <b>Sinop · Amasra · Kapadokya · Safranbolu</b> &nbsp;·&nbsp; Sırada: İstanbul</div>
   </div>
   <div class="stage" aria-hidden="true">
    <div class="tag t1"><b>Sesli anlatım</b><span id="aud">Sinop'u dinle · Türkçe + İngilizce</span><div class="wave"><i style="height:6px"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-   <div class="phone"><div class="scr"><img class="on" src="ekran-sinop.webp" alt=""><img src="ekran-amasra.webp" alt=""><img src="ekran-kapadokya.webp" alt=""></div></div>
+   <div class="phone"><div class="scr"><img class="on" src="ekran-sinop.webp" alt=""><img src="ekran-amasra.webp" alt=""><img src="ekran-kapadokya.webp" alt=""><img src="ekran-safranbolu.webp" alt=""></div></div>
    <div class="tag t2"><b>Küçük görevler</b>Yaptıkça defterinde işaretle.</div>
-   <div class="cityname" id="cityname">Sinop Journal</div><div class="dots3" role="group" aria-label="Ekran seç"><button aria-label="Sinop" class="on"></button><button aria-label="Amasra"></button><button aria-label="Kapadokya"></button></div>
+   <div class="cityname" id="cityname">Sinop Journal</div><div class="dots3" role="group" aria-label="Ekran seç"><button aria-label="Sinop" class="on"></button><button aria-label="Amasra"></button><button aria-label="Kapadokya"></button><button aria-label="Safranbolu"></button></div>
   </div>
  </div>
  <div class="pano" aria-hidden="true"><img class="on" src="g/sinop-kale.webp" alt=""></div>
@@ -340,7 +340,7 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
  <span class="eyebrow">Mağaza</span><h2>Defterini seç, <em>sepete ekle.</em></h2>
  <div class="kat" role="tablist" aria-label="Kategori"><button type="button" role="tab" aria-selected="true" data-kat="d">Dijital defterler</button><button type="button" role="tab" aria-selected="false" data-kat="b">Basılı defterler<small>yakında</small></button></div>
  <div data-kp="d" class="sgrid">
-  <div><p class="sg-h">Uğrak Journal · Telefon uygulaması · Türkçe + İngilizce</p><div class="mlist"><div class="mi"><img src="g/sinop-kale.webp" alt="" loading="lazy"><div><b>Sinop Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="sinop">Sepete ekle</button></div><div class="mi"><img src="g/amasra-kemere-g.webp" alt="" loading="lazy"><div><b>Amasra Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="amasra">Sepete ekle</button></div><div class="mi"><img src="g/kapadokya-balon-g.webp" alt="" loading="lazy"><div><b>Kapadokya Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="kapadokya">Sepete ekle</button></div></div></div>
+  <div><p class="sg-h">Uğrak Journal · Telefonda uygulama gibi açılır · Türkçe + İngilizce</p><div class="mlist"><div class="mi"><img src="g/sinop-kale.webp" alt="" loading="lazy"><div><b>Sinop Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="sinop">Sepete ekle</button></div><div class="mi"><img src="g/amasra-kemere-g.webp" alt="" loading="lazy"><div><b>Amasra Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="amasra">Sepete ekle</button></div><div class="mi"><img src="g/kapadokya-balon-g.webp" alt="" loading="lazy"><div><b>Kapadokya Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="kapadokya">Sepete ekle</button></div><div class="mi"><img src="g/safranbolu-carsi-g.webp" alt="" loading="lazy"><div><b>Safranbolu Journal</b><span>390 TL · tanışma fiyatı</span></div><button type="button" data-ugs="safranbolu">Sepete ekle</button></div></div></div>
   <div><p class="sg-h c">Uğrak Çocuk · Martı · 5–10 yaş · Türkçe</p><div class="mlist"><div class="mi"><img src="dijital/m56-0.webp" alt="" loading="lazy"><div><b>Merak Defteri · 5–6 yaş</b><span>199 TL · uygulama</span></div><button type="button" data-ugs="marti56">Sepete ekle</button></div><div class="mi"><img src="dijital/merak-0.webp" alt="" loading="lazy"><div><b>Merak Defteri · 7–8 yaş</b><span>199 TL · uygulama</span></div><button type="button" data-ugs="marti78">Sepete ekle</button></div><div class="mi"><img src="dijital/m910-0.webp" alt="" loading="lazy"><div><b>Merak Defteri · 9–10 yaş</b><span>249 TL · uygulama</span></div><button type="button" data-ugs="marti910">Sepete ekle</button></div></div></div>
  </div>
  <div data-kp="b" class="sgrid" hidden>
@@ -354,27 +354,32 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
 <section id="defterler" style="padding-top:70px"><span id="satista"></span><span id="dijital-journal"></span><span id="amasra-journal"></span><span id="kapadokya-journal"></span>
  <div class="wrap">
   <div class="sec-head rv">
-   <div><span class="eyebrow">Uğrak Journal · Satışta · 3 şehir</span><h2>Bir şehir seç,<br><em>defterini aç.</em></h2></div>
+   <div><span class="eyebrow">Uğrak Journal · Satışta · 4 şehir</span><h2>Bir şehir seç,<br><em>defterini aç.</em></h2></div>
    <div><span class="intro-note tn"><i>Tanışma fiyatı</i>10 Aralık'a kadar her biri 390 TL, sonra 790 TL</span></div>
   </div>
   <div class="cities">
    <a class="city rv" href="https://sinop.ugrakjournal.com/satin-al">
     <div class="art"><img src="g/sinop-kale.webp" alt="Sinop Kalesi gravürü" loading="lazy" style="object-position:72% 50%"><span class="ribbon"></span><span class="gtag">Hediye fikri</span><span class="no">No. 01</span></div>
     <div class="body"><h3>Sinop<small>Kale, liman ve tarihi cezaevi</small></h3><p>Serinin ilk defteri. Yer sayfaları, sesli anlatımlar, 18 küçük görev, günlük ve sudoku.</p>
-     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefon uygulaması · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefonda uygulama gibi açılır · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
    <a class="city rv" href="https://amasra.ugrakjournal.com/satin-al">
     <div class="art"><img src="g/amasra-kemere-g.webp" alt="Kemere Köprüsü gravürü" loading="lazy"><span class="ribbon"></span><span class="gtag">Hediye fikri</span><span class="no">No. 02</span></div>
     <div class="body"><h3>Amasra<small>İki limanlı küçük kasaba</small></h3><p>Kale, Kemere Köprüsü, Boztepe Feneri ve Çekiciler Çarşısı. Üç sesli anlatım, Amasradoku.</p>
-     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefon uygulaması · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefonda uygulama gibi açılır · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
    <a class="city rv" href="https://kapadokya.ugrakjournal.com/satin-al">
     <div class="art"><img src="g/kapadokya-balon-g.webp" alt="Kapadokya balonları gravürü" loading="lazy"><span class="ribbon"></span><span class="gtag">Hediye fikri</span><span class="no">No. 03</span></div>
     <div class="body"><h3>Kapadokya<small>Peribacaları, vadiler, balonlar</small></h3><p>Göreme, Uçhisar, vadiler ve yeraltı şehirleri. Yirmiden fazla çıkartma ve bilgi yarışması.</p>
-     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefon uygulaması · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefonda uygulama gibi açılır · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
+   </a>
+   <a class="city rv" href="https://safranbolu.ugrakjournal.com/satin-al">
+    <div class="art"><img src="g/safranbolu-carsi-g.webp" alt="Safranbolu Çarşı gravürü" loading="lazy"><span class="ribbon"></span><span class="gtag">Yeni</span><span class="no">No. 04</span></div>
+    <div class="body"><h3>Safranbolu<small>Konaklar, han ve safran</small></h3><p>Cinci Hanı, Çarşı'nın çatıları, İncekaya ve Kristal Teras. Üç sesli anlatım, rivayet sayfası, boyama ve çıkartmalar.</p>
+     <div class="row"><div class="price"><b class="pr">390 TL</b><span>Telefonda uygulama gibi açılır · Türkçe + İngilizce<br><i class="tn">Tanışma fiyatı · 11 Aralık'tan itibaren 790 TL</i></span></div><span class="go" aria-hidden="true">→</span></div></div>
    </a>
   </div>
-  <div class="cities-foot"><span>Ödemeden hemen sonra kod ekranda ve e-postada · 2 cihazda çalışır · ilk açılıştan sonra internetsiz.</span><span>Koşullar: <a href="https://sinop.ugrakjournal.com/bilgilendirme">Sinop</a> · <a href="https://amasra.ugrakjournal.com/bilgilendirme">Amasra</a> · <a href="https://kapadokya.ugrakjournal.com/bilgilendirme">Kapadokya</a></span></div>
+  <div class="cities-foot"><span>Ödemeden hemen sonra kod ekranda ve e-postada · 2 cihazda çalışır · ilk açılıştan sonra internetsiz.</span><span>Koşullar: <a href="https://sinop.ugrakjournal.com/bilgilendirme">Sinop</a> · <a href="https://amasra.ugrakjournal.com/bilgilendirme">Amasra</a> · <a href="https://kapadokya.ugrakjournal.com/bilgilendirme">Kapadokya</a> · <a href="https://safranbolu.ugrakjournal.com/bilgilendirme">Safranbolu</a></span></div>
  </div>
 </section>
 
@@ -434,13 +439,13 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
     <li data-img="0"><a class="nm" href="https://sinop.ugrakjournal.com/satin-al">Sinop<small>Serinin ilk defteri · basılı hâli hazırlanıyor</small></a><span class="dots"></span><span class="st2 on">Satışta</span></li>
     <li data-img="1"><a class="nm" href="https://amasra.ugrakjournal.com/satin-al">Amasra<small>Gravürleri bu şehir için çizildi</small></a><span class="dots"></span><span class="st2 on">Satışta</span></li>
     <li data-img="2"><a class="nm" href="https://kapadokya.ugrakjournal.com/satin-al">Kapadokya<small>Tek şehir değil, bölge keşif defteri</small></a><span class="dots"></span><span class="st2 on">Satışta</span></li>
-    <li data-img="3"><span class="nm">Safranbolu<small>Amasra ile Batı Karadeniz seti</small></span><span class="dots"></span><span class="st2 yol">Hazırlanıyor</span></li>
+    <li data-img="4"><a class="nm" href="https://safranbolu.ugrakjournal.com/satin-al">Safranbolu<small>Konaklar, han ve safranın kenti</small></a><span class="dots"></span><span class="st2 on">Satışta</span></li>
     <li data-img="3"><span class="nm">İstanbul · Galata–Karaköy<small>Şehrin tamamı değil, yürünebilir bir semt</small></span><span class="dots"></span><span class="st2 yol">Pilot</span></li>
    </ul>
    <div class="suggest">Senin şehrin yürünebilir, yaz kış ziyaretçi alıyor mu? <a class="btn ghost" href="https://wa.me/905468466288?text=Merhaba%2C%20U%C4%9Frak%20i%C3%A7in%20bir%20%C5%9Fehir%20%C3%B6nermek%20istiyorum%3A%20" target="_blank" rel="noopener">Şehrini öner</a></div>
   </div>
   <figure class="atlas-art rv" style="margin:0" aria-hidden="true">
-   <img class="on" src="g/sinop-kotra.webp" alt="" loading="lazy" style="object-position:75% 50%"><img src="g/amasra-kale-g.webp" alt="" loading="lazy"><img src="g/kapadokya-peribacasi-g.webp" alt="" loading="lazy"><img src="g/sinop-diyojen.webp" alt="" loading="lazy" style="object-position:80% 50%">
+   <img class="on" src="g/sinop-kotra.webp" alt="" loading="lazy" style="object-position:75% 50%"><img src="g/amasra-kale-g.webp" alt="" loading="lazy"><img src="g/kapadokya-peribacasi-g.webp" alt="" loading="lazy"><img src="g/sinop-diyojen.webp" alt="" loading="lazy" style="object-position:80% 50%"><img src="g/safranbolu-carsi-g.webp" alt="" loading="lazy">
    <figcaption id="atlascap">Sinop · Kotra</figcaption>
   </figure>
  </div>
@@ -537,16 +542,16 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
  // header gölgesi
  var h=document.getElementById('top');addEventListener('scroll',function(){h.classList.toggle('sc',scrollY>10)},{passive:true});
  // kahraman: telefon ekranı + gravür döngüsü
- var scr=[].slice.call(document.querySelectorAll('.phone .scr img')),pan=[].slice.call(document.querySelectorAll('.pano img')),nm=['Sinop Journal','Amasra Journal','Kapadokya Journal'],cn=document.getElementById('cityname'),i=0;
+ var scr=[].slice.call(document.querySelectorAll('.phone .scr img')),pan=[].slice.call(document.querySelectorAll('.pano img')),nm=['Sinop Journal','Amasra Journal','Kapadokya Journal','Safranbolu Journal'],cn=document.getElementById('cityname'),i=0;
  var panSet=[0,1,2];
- var au=['Sinop\'u dinle · Türkçe + İngilizce','Amasra\'yı dinle · Türkçe + İngilizce','Kapadokya\'yı dinle · Türkçe + İngilizce'],ae=document.getElementById('aud');
+ var au=['Sinop\'u dinle · Türkçe + İngilizce','Amasra\'yı dinle · Türkçe + İngilizce','Kapadokya\'yı dinle · Türkçe + İngilizce','Safranbolu\'yu dinle · Türkçe + İngilizce'],ae=document.getElementById('aud');
  var dt=[].slice.call(document.querySelectorAll('.dots3 button'));function go(k){scr[i].classList.remove('on');dt[i].classList.remove('on');i=k;scr[i].classList.add('on');dt[i].classList.add('on');cn.textContent=nm[i];ae.textContent=au[i];}
- var tm=rm?null:setInterval(function(){go((i+1)%3)},6500);
+ var tm=rm?null:setInterval(function(){go((i+1)%scr.length)},6500);
  dt.forEach(function(b,k){b.addEventListener('click',function(){go(k);if(tm){clearInterval(tm);tm=null;}})});
  // tanışma fiyatı 11 Aralık 2026'da kendiliğinden biter
  if(d>=new Date(2026,11,11)){[].forEach.call(document.querySelectorAll('.tn'),function(e){e.style.display='none'});[].forEach.call(document.querySelectorAll('.pr'),function(e){e.textContent='790 TL'});}
  // atlas görseli
- var ai=[].slice.call(document.querySelectorAll('.atlas-art img')),cap=document.getElementById('atlascap'),caps=['Sinop · Kotra','Amasra · Kale','Kapadokya · Peribacaları','Sinop · Diyojen'];
+ var ai=[].slice.call(document.querySelectorAll('.atlas-art img')),cap=document.getElementById('atlascap'),caps=['Sinop · Kotra','Amasra · Kale','Kapadokya · Peribacaları','Sinop · Diyojen','Safranbolu · Çarşı'];
  [].forEach.call(document.querySelectorAll('.index li'),function(li){var k=+li.dataset.img;function s(){ai.forEach(function(x,j){x.classList.toggle('on',j===k)});cap.textContent=caps[k];}li.addEventListener('mouseenter',s);li.addEventListener('focusin',s);});
  // görünme
  var rv=document.querySelectorAll('.rv');

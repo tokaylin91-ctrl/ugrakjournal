@@ -31,7 +31,7 @@ var ort=document.createElement('div');ort.className='ugs-ort';ort.setAttribute('
 ort.innerHTML='<div class="ugs-kart"><button class="x" type="button" aria-label="Kapat">×</button><h3>Ödemeye geç</h3><ul></ul>'+
  '<label><input type="checkbox" id="ugs-c1"><span><a target="_blank" rel="noopener" id="ugs-kl">Ön bilgilendirme ve satış koşullarını</a> okudum.</span></label>'+
  '<label><input type="checkbox" id="ugs-c2"><span>Kodlarımın ödemeden hemen sonra verilmesini istiyorum; dijital içerikte bu şekilde teslimle cayma hakkımın olmadığını biliyorum. Çalışmayan içerikle ilgili haklarım saklıdır.</span></label>'+
- '<p class="bil"><b>Kodun nasıl gelir?</b> Ödeme bitince Shopier sayfasındaki <b>“Kodunu almak için tıkla”</b> bağlantısıyla buraya dön, kodun hemen ekranda. Kod ayrıca e-postana <b>en geç 1 saat içinde</b> gelir. Shopier\'in “ödemeniz onaylandı” e-postasında kod yazmaz; bu normal.</p>'+
+ '<p class="bil"><b>Kodun nasıl gelir?</b> Ödeme bitince Shopier sayfasında yazan <b>ugrakjournal.com/kod</b> adresine dön, kodun hemen ekranda. Kod ayrıca e-postana <b>en geç 1 saat içinde</b> gelir. Shopier\'in “ödemeniz onaylandı” e-postasında kod yazmaz; bu normal.</p>'+
  '<button class="ode" type="button">Shopier\'de öde →</button><div class="m" role="status"></div>'+
  '<p class="not">🔒 Adını, e-postanı ve kart bilgini yalnız Shopier\'in güvenli sayfasında yazarsın.</p></div>';
 document.body.appendChild(ort);

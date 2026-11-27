@@ -4,8 +4,8 @@ SEHIR = {
  'sinop': {
   'ad': ('Sinop', 'Sinop'), 'no': '01', 'gravur': 'g/sinop-kale.webp', 'gcap': ('Sinop Kalesi', 'Sinop Fortress'),
   'kart': ('Diyojen\'in kenti, Anadolu\'nun en kuzey ucu.', 'Diogenes\' city at the northern tip of Anatolia.'),
-  'ozet': ("Sinop, Karadeniz kıyısında bir yarımadaya kurulmuş, kökleri MÖ 7. yüzyıla uzanan bir liman kenti. Filozof Diyojen burada doğdu; kale surları, Tarihi Sinop Cezaevi ve Anadolu'nun en kuzey ucu İnceburun kentin simgeleri. Merkezin dışında Hamsilos koyu, Akliman kumsalı ve Erfelek'in 28 şelalesi var.",
-           "Sinop is a harbour town on a peninsula on Turkey's Black Sea coast, with roots going back to the 7th century BC. The philosopher Diogenes was born here; the fortress walls, the Historic Sinop Prison and İnceburun, the northernmost point of Anatolia, are its landmarks. Beyond the centre lie the fjord-like Hamsilos cove, Akliman beach and the 28 waterfalls of Erfelek."),
+  'ozet': ("Sinop, Karadeniz kıyısında bir yarımadaya kurulmuş, antik Sinope'nin kurulduğu MÖ 7. yüzyıla uzanan bir liman kenti. Filozof Diyojen burada doğdu; kale surları, Tarihi Sinop Cezaevi ve Anadolu'nun en kuzey ucu İnceburun kentin simgeleri. Merkezin dışında Hamsilos koyu, Akliman kumsalı ve Erfelek'teki 28 basamaklı Tatlıca Şelaleleri var.",
+           "Sinop is a harbour town on a peninsula on Turkey's Black Sea coast, whose story goes back to the founding of ancient Sinope in the 7th century BC. The philosopher Diogenes was born here; the fortress walls, the Historic Sinop Prison and İnceburun, the northernmost point of Anatolia, are its landmarks. Beyond the centre lie the fjord-like Hamsilos cove, Akliman beach and the 28 Tatlıca Waterfalls of Erfelek."),
   'bilgi': [
     (('İl', 'Province'), ('Sinop, Karadeniz Bölgesi', 'Sinop, Black Sea region')),
     (('Havalimanı', 'Airport'), ('Sinop Havalimanı (NOP), merkeze yaklaşık 8 km', 'Sinop Airport (NOP), about 8 km from the centre')),
@@ -29,8 +29,8 @@ SEHIR = {
  'amasra': {
   'ad': ('Amasra', 'Amasra'), 'no': '02', 'gravur': 'g/amasra-kemere-g.webp', 'gcap': ('Kemere Köprüsü', 'Kemere Bridge'),
   'kart': ('İki liman, bir kale, bir yarımada.', 'Two harbours, a fortress and a peninsula.'),
-  'ozet': ("Amasra, Bartın'a bağlı, iki limanın arasında küçük bir yarımadaya kurulmuş bir Karadeniz kenti. Antik adı Sesamos; MÖ 300 dolaylarında Kraliçe Amastris'in kurduğu kent onun adını aldı. Kale, Kemere Köprüsü, Boztepe ve deniz feneri yürüyerek gezilir; yakında Roma döneminden Kuşkayası Yol Anıtı var.",
-           "Amasra is a Black Sea town in Bartın province, built on a small peninsula between two harbours. Its ancient name was Sesamos; around 300 BC Queen Amastris founded the city that took her name. The fortress, the Kemere Bridge, Boztepe and the lighthouse are all reached on foot, and the Roman-era Kuşkayası Road Monument lies close by."),
+  'ozet': ("Amasra, Bartın'a bağlı, iki limanın arasında küçük bir yarımadaya kurulmuş bir Karadeniz kenti. Antik adı Sesamos olan kent, MÖ 4. yüzyılın sonlarında hüküm süren Kraliçe Amastris'in adıyla anılır; bugünkü adının da Amastris'ten geldiği kabul edilir. Kale, Kemere Köprüsü, Boztepe ve deniz feneri yürüyerek gezilir; yakında Roma döneminden Kuşkayası Yol Anıtı var.",
+           "Amasra is a Black Sea town in Bartın province, built on a small peninsula between two harbours. Its ancient name was Sesamos; the town is associated with Queen Amastris, who ruled in the late 4th century BC, and its present name is generally traced to hers. The fortress, the Kemere Bridge, Boztepe and the lighthouse are all reached on foot, and the Roman-era Kuşkayası Road Monument lies close by."),
   'bilgi': [
     (('İl', 'Province'), ('Bartın, Karadeniz Bölgesi', 'Bartın, Black Sea region')),
     (('Ulaşım', 'Getting there'), ("Bartın üzerinden karayoluyla", 'By road via Bartın')),

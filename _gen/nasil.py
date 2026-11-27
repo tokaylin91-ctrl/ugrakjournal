@@ -101,18 +101,18 @@ def sahneler(dil):
 
 ADIMLAR = {
  'tr': [
-  ("Defterini seç", "Şehir sayfasında ya da mağazada \"Sepete ekle\"ye dokun. Birden fazla defter seçebilirsin; hepsi tek ödeme, tek kod."),
+  ("Defterini seç", "Şehir sayfasında ya da mağazada \"Sepete ekle\"ye dokun. Birden fazla defter seçebilirsin: tek ödeme yaparsın, aldığın defterlerin hepsi aynı tek kodla açılır."),
   ("Shopier'de öde", "\"Ödemeye geç\" seni Shopier'in güvenli ödeme sayfasına götürür. Kart bilgin Shopier'de kalır, bize iletilmez."),
-  ("Kodun ekranda ve e-postanda", "Ödeme biter bitmez kişisel kodun ekranda görünür. Aynı kod e-postana da gelir; genelde birkaç dakika içinde, en geç bir saat içinde. Gelmezse gereksiz klasörüne bak."),
+  ("Kodun ekranda ve e-postanda", "Ödeme tamamlandığında kişisel kodun ekranda görünür. Kod ayrıca siparişte yazdığın e-posta adresine gönderilir. E-postayı göremezsen gereksiz (spam) klasörüne bak; koduna ulaşamazsan bize yaz, hemen yardımcı olalım."),
   ("E-postadaki düğmeye dokun", "Telefonunda e-postayı aç ve \"Defterini aç\" düğmesine dokun."),
   ("Ana ekrana ekle", "<span data-only=\"safari\">Safari'de alttaki Paylaş düğmesine (kare ve yukarı ok) dokun, listeden \"Ana Ekrana Ekle\"yi seç.</span><span data-only=\"chrome\">Chrome'da sağ üstteki üç noktaya (⋮) dokun, \"Ana ekrana ekle\"yi ya da \"Uygulamayı yükle\"yi seç.</span>"),
   ("Ana ekrandaki simgeye dokun", "Defter artık bir uygulama gibi ana ekranında."),
   ("Kodunu gir, defterin açılsın", "Kodu bir kez girersin. İlk açılıştan sonra defter internetsiz de çalışır; en fazla 2 cihazda kullanabilirsin."),
  ],
  'en': [
-  ("Choose your journal", "Tap \"Add to cart\" on a city page. You can pick several journals; one payment, one code."),
+  ("Choose your journal", "Tap \"Add to cart\" on a city page. You can pick several journals: you pay once, and one code opens all of them."),
   ("Pay on Shopier", "\"Checkout\" takes you to Shopier's secure payment page. Your card details stay with Shopier; we never see them."),
-  ("Your code: on screen and by email", "As soon as payment is done, your personal code appears on screen. The same code is emailed to you, usually within minutes and at most within an hour. Check your spam folder if it doesn't arrive."),
+  ("Your code: on screen and by email", "When payment is complete, your personal code appears on screen. It is also sent to the email address you gave at checkout. If you can't see the email, check your spam folder; if you still can't find your code, write to us and we'll help right away."),
   ("Tap the button in the email", "Open the email on your phone and tap \"Open your journal\"."),
   ("Add it to your home screen", "<span data-only=\"safari\">In Safari, tap the Share button at the bottom (square with an up arrow) and choose \"Add to Home Screen\".</span><span data-only=\"chrome\">In Chrome, tap the three dots (⋮) at the top right and choose \"Add to home screen\" or \"Install app\".</span>"),
   ("Tap the new icon", "The journal now sits on your home screen like an app."),

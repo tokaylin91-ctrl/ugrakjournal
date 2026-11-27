@@ -128,7 +128,7 @@ def alt(dil):
  <div><b>Şehirler</b><a href="/sehirler/sinop/">Sinop</a><a href="/sehirler/amasra/">Amasra</a><a href="/sehirler/kapadokya/">Kapadokya</a><a href="/sehirler/safranbolu/">Safranbolu</a></div>
  <div><b>Uğrak</b><a href="/hakkimizda/">Hakkımızda</a><a href="/dijital/">Uğrak Çocuk · Martı</a><a href="/yardim/">Yardım ve SSS</a><a href="/iletisim/">İletişim</a></div>
  <div><b>Satış</b><a href="/dijital/bilgilendirme.html">Satış koşulları</a><a href="/yardim/#iade">İptal ve iade</a><a href="/yardim/#kvkk">Kişisel veriler</a><a href="/en/">English</a></div>
- <div class="copy">© 2026 Uğrak · Aylin Tok · Sinop · Ödemeler Shopier güvenli ödeme sayfasında alınır; kart bilgin bize iletilmez.</div>
+ <div class="copy">© 2026 Uğrak · Satıcı: Aylin Tok (Uğrak), Yeni Mahalle, Gazi Caddesi No: 49/A, Merkez / Sinop · satis@ugrakjournal.com · Ödemeler Shopier güvenli ödeme sayfasında alınır; kart bilgin bize iletilmez.</div>
 </div></footer>
 '''
     return '''<footer><div class="wrap foot">
@@ -232,10 +232,11 @@ def sehir_sayfasi(c, dil):
         fiyat = '<span class="pr">390 TL</span><small class="prn">Launch price in Turkish lira · 790 TL from 11 December</small>'
         cta_bas = f'{ad} Journal · Digital'
         cta_li = ['Opens like an app on your phone, works offline', 'Audio stories in English and Turkish', 'Place pages, walking routes, maps and small quests', 'Your own travel diary, colouring pages and stickers', 'Personal code, works on 2 devices']
-        not_ = 'Checkout is on Shopier\'s secure page and charges in Turkish lira; most cards are converted automatically by your bank. Your code appears right after payment and is emailed to you.'
+        not_ = 'Payments are processed securely through Shopier. Prices are in Turkish lira (TRY); your bank or card provider may convert the amount into your currency, and exchange rates and any foreign transaction fees are set by your provider. Uğrak is based in Sinop, Türkiye. This is a digital product; nothing is shipped.'
         ikinci = '<a class="btn ghost" href="/en/how-to-buy/">How it works</a>'
     cta = (f'<section class="cta" id="defter"><div><span class="eyebrow">{T("Uğrak dijital defteri", "Uğrak digital journal")}</span><h2>{E(cta_bas)}</h2>'
            f'<p>{T(f"Bu sayfadaki yerlerin hepsi, sesli anlatımlar, gravürler ve görevlerle birlikte telefonunda.", f"Every place on this page, with audio stories, illustrations and quests, on your phone.")}</p>'
+           f'<p class="note">{T("Gravürler yapay zekâ araçlarıyla üretilip tarafımızdan seçilip düzenlenir; anlatıcı sesi yapay zekâ sesidir. ", "Illustrations are created with AI tools and edited by us; the narrator\'s voice is AI-generated. ")}<a href="{"/hakkimizda/#yapay-zeka" if dil=="tr" else "/en/about/#ai"}">{T("Ayrıntı","Details")}</a></p>'
            '<ul>' + ''.join(f'<li>{E(x)}</li>' for x in cta_li) + f'</ul><p class="note" style="margin-top:14px">{E(not_)}</p></div>'
            f'<div class="acts"><div class="price">{fiyat}</div>{satin}{ikinci}</div></section>')
     ana_y = '/' if dil == 'tr' else '/en/'
@@ -244,7 +245,7 @@ def sehir_sayfasi(c, dil):
         {"@type": "ListItem", "position": 1, "name": "Uğrak", "item": SITE + ana_y},
         {"@type": "ListItem", "position": 2, "name": T("Şehirler", "City guides"), "item": SITE + liste_y},
         {"@type": "ListItem", "position": 3, "name": ad, "item": url(yol)}]}
-    makale = {"@type": "Article", "headline": baslik.split(' · ')[0], "inLanguage": dil, "dateModified": BUGUN, "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
+    makale = {"@type": "Article", "headline": baslik.split(' · ')[0], "inLanguage": dil, "datePublished": BUGUN, "dateModified": BUGUN, "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
               "about": {"@type": "TouristDestination", "name": ad, "includesAttraction": yer_ld}, "image": SITE + '/' + cfg['gravur']}
     gov = f'''<main><div class="wrap">
 <p class="crumb"><a href="{ana_y}">Uğrak</a> / <a href="{liste_y}">{T("Şehirler","City guides")}</a> / {E(ad)}</p>
@@ -333,7 +334,7 @@ def sabitler():
 <li><b>Sesli anlatım:</b> anlatıcı sesi yapay zekâ sesidir; metinleri biz yazıp kontrol ediyoruz.</li>
 <li><b>Metinler:</b> yapay zekâ yardımıyla taslaklanıyor; her bilgi kaynakla doğrulanıyor ve tarafımızdan düzenleniyor.</li>
 </ul></div>
-<p>Bunu açıkça yazıyoruz, çünkü bir rehbere güvenmenin ilk şartı nasıl yapıldığını bilmek.</p>
+<p>Yapay zekâyı üretim sürecimizin bir aracı olarak kullanıyoruz; araştırma, seçim, doğrulama, düzenleme ve son yayın kararı bize ait. Bunu açıkça yazıyoruz, çünkü bir rehbere güvenmenin ilk şartı nasıl yapıldığını bilmek.</p>
 <h2>İletişim</h2>
 <p>info@ugrakjournal.com · WhatsApp 0546 846 62 88 · <a href="https://instagram.com/ugrakjournal">@ugrakjournal</a> · Sinop</p>
 ''', [{"@type": "AboutPage", "name": "Hakkımızda", "about": {"@id": SITE + "/#org"}}])
@@ -357,7 +358,7 @@ def sabitler():
 <li><b>Audio narration:</b> the narrator's voice is AI-generated; we write and check the scripts.</li>
 <li><b>Texts:</b> drafted with the help of AI tools; every fact is checked against sources and edited by us.</li>
 </ul></div>
-<p>We say this openly because trusting a guide starts with knowing how it was made.</p>
+<p>We use AI as a tool in our process; research, selection, fact-checking, editing and the final decision to publish are ours. We say this openly because trusting a guide starts with knowing how it was made.</p>
 <h2>Contact</h2>
 <p>info@ugrakjournal.com · WhatsApp +90 546 846 62 88 · <a href="https://instagram.com/ugrakjournal">@ugrakjournal</a> · Sinop, Türkiye</p>
 ''', [{"@type": "AboutPage", "name": "About", "about": {"@id": SITE + "/#org"}}])
@@ -398,8 +399,9 @@ def sabitler():
           sss_html(yardim_en) + '''
 <h2 id="refunds">Refunds</h2>
 <p>The journals are digital content delivered immediately after payment. If your code doesn't work or the journal won't open, we fix it first; if we can't, we refund you. Full terms (in Turkish) are on each journal's information page.</p>
-<h2>Payment</h2>
-<p>Checkout is on Shopier's secure payment page and charges in Turkish lira. Your card details are never shared with us.</p>
+<h2 id="payment">Payment & currency</h2>
+<p>Payments are processed securely through Shopier. Prices are displayed in Turkish lira (TRY). Your bank or card provider may automatically convert the amount into your local currency; exchange rates and any foreign transaction fees are set by your payment provider. Your card details are never shared with us.</p>
+<p>Uğrak is based in Sinop, Türkiye. Your purchase is a digital product; no physical item is shipped. Support is available in English by email.</p>
 <h2>Support</h2>
 <p>info@ugrakjournal.com · WhatsApp +90 546 846 62 88. We usually reply the same day.</p>''', faq_ld(yardim_en))
     sabit('tr', 'iletisim/index.html', 'en/contact/index.html', '/iletisim/', 'İletişim · Uğrak Journal, Sinop',

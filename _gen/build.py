@@ -6,6 +6,7 @@ import json, os, re, html, datetime, shutil, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from sehirler import SEHIR
 import nasil
+from yazilar import YAZI
 from PIL import Image
 
 KOK = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -265,12 +266,49 @@ def sehir_sayfasi(c, dil):
 <aside class="facts" aria-label="{T("Kısa bilgiler","Quick facts")}"><h2>{T("Kısa bilgiler","Quick facts")}</h2><dl>{dl}</dl>
 <a class="btn" href="#defter">{T(f"{ad} defterine bak", f"See the {ad} journal")}</a></aside>
 </div>
+{ilgili(c, dil)}
 {cta}
 </div></main>
 '''
     karsi_url = '/' + karsi.replace('index.html', '')
     sayfa = bas(dil, baslik, aciklama, yol, karsi, [makale, faq_ld, crumb_ld], '/' + cfg['gravur']) + ust(dil, liste_y if dil == 'tr' else '/en/', karsi_url) + gov + son(dil, sepet=(dil == 'tr'))
     yaz(yol, sayfa)
+
+def yazi_url(y, dil):
+    return f'/yazilar/{y["slug"][0]}/' if dil == 'tr' else f'/en/guides/{y["slug"][1]}/'
+
+def ilgili(c, dil):
+    ys = [y for y in YAZI if c in y['sehir']]
+    if not ys:
+        return ''
+    i = 0 if dil == 'tr' else 1
+    return ('<section class="box" style="margin-top:56px"><span class="eyebrow">' + ('İlgili yazılar' if dil == 'tr' else 'Related guides') + '</span>' +
+            ''.join(f'<p style="margin:6px 0"><a href="{yazi_url(y, dil)}" style="font:500 21px/1.3 var(--serif)">{E(y["baslik"][i])}</a></p>' for y in ys) + '</section>')
+
+def yazi_sayfalari():
+    for dil in ('tr', 'en'):
+        i = 0 if dil == 'tr' else 1
+        for y in YAZI:
+            yol = yazi_url(y, dil).strip('/') + '/index.html'
+            karsi = yazi_url(y, 'en' if dil == 'tr' else 'tr').strip('/') + '/index.html'
+            gov = f'<p class="lede" style="font-size:20px;color:#4A3A31"><b>{"Kısa cevap" if dil=="tr" else "Short answer"}:</b> {E(y["kisa"][i])}</p>'
+            gov += f'<figure class="ph-art" style="margin:26px 0"><img src="/{y["gravur"]}" alt="" width="900" height="600"></figure>'
+            for (h, ps) in y['bolum']:
+                gov += f'<h2>{E(h[i])}</h2><p>{E(ps[i])}</p>'
+            sl = [(('Şehir rehberi: ' if dil=='tr' else 'City guide: ') + SEHIR[c]['ad'][i], f'/sehirler/{c}/' if dil == 'tr' else f'/en/cities/{ENSLUG[c]}/') for c in y['sehir']]
+            gov += '<h2>' + ('Devamı' if dil == 'tr' else 'Read more') + '</h2><ul>' + ''.join(f'<li><a href="{u}">{E(t)}</a></li>' for t, u in sl) + '</ul>'
+            gov += '<h2>' + ('Kaynaklar' if dil == 'tr' else 'Sources') + '</h2><ul>' + ''.join(f'<li><a href="{u}" rel="noopener">{E(t)}</a></li>' for t, u in y['kaynak']) + \
+                   ('<li>Uğrak şehir rehberleri ve dijital defter içerikleri (kaynaklarla doğrulanmış)</li>' if dil == 'tr' else '<li>Uğrak city guides and journal content (checked against sources)</li>') + '</ul>'
+            gov += f'<p class="updated">{"Son kontrol" if dil=="tr" else "Last checked"}: {KONTROL[i]} · {"Hazırlayan: Uğrak Journal, Sinop" if dil=="tr" else "By Uğrak Journal, Sinop"} · <a href="{"/hakkimizda/#nasil" if dil=="tr" else "/en/about/#how"}">{"Nasıl hazırlıyoruz?" if dil=="tr" else "How we research"}</a></p>'
+            ld = [{"@type": "Article", "headline": y['baslik'][i], "inLanguage": dil, "datePublished": BUGUN, "dateModified": BUGUN,
+                   "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"}, "image": SITE + '/' + y['gravur'], "description": y['kisa'][i]}]
+            sabit(dil, yol, karsi, '/sehirler/' if dil == 'tr' else '/en/', y['baslik'][i] + ' · Uğrak', y['kisa'][i][:155], E(y['baslik'][i]), gov, ld)
+
+def yazi_listesi():
+    gov = '<ul style="list-style:none;padding:0">' + ''.join(f'<li class="route"><h3><a href="{yazi_url(y,"tr")}">{E(y["baslik"][0])}</a></h3><p>{E(y["kisa"][0])}</p></li>' for y in YAZI) + '</ul>'
+    sabit('tr', 'yazilar/index.html', 'en/guides/index.html', '/sehirler/', 'Gezi yazıları · Uğrak', 'Uğrak gezi yazıları: kaç gün kalınmalı, hangi şehir kime uygun, ilk kez gidenler için öneriler.', 'Gezi <em>yazıları</em>', gov)
+    gov = '<ul style="list-style:none;padding:0">' + ''.join(f'<li class="route"><h3><a href="{yazi_url(y,"en")}">{E(y["baslik"][1])}</a></h3><p>{E(y["kisa"][1])}</p></li>' for y in YAZI) + '</ul>'
+    sabit('en', 'en/guides/index.html', 'yazilar/index.html', '/en/', 'Travel guides & tips · Uğrak', 'Uğrak travel tips for Türkiye: how many days to stay, which town suits you, and advice for first-time visitors.', 'Travel <em>guides</em>', gov)
 
 # ---------- liste sayfaları ----------
 def kartlar(dil):
@@ -283,10 +321,12 @@ def kartlar(dil):
 
 def sehirler_tr():
     yol = 'sehirler/index.html'
+    YL_TR = ''.join(f'<li><a href="{yazi_url(y,"tr")}">{E(y["baslik"][0])}</a></li>' for y in YAZI)
     gov = f'''<main><div class="wrap"><p class="crumb"><a href="/">Uğrak</a> / Şehirler</p>
 <div class="ph"><span class="eyebrow">Şehir rehberleri</span><h1>Uğradığımız <em>şehirler</em></h1>
 <p class="lede">Her şehri baştan araştırıyoruz: yerler, rotalar, kısa tarih, bir rivayet ve pratik bilgiler. Rehberler ücretsiz; aynı şehrin sesli anlatımlı, görevli ve günlüklü dijital defteri telefonunda.</p></div>
 {kartlar('tr')}
+<h2>Gezi yazıları</h2><ul>{YL_TR}</ul>
 <p class="note" style="margin-top:26px">Sıradaki şehirler araştırılıyor. Bir şehir önermek için <a href="/iletisim/">bize yaz</a>.</p>
 </div></main>'''
     yaz(yol, bas('tr', 'Şehir Rehberleri: Sinop, Amasra, Kapadokya, Safranbolu · Uğrak', 'Sinop, Amasra, Kapadokya ve Safranbolu için ücretsiz gezi rehberleri: görülecek yerler, rotalar, kısa tarih ve rivayetler.', yol, None) + ust('tr', '/sehirler/', '/en/') + gov + son('tr'))
@@ -300,6 +340,7 @@ def en_ana():
 <figure class="ph-art" style="margin:0"><img src="/ekran-safranbolu.webp" alt="The Safranbolu journal open on a phone" width="600" height="1200" style="max-height:520px;width:auto;margin:auto;mix-blend-mode:normal"><figcaption>The Safranbolu journal on a phone</figcaption></figure></div>
 <h2 id="guides">Free city guides</h2>
 {kartlar('en')}
+<h2 id="tips">Travel tips</h2><ul>{''.join(f'<li><a href="{yazi_url(y,"en")}">{E(y["baslik"][1])}</a></li>' for y in YAZI)}</ul>
 <h2 id="journals">The digital journals</h2>
 <div class="box"><p>Each journal costs <b class="pr">390 TL</b> <span class="prn">(launch price, 790 TL from 11 December)</span>. Buy it from the city guide page; checkout is on Shopier's secure page in Turkish lira. Your personal code appears right after payment, is emailed to you and works on two devices.</p>
 <p style="margin:0">Available journals: <a href="https://sinop.ugrakjournal.com/satin-al">Sinop</a> · <a href="https://amasra.ugrakjournal.com/satin-al">Amasra</a> · <a href="https://kapadokya.ugrakjournal.com/satin-al">Cappadocia</a> · <a href="https://safranbolu.ugrakjournal.com/satin-al">Safranbolu</a>. See <a href="/en/help/">how it works</a>.</p></div>
@@ -309,7 +350,7 @@ def en_ana():
 # ---------- sabit sayfalar ----------
 def sabit(dil, yol, karsi, aktif, baslik, aciklama, h1, gov, ld=None, genis=False):
     karsi_url = '/' + karsi.replace('index.html', '')
-    crumb = f'<p class="crumb"><a href="{"/" if dil=="tr" else "/en/"}">Uğrak</a> / {E(re.sub("<[^>]+>", "", h1))}</p>'
+    crumb = f'<p class="crumb"><a href="{"/" if dil=="tr" else "/en/"}">Uğrak</a> / {E(html.unescape(re.sub("<[^>]+>", "", h1)))}</p>'
     yaz(yol, bas(dil, baslik, aciklama, yol, karsi, ld) + ust(dil, aktif, karsi_url) +
         f'<main><div class="wrap{"" if genis else " narrow"} prose">{crumb}<div class="ph"><h1>{h1}</h1></div>{gov}</div></main>' + son(dil))
 
@@ -460,5 +501,5 @@ if __name__ == '__main__':
     shutil.copy(os.path.join(KOK, '_gen', 'site.css'), os.path.join(KOK, 'site.css'))
     for c in SEHIR:
         sehir_sayfasi(c, 'tr'); sehir_sayfasi(c, 'en')
-    sehirler_tr(); en_ana(); sabitler(); nasil_sayfalari(); sitemap()
+    sehirler_tr(); en_ana(); sabitler(); nasil_sayfalari(); yazi_sayfalari(); yazi_listesi(); sitemap()
     print('\n'.join(URETILEN))

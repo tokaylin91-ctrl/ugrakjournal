@@ -416,7 +416,7 @@ def sabitler():
       ("Hangi telefonlarda çalışır?", "iPhone'da Safari, Android'de Chrome ile çalışır. İlk açılışta internet gerekir; sonra defter internetsiz de açılır."),
       ("Kaç cihazda kullanabilirim?", "Bir kod en fazla 2 cihazda çalışır. Kod kişiseldir; paylaşılamaz, devredilemez."),
       ("Kodum gelmedi ya da kayboldu.", "Önce e-postanın gereksiz (spam) klasörüne bak. Bulamazsan sipariş numaranla info@ugrakjournal.com adresine ya da WhatsApp'tan yaz; kodunu yeniden göndeririz."),
-      ("Birden fazla defter alabilir miyim?", "Evet. Sepete eklediğin defterleri tek ödemeyle alırsın; hepsi tek kodla açılır."),
+      ("Birden fazla defter alabilir miyim?", "Evet. Sepete eklediğin defterleri tek ödemeyle alırsın. Şehir defterlerinin hepsi tek kodla açılır; Martı çocuk defterlerinin kodu ayrıdır."),
       ("Basılı defter var mı?", "Basılı Sinop Journal hazırlanıyor. Çıkınca duyuracağız."),
     ]
     yardim_en = [
@@ -489,7 +489,7 @@ def magaza():
 <div class="shopgrid">{sehir}</div><p class="note prn" style="margin-top:10px">Şehir defterlerinde tanışma fiyatı; 11 Aralık'tan itibaren 790 TL.</p>
 <h2 id="marti">Uğrak Çocuk · Martı'nın Defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe</small></h2>
 <div class="shopgrid">{marti}</div>
-<div class="box" style="margin-top:34px"><b>Hediye mi alıyorsun?</b> Her defter tek kişiliktir. Hediye etmek istediğin kişi için ayrı bir defter al, kodunu açmadan ona gönder.<br><br><b>Tur, gezi grubu, okul ya da kurum için toplu alım mı düşünüyorsun?</b> Bize yaz, sana özel paket hazırlayalım: <a href="https://wa.me/905468466288?text=Merhaba%2C%20toplu%20U%C4%9Frak%20defteri%20almak%20istiyoruz%20(tur%20%2F%20grup%20%2F%20kurum).">WhatsApp</a> · satis@ugrakjournal.com<br><br><b>Birden fazla farklı defter mi?</b> Hepsini sepete ekle; tek ödeme yaparsın, hepsi aynı kodla açılır. Kart bilgin Shopier'in güvenli sayfasında girilir, bize iletilmez. Kod en fazla 2 cihazda çalışır. <a href="/yardim/">Sık sorulanlar</a></div>'''
+<div class="box" style="margin-top:34px"><b>Hediye mi alıyorsun?</b> Her defter tek kişiliktir. Hediye etmek istediğin kişi için ayrı bir defter al, kodunu açmadan ona gönder.<br><br><b>Tur, gezi grubu, okul ya da kurum için toplu alım mı düşünüyorsun?</b> Bize yaz, sana özel paket hazırlayalım: <a href="https://wa.me/905468466288?text=Merhaba%2C%20toplu%20U%C4%9Frak%20defteri%20almak%20istiyoruz%20(tur%20%2F%20grup%20%2F%20kurum).">WhatsApp</a> · satis@ugrakjournal.com<br><br><b>Birden fazla farklı defter mi?</b> Hepsini sepete ekle, tek ödeme yaparsın. Şehir defterlerin tek kodla açılır; Martı çocuk defterlerinin kodu ayrıdır. Kart bilgin Shopier'in güvenli sayfasında girilir, bize iletilmez. Kod en fazla 2 cihazda çalışır. <a href="/yardim/">Sık sorulanlar</a></div>'''
     sabit('tr', 'magaza/index.html', 'en/index.html', '/magaza/', 'Mağaza: Dijital şehir defterleri ve çocuk defterleri · Uğrak',
           'Sinop, Amasra, Kapadokya ve Safranbolu dijital şehir defterleri ile Martı çocuk defterleri. Sepete ekle, Shopier ile tek ödeme, kod hemen.',
           'Mağaza', gov, None, genis=True)

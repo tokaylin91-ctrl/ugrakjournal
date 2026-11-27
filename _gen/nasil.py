@@ -101,7 +101,7 @@ def sahneler(dil):
 
 ADIMLAR = {
  'tr': [
-  ("Defterini seç", "Şehir sayfasında ya da mağazada \"Sepete ekle\"ye dokun. Birden fazla defter seçebilirsin: tek ödeme yaparsın, aldığın defterlerin hepsi aynı tek kodla açılır."),
+  ("Defterini seç", "Şehir sayfasında ya da mağazada \"Sepete ekle\"ye dokun. Birden fazla defter seçebilirsin: tek ödeme yaparsın. Şehir defterlerinin hepsi tek kodla açılır; Martı çocuk defterlerinin kodu ayrıdır."),
   ("Shopier'de öde", "\"Ödemeye geç\" seni Shopier'in güvenli ödeme sayfasına götürür. Kart bilgin Shopier'de kalır, bize iletilmez."),
   ("Kodun ekranda ve e-postanda", "Ödeme tamamlandığında kişisel kodun ekranda görünür. Kod ayrıca siparişte yazdığın e-posta adresine gönderilir. E-postayı göremezsen gereksiz (spam) klasörüne bak; koduna ulaşamazsan bize yaz, hemen yardımcı olalım."),
   ("E-postadaki düğmeye dokun", "Telefonunda e-postayı aç ve \"Defterini aç\" düğmesine dokun."),
@@ -110,7 +110,7 @@ ADIMLAR = {
   ("Kodunu gir, defterin açılsın", "Kodu bir kez girersin. İlk açılıştan sonra defter internetsiz de çalışır; en fazla 2 cihazda kullanabilirsin."),
  ],
  'en': [
-  ("Choose your journal", "Tap \"Add to cart\" on a city page. You can pick several journals: you pay once, and one code opens all of them."),
+  ("Choose your journal", "Tap \"Add to cart\" on a city page. You can pick several journals: you pay once, and one code opens all your city journals."),
   ("Pay on Shopier", "\"Checkout\" takes you to Shopier's secure payment page. Your card details stay with Shopier; we never see them."),
   ("Your code: on screen and by email", "When payment is complete, your personal code appears on screen. It is also sent to the email address you gave at checkout. If you can't see the email, check your spam folder; if you still can't find your code, write to us and we'll help right away."),
   ("Tap the button in the email", "Open the email on your phone and tap \"Open your journal\"."),

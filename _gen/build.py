@@ -146,7 +146,7 @@ def alt(dil):
 FIYAT_JS = '''<script>(function(){var B=new Date('2026-12-10T23:59:59+03:00').getTime();function g(){var k=B-Date.now();document.querySelectorAll('.geri').forEach(function(e){if(k<=0){e.textContent='';return}var d=Math.floor(k/864e5),h=Math.floor(k%864e5/36e5),m=Math.floor(k%36e5/6e4);e.textContent=e.getAttribute('data-dil')==='en'?('ends in '+(d?d+'d ':'')+h+'h '+m+'m'):('bitmesine '+(d?d+' gün ':'')+h+' sa '+m+' dk')})}g();setInterval(g,30000)})();</script><script>(function(){var d=new Date();if(d>=new Date('2026-12-11T00:00:00+03:00')){document.querySelectorAll('.pr').forEach(function(e){e.textContent='790 TL'});document.querySelectorAll('.hept').forEach(function(e){e.textContent='3.160 TL'});document.documentElement.classList.add('fiyat-son');document.querySelectorAll('.prn').forEach(function(e){e.remove()})}})();</script>'''
 
 def son(dil, sepet=False):
-    s = '<script src="/sepet.js?v=6" defer></script>' if sepet else ''
+    s = '<script src="/sepet.js?v=7" defer></script>' if sepet else ''
     return alt(dil) + FIYAT_JS + s + '\n</body>\n</html>\n'
 
 # ---------- şehir sayfası ----------
@@ -493,7 +493,7 @@ def magaza():
     sabit('tr', 'magaza/index.html', 'en/index.html', '/magaza/', 'Mağaza: Dijital şehir defterleri ve çocuk defterleri · Uğrak',
           'Sinop, Amasra, Kapadokya ve Safranbolu dijital şehir defterleri ile Martı çocuk defterleri. Sepete ekle, Shopier ile tek ödeme, kod hemen.',
           'Mağaza', gov, None, genis=True)
-    p = os.path.join(KOK, 'magaza/index.html'); h = open(p).read().replace(FIYAT_JS, FIYAT_JS + '<script src="/sepet.js?v=6" defer></script>', 1); open(p, 'w').write(h)
+    p = os.path.join(KOK, 'magaza/index.html'); h = open(p).read().replace(FIYAT_JS, FIYAT_JS + '<script src="/sepet.js?v=7" defer></script>', 1); open(p, 'w').write(h)
 
 # ---------- sitemap / robots ----------
 def sitemap():

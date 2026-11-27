@@ -20,15 +20,16 @@ var st=document.createElement('style');st.textContent=
 '.ugs-ort{position:fixed;inset:0;z-index:90;background:rgba(35,20,15,.45);display:none;align-items:flex-end;justify-content:center}.ugs-ort.on{display:flex}'+
 '.ugs-kart{background:#FFFCF6;color:#231A16;width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:20px max(18px,env(safe-area-inset-left)) calc(18px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px rgba(0,0,0,.25);font:400 16px/1.5 "Hanken Grotesk",system-ui,sans-serif;max-height:92vh;overflow:auto}'+
 '.ugs-kart h3{margin:0 0 4px;font:400 26px/1.15 "Newsreader",Georgia,serif;color:#47190F}.ugs-kart .x{float:right;border:0;background:none;font-size:26px;line-height:1;color:#6b5a4c;cursor:pointer;padding:4px 6px}'+
-'.ugs-kart ul{list-style:none;margin:12px 0;padding:0;border-top:1px solid #e3d6c3}.ugs-kart li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #e3d6c3}.ugs-kart li.top{font-weight:700;border:0}'+
+'.ugs-kart ul{list-style:none;margin:12px 0;padding:0;border-top:1px solid #e3d6c3}.ugs-kart li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid #e3d6c3}.ugs-kart li span:first-child{flex:1}.ugs-kart .cik{flex:none;width:44px;height:44px;border:1.5px solid #e3d6c3;border-radius:12px;background:#fff;color:#6b5a4c;font-size:20px;line-height:1;cursor:pointer}.ugs-kart .ekle2{background:none;border:0;color:#5E2318;text-decoration:underline;font:600 14px "Hanken Grotesk",system-ui,sans-serif;cursor:pointer;padding:6px 0}'+
+'.ugs-bar .t{cursor:pointer}.ugs-kart li.top{font-weight:700;border:0}'+
 '.ugs-kart label{display:flex;gap:10px;align-items:flex-start;margin:10px 0;font-size:15px;line-height:1.45}.ugs-kart input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:#5E2318}.ugs-kart label a{color:#5E2318}'+
 '.ugs-kart .ode{display:flex;width:100%;align-items:center;justify-content:center;min-height:54px;margin-top:12px;border:0;border-radius:14px;background:#5E2318;color:#fff;font:700 17px "Hanken Grotesk",system-ui,sans-serif;cursor:pointer}.ugs-kart .ode[disabled]{opacity:.6}'+
 '.ugs-kart .bil{font-size:14px;line-height:1.45;color:#2B1D17;background:#FBF4E6;border:1.5px solid #E9C27A;border-radius:12px;padding:10px 12px;margin:12px 0 0}.ugs-kart .not{font-size:13.5px;color:#6b5a4c;margin:10px 0 0;text-align:center}.ugs-kart .m{color:#b23808;font-size:14px;min-height:1em;margin-top:6px}';
 document.head.appendChild(st);
 var bar=document.createElement('div');bar.className='ugs-bar';bar.setAttribute('role','region');bar.setAttribute('aria-label','Sepet');
-bar.innerHTML='<div class="t"><b></b><small></small></div><a href="#" role="button">Ödemeye geç →</a>';document.body.appendChild(bar);
+bar.innerHTML='<div class="t" role="button" tabindex="0" aria-label="Sepeti düzenle"><b></b><small></small></div><a href="#" role="button">Ödemeye geç →</a>';document.body.appendChild(bar);
 var ort=document.createElement('div');ort.className='ugs-ort';ort.setAttribute('role','dialog');ort.setAttribute('aria-modal','true');ort.setAttribute('aria-label','Ödeme');
-ort.innerHTML='<div class="ugs-kart"><button class="x" type="button" aria-label="Kapat">×</button><h3>Ödemeye geç</h3><ul></ul>'+
+ort.innerHTML='<div class="ugs-kart"><button class="x" type="button" aria-label="Kapat">×</button><h3>Sepetin</h3><ul></ul><button type="button" class="ekle2">+ Başka defter ekle</button>'+
  '<label><input type="checkbox" id="ugs-c1"><span><a target="_blank" rel="noopener" id="ugs-kl">Ön bilgilendirme ve satış koşullarını</a> okudum.</span></label>'+
  '<label><input type="checkbox" id="ugs-c2"><span>Kodlarımın ödemeden hemen sonra verilmesini istiyorum; dijital içerikte bu şekilde teslimle cayma hakkımın olmadığını biliyorum. Çalışmayan içerikle ilgili haklarım saklıdır.</span></label>'+
  '<p class="bil"><b>Kodun nasıl gelir?</b> Ödeme bitince Shopier sayfasında yazan <b>ugrakjournal.com/kod</b> adresine dön, kodun hemen ekranda. Kod ayrıca e-postana <b>en geç 1 saat içinde</b> gelir. Shopier\'in “ödemeniz onaylandı” e-postasında kod yazmaz; bu normal.</p>'+
@@ -39,12 +40,16 @@ function kapat(){ort.classList.remove('on')}
 ort.addEventListener('click',function(e){if(e.target===ort)kapat()});ort.querySelector('.x').onclick=kapat;
 function ac(){
  var ul=ort.querySelector('ul');ul.innerHTML='';var t=0;
- S.forEach(function(k){t+=F[k];var li=document.createElement('li');li.innerHTML='<span></span><span></span>';li.children[0].textContent=AD2[k]||AD[k];li.children[1].textContent=tl(F[k]);ul.appendChild(li)});
- var li=document.createElement('li');li.className='top';li.innerHTML='<span>Toplam</span><span></span>';li.children[1].textContent=tl(t);ul.appendChild(li);
+ if(!S.length){kapat();return}
+ S.forEach(function(k){t+=F[k];var li=document.createElement('li');li.innerHTML='<span></span><span></span><button type="button" class="cik">×</button>';li.children[0].textContent=AD2[k]||AD[k];li.children[1].textContent=tl(F[k]);
+  var c=li.querySelector('.cik');c.setAttribute('aria-label',(AD2[k]||AD[k])+' sepetten çıkar');c.onclick=function(){var i=S.indexOf(k);if(i>=0)S.splice(i,1);kaydet();ciz(false);ac()};ul.appendChild(li)});
+ var li=document.createElement('li');li.className='top';li.innerHTML='<span>Toplam</span><span></span><span style="width:44px"></span>';li.children[1].textContent=tl(t);ul.appendChild(li);
  ort.querySelector('#ugs-kl').href=ODEME+'?u='+S.join(',')+'#kosullar';ort.querySelector('.m').textContent='';
  var b=ort.querySelector('.ode');b.disabled=false;b.textContent='Shopier\'de öde · '+tl(t)+' →';
  ort.classList.add('on')}
 bar.querySelector('a').addEventListener('click',function(e){e.preventDefault();if(S.length)ac()});
+bar.querySelector('.t').addEventListener('click',function(){if(S.length)ac()});
+ort.querySelector('.ekle2').onclick=function(){kapat();if(!/\/magaza\/?$/.test(location.pathname))location.href='/magaza/'};
 ort.querySelector('.ode').addEventListener('click',function(){
  var m=ort.querySelector('.m'),b=this;
  if(!document.getElementById('ugs-c1').checked||!document.getElementById('ugs-c2').checked){m.textContent='Devam etmek için iki kutuyu da işaretle.';return}
@@ -57,12 +62,13 @@ ort.querySelector('.ode').addEventListener('click',function(){
 function ciz(pul){
  var t=S.reduce(function(a,k){return a+F[k]},0);
  bar.querySelector('b').textContent=S.length+' defter · '+tl(t);
- bar.querySelector('small').textContent=S.map(function(k){return AD[k]}).join(' · ');
+ bar.querySelector('small').textContent=S.map(function(k){return AD[k]}).join(' · ')+'  ·  düzenle';
  bar.querySelector('a').href='#';
- bar.classList.toggle('on',S.length>0);if(pul){bar.classList.remove('pul');void bar.offsetWidth;bar.classList.add('pul')}
+ bar.classList.toggle('on',S.length>0);if(typeof hepCiz==='function')hepCiz();if(pul){bar.classList.remove('pul');void bar.offsetWidth;bar.classList.add('pul')}
  document.querySelectorAll('[data-ugs]').forEach(function(e){var on=S.indexOf(e.getAttribute('data-ugs'))>=0;e.classList.toggle('ugs-on',on);
   var b=e.classList.contains('ugs-ekle')?e:e.querySelector('.ugs-ekle');if(b){b.classList.toggle('on',on);b.textContent=on?'✓ Sepette':'Sepete ekle'}
   if(e.tagName==='A'&&e.classList.contains('btn'))e.textContent=on?'✓ Sepette':'Sepete ekle'})}
+function hepCiz(){document.querySelectorAll('button[data-ugs-hep]').forEach(function(b){var hep=b.getAttribute('data-ugs-hep').split(',').every(function(k){return S.indexOf(k)>=0});b.textContent=hep?'✓ 4 şehir defteri sepette':'4 şehir defterini birlikte seç'})}
 function tog(k){var i=S.indexOf(k);if(i>=0)S.splice(i,1);else S.push(k);kaydet();ciz(i<0)}
 // 1) Şehir kartları ve "Satın al" düğmeleri
 document.querySelectorAll('a[href*=".ugrakjournal.com/satin-al"]').forEach(function(a){
@@ -72,7 +78,7 @@ document.querySelectorAll('a[href*=".ugrakjournal.com/satin-al"]').forEach(funct
  if(a.classList.contains('city')){var go=a.querySelector('.go');if(go){var b=document.createElement('span');b.className='ugs-ekle';b.setAttribute('role','button');go.replaceWith(b)}}
  a.addEventListener('click',function(e){e.preventDefault();tog(k)})});
 // 2) data-ugs-ekle düğmeleri (ör. ana sayfadaki Martı listesi)
-document.querySelectorAll('button[data-ugs-hep]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var ek=0;b.getAttribute('data-ugs-hep').split(',').forEach(function(k){if(F[k]&&S.indexOf(k)<0){S.push(k);ek=1}});kaydet();ciz(ek);b.textContent='✓ 4 şehir defteri sepette'})});
+document.querySelectorAll('button[data-ugs-hep]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var ek=0;b.getAttribute('data-ugs-hep').split(',').forEach(function(k){if(F[k]&&S.indexOf(k)<0){S.push(k);ek=1}});kaydet();ciz(ek)})});
 document.querySelectorAll('button[data-ugs]').forEach(function(b){b.classList.add('ugs-ekle');b.addEventListener('click',function(e){e.preventDefault();tog(b.getAttribute('data-ugs'))})});
 ciz(false);
 (function(){var s=null;try{s=JSON.parse(localStorage.getItem('ug_son')||'null')}catch(e){}

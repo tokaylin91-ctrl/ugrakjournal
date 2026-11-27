@@ -296,7 +296,10 @@ def yazi_sayfalari():
             for (h, ps) in y['bolum']:
                 gov += f'<h2>{E(h[i])}</h2><p>{E(ps[i])}</p>'
             sl = [(('Şehir rehberi: ' if dil=='tr' else 'City guide: ') + SEHIR[c]['ad'][i], f'/sehirler/{c}/' if dil == 'tr' else f'/en/cities/{ENSLUG[c]}/') for c in y['sehir']]
+            gov += '<p class="note">' + ('Ziyaret saatleri, ulaşım ve etkinlik bilgileri değişebilir; yola çıkmadan önce ilgili kurumdan kontrol et.' if dil == 'tr' else 'Opening hours, transport and event details can change; check with the relevant institution before you go.') + '</p>'
             gov += '<h2>' + ('Devamı' if dil == 'tr' else 'Read more') + '</h2><ul>' + ''.join(f'<li><a href="{u}">{E(t)}</a></li>' for t, u in sl) + '</ul>'
+            dj = ' / '.join(f'<a href="{u}#defter">{E(SEHIR[c]["ad"][i])} Journal</a>' for c, (t, u) in zip(y['sehir'], sl))
+            gov += '<div class="box">' + (f'Şehri kendi temponla, sesli anlatım ve küçük görevlerle keşfetmek istersen dijital deftere göz at: {dj}.' if dil == 'tr' else f'To explore at your own pace, with audio stories and small quests, take a look at the digital journal: {dj}.') + '</div>'
             gov += '<h2>' + ('Kaynaklar' if dil == 'tr' else 'Sources') + '</h2><ul>' + ''.join(f'<li><a href="{u}" rel="noopener">{E(t)}</a></li>' for t, u in y['kaynak']) + \
                    ('<li>Uğrak şehir rehberleri ve dijital defter içerikleri (kaynaklarla doğrulanmış)</li>' if dil == 'tr' else '<li>Uğrak city guides and journal content (checked against sources)</li>') + '</ul>'
             gov += f'<p class="updated">{"Son kontrol" if dil=="tr" else "Last checked"}: {KONTROL[i]} · {"Hazırlayan: Uğrak Journal, Sinop" if dil=="tr" else "By Uğrak Journal, Sinop"} · <a href="{"/hakkimizda/#nasil" if dil=="tr" else "/en/about/#how"}">{"Nasıl hazırlıyoruz?" if dil=="tr" else "How we research"}</a></p>'

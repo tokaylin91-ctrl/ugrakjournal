@@ -4,8 +4,8 @@ SEHIR = {
  'sinop': {
   'ad': ('Sinop', 'Sinop'), 'no': '01', 'gravur': 'g/sinop-kale.webp', 'gcap': ('Sinop Kalesi', 'Sinop Fortress'),
   'kart': ('Diyojen\'in kenti, Anadolu\'nun en kuzey ucu.', 'Diogenes\' city at the northern tip of Anatolia.'),
-  'ozet': ("Sinop, Karadeniz kıyısında bir yarımadaya kurulmuş, antik Sinope'nin kurulduğu MÖ 7. yüzyıla uzanan bir liman kenti. Filozof Diyojen burada doğdu; kale surları, Tarihi Sinop Cezaevi ve Anadolu'nun en kuzey ucu İnceburun kentin simgeleri. Merkezin dışında Hamsilos koyu, Akliman kumsalı ve Erfelek'teki 28 basamaklı Tatlıca Şelaleleri var.",
-           "Sinop is a harbour town on a peninsula on Turkey's Black Sea coast, whose story goes back to the founding of ancient Sinope in the 7th century BC. The philosopher Diogenes was born here; the fortress walls, the Historic Sinop Prison and İnceburun, the northernmost point of Anatolia, are its landmarks. Beyond the centre lie the fjord-like Hamsilos cove, Akliman beach and the 28 Tatlıca Waterfalls of Erfelek."),
+  'ozet': ("Sinop, Karadeniz kıyısında bir yarımadaya kurulmuş, antik Sinope'nin kurulduğu MÖ 7. yüzyıla uzanan bir liman kenti. Filozof Diyojen burada doğdu; kale surları, Tarihi Sinop Cezaevi ve Anadolu'nun en kuzey ucu İnceburun kentin simgeleri. Merkezin dışında Hamsilos koyu, Akliman kumsalı ve Erfelek'te 28 ardışık şelaleden oluşan Tatlıca Şelaleleri var.",
+           "Sinop is a harbour town on a peninsula on Turkey's Black Sea coast, whose story goes back to the founding of ancient Sinope in the 7th century BC. The philosopher Diogenes was born here; the fortress walls, the Historic Sinop Prison and İnceburun, the northernmost point of Anatolia, are its landmarks. Beyond the centre lie the fjord-like Hamsilos cove, Akliman beach and the Tatlıca Waterfalls of Erfelek, a chain of 28 waterfalls."),
   'bilgi': [
     (('İl', 'Province'), ('Sinop, Karadeniz Bölgesi', 'Sinop, Black Sea region')),
     (('Havalimanı', 'Airport'), ('Sinop Havalimanı (NOP), merkeze yaklaşık 8 km', 'Sinop Airport (NOP), about 8 km from the centre')),
@@ -34,7 +34,7 @@ SEHIR = {
   'bilgi': [
     (('İl', 'Province'), ('Bartın, Karadeniz Bölgesi', 'Bartın, Black Sea region')),
     (('Ulaşım', 'Getting there'), ("Bartın üzerinden karayoluyla", 'By road via Bartın')),
-    (('Havalimanı', 'Airport'), ('En yakını Zonguldak', 'Nearest: Zonguldak')),
+    (('Havalimanı', 'Airport'), ('Zonguldak Çaycuma Havalimanı', 'Zonguldak Çaycuma Airport')),
     (('Kent içi', 'Getting around'), ('Neredeyse tamamı yürünür', 'Almost entirely walkable')),
     (('Acil', 'Emergency'), ('112', '112')),
   ],
@@ -47,8 +47,8 @@ SEHIR = {
      ("MÖ 300 dolaylarında Kraliçe Amastris, Sesamos'u çevredeki yerleşimlerle birleştirerek yeni bir kent kurdu; kent onun adını aldı.",
       "Around 300 BC Queen Amastris united Sesamos with nearby settlements to found a new city, which took her name.")),
     (("Amasra'ya nasıl gidilir?", "How do I get to Amasra?"),
-     ("Kente Bartın üzerinden karayoluyla ulaşılır; en yakın havalimanı Zonguldak'tadır. Kruvaziyer gemileri de kente uğrar.",
-      "Amasra is reached by road via Bartın; the nearest airport is Zonguldak. Cruise ships also call at the town.")),
+     ("Kente Bartın üzerinden karayoluyla ulaşılır; en yakın havalimanı Zonguldak Çaycuma Havalimanı'dır. Kruvaziyer gemileri de kente uğrar.",
+      "Amasra is reached by road via Bartın; the nearest airport is Zonguldak Çaycuma Airport. Cruise ships also call at the town.")),
   ],
  },
  'kapadokya': {

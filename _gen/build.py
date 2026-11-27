@@ -15,7 +15,7 @@ RIV = os.environ.get('RIV', '/home/claude/ugrak-uretim/sunucu/rivayet/rivayet.js
 SITE = 'https://ugrakjournal.com'
 BUGUN = datetime.date.today().isoformat()
 KONTROL = ('27 Kasım 2026', '27 November 2026')
-CSSV = '2'
+CSSV = '3'
 E = html.escape
 ENSLUG = {'sinop': 'sinop', 'amasra': 'amasra', 'kapadokya': 'cappadocia', 'safranbolu': 'safranbolu'}
 URETILEN = []
@@ -114,7 +114,9 @@ def ust(dil, aktif, karsi_url):
     btn = '<a class="btn" href="/magaza/">Mağaza</a>' if dil == 'tr' else '<a class="btn" href="/en/#journals">Buy</a>'
     mobil = ('<a class="shop" href="/magaza/">Mağaza · Defterini al</a>' if dil == 'tr' else '<a class="shop" href="/en/#journals">Buy a journal</a>') + ''.join(f'<a href="{h}">{t}</a>' for h, t in MENU[dil])
     ana = '/' if dil == 'tr' else '/en/'
-    return f'''<header><div class="wrap nav">
+    serit = ('<a class="tstrip prn" href="/magaza/"><b>TANIŞMA FİYATI</b> Şehir defterleri 10 Aralık\'a kadar 390 TL, sonra 790 TL. <u>Mağazaya git</u></a>' if dil == 'tr'
+             else '<a class="tstrip prn" href="/en/#journals"><b>LAUNCH PRICE</b> City journals 390 TL until 10 December, then 790 TL. <u>See journals</u></a>')
+    return serit + f'''<header><div class="wrap nav">
  <a class="logo" href="{ana}" aria-label="Uğrak"><img src="/logo-kiremit.png" alt="Uğrak" width="72" height="32"></a>
  <nav aria-label="{"Ana menü" if dil=="tr" else "Main menu"}">{linkler}</nav>
  {dil_l}{btn}
@@ -242,8 +244,8 @@ def sehir_sayfasi(c, dil):
            f'<div class="acts"><div class="price">{fiyat}</div>{satin}{ikinci}</div></section>')
     ana_y = '/' if dil == 'tr' else '/en/'
     liste_y = '/sehirler/' if dil == 'tr' else '/en/#guides'
-    hizli = (f'<div class="quick"><span class="pr">390 TL</span><button class="btn" type="button" data-ugs="{c}">{ad} defterini sepete ekle</button><a class="btn ghost" href="#defter">İçinde ne var?</a></div>' if dil == 'tr'
-             else f'<div class="quick"><span class="pr">390 TL</span><a class="btn" href="https://{c}.ugrakjournal.com/satin-al">Get the {ad} journal</a><a class="btn ghost" href="#defter">What\'s inside?</a></div>')
+    hizli = (f'<div class="quick"><span class="tbadge prn">Tanışma fiyatı</span><span class="pr">390 TL</span><button class="btn" type="button" data-ugs="{c}">{ad} defterini sepete ekle</button><a class="btn ghost" href="#defter">İçinde ne var?</a></div>' if dil == 'tr'
+             else f'<div class="quick"><span class="tbadge prn">Launch price</span><span class="pr">390 TL</span><a class="btn" href="https://{c}.ugrakjournal.com/satin-al">Get the {ad} journal</a><a class="btn ghost" href="#defter">What\'s inside?</a></div>')
     crumb_ld = {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Uğrak", "item": SITE + ana_y},
         {"@type": "ListItem", "position": 2, "name": T("Şehirler", "City guides"), "item": SITE + liste_y},
@@ -472,7 +474,8 @@ def nasil_sayfalari():
 
 def magaza():
     def kart(key, img, ad, alt, fiyat, fcls, link):
-        return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div><h3>{E(ad)}</h3><p>{E(alt)}</p>'
+        rozet = '<span class="tbadge prn" style="align-self:flex-start">Tanışma fiyatı · 10 Aralık\'a kadar</span>' if fcls == 'pr' else ''
+        return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div>{rozet}<h3>{E(ad)}</h3><p>{E(alt)}</p>'
                 + (f'<a class="more" href="{link}">Rehberi oku →</a>' if link else '')
                 + f'<div class="row"><span class="{fcls}">{fiyat}</span><button class="btn" type="button" data-ugs="{key}">Sepete ekle</button></div></div></article>')
     sehir = ''.join(kart(c, SEHIR[c]['gravur'], f"{SEHIR[c]['ad'][0]} Journal", SEHIR[c]['kart'][0], '390 TL', 'pr', f'/sehirler/{c}/') for c in SEHIR)

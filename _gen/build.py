@@ -482,9 +482,9 @@ def magaza():
     def pdfkart(img, ad, alt, pid, fiyat='149 TL'):
         return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div><span class="tbadge" style="align-self:flex-start;background:#fff;color:#5E2318;border:1.5px dashed #5E2318">PDF · uygulama değil</span><h3><a href="/dijital/#pdf">{E(ad)}</a></h3><p>{E(alt)}</p>'
                 + f'<div class="row"><span class="fy">{fiyat} <small style="font:600 13px var(--sans,sans-serif);letter-spacing:.04em">· PDF</small></span><a class="btn" href="https://www.shopier.com/ugrakjournal/{pid}" target="_blank" rel="noopener">PDF\'i al</a></div></div></article>')
-    pdfler = (pdfkart('dijital/kelime-0.webp', "Martı'yla İlk Kelimeler · İngilizce", 'PDF · 7–8 yaş · 24 İngilizce kelime, 9 oyun.', '52785283') +
-              pdfkart('dijital/sehir-0.webp', "Martı'yla Şehrini Keşfet", 'PDF · 7–8 yaş · sokakta 6 küçük keşif.', '52785296') +
-              pdfkart('dijital/kelime-0.webp', "İkisi bir arada · İlk Kelimeler + Şehrini Keşfet", 'PDF · 7–8 yaş · tek ödeme, tek isim, iki defter (149 + 149 TL).', '53502879', '298 TL'))
+    pdfler = (pdfkart('dijital/kelime-a4-0.webp', "Martı'yla İlk Kelimeler · İngilizce", 'PDF · 7–8 yaş · 24 İngilizce kelime, 9 oyun.', '52785283') +
+              pdfkart('dijital/sehir-a4-0.webp', "Martı'yla Şehrini Keşfet", 'PDF · 7–8 yaş · sokakta 6 küçük keşif.', '52785296') +
+              pdfkart('dijital/marti-pdf-ikilisi.jpg', "İkisi bir arada · İlk Kelimeler + Şehrini Keşfet", 'PDF · 7–8 yaş · tek ödeme, tek isim, iki defter (149 + 149 TL).', '53502879', '298 TL'))
     marti = (kart('marti56', 'dijital/m56-0.webp', 'Merak Defteri · 5–6 yaş', 'Martı ile oyunlar, sesli balonlar, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
              kart('marti78', 'dijital/merak-0.webp', 'Merak Defteri · 7–8 yaş', 'Merak soruları, görevler, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
              kart('marti910', 'dijital/m910-0.webp', 'Merak Defteri · 9–10 yaş', 'Daha uzun görevler, bulmacalar ve keşif kartları.', '249 TL', 'fy', '/dijital/'))

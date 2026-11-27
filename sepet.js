@@ -6,7 +6,7 @@ var AD2={sinop:'Sinop Journal · Dijital',amasra:'Amasra Journal · Dijital',kap
 var AD={sinop:'Sinop',amasra:'Amasra',kapadokya:'Kapadokya',safranbolu:'Safranbolu',marti56:'Merak 5–6',marti78:'Merak 7–8',marti910:'Merak 9–10'};
 var S=[];try{S=JSON.parse(localStorage.getItem('ug_sepet')||'[]').filter(function(k){return F[k]})}catch(e){}
 var Q={};try{Q=JSON.parse(localStorage.getItem('ug_adet')||'{}')||{}}catch(e){}
-function adet(k){var n=parseInt(Q[k],10)||1;return S.length===1?Math.max(1,Math.min(10,n)):1}
+function adet(k){return 1}
 function kaydet(){Object.keys(Q).forEach(function(k){if(S.indexOf(k)<0)delete Q[k]});try{localStorage.setItem('ug_sepet',JSON.stringify(S));localStorage.setItem('ug_adet',JSON.stringify(Q))}catch(e){}}
 function anahtar(href){var m=/^https:\/\/(sinop|amasra|kapadokya|safranbolu|marti56|marti78|marti910)\.ugrakjournal\.com\/satin-al/.exec(href||'');return m?m[1]:null}
 function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -45,14 +45,11 @@ ort.addEventListener('click',function(e){if(e.target===ort)kapat()});ort.querySe
 function ac(){
  var ul=ort.querySelector('ul');ul.innerHTML='';var t=0;
  if(!S.length){kapat();return}
- S.forEach(function(k){var n=adet(k);t+=F[k]*n;var li=document.createElement('li');if(S.length===1)li.className='hasad';li.innerHTML='<span></span>'+(S.length===1?'<span class="ad"><button type="button" class="az" aria-label="Azalt">−</button><b></b><button type="button" class="ar" aria-label="Arttır">+</button></span>':'')+'<span></span><button type="button" class="cik">×</button>';
+ S.forEach(function(k){var n=adet(k);t+=F[k]*n;var li=document.createElement('li');li.innerHTML='<span></span><span></span><button type="button" class="cik">×</button>';
   li.children[0].textContent=AD2[k]||AD[k];li.lastElementChild.previousElementSibling.textContent=tl(F[k]*n);
-  if(S.length===1){li.querySelector('.ad b').textContent=n;li.querySelector('.az').onclick=function(){Q[k]=Math.max(1,n-1);kaydet();ciz(false);ac()};li.querySelector('.ar').onclick=function(){Q[k]=Math.min(10,n+1);kaydet();ciz(false);ac()}}
   var c=li.querySelector('.cik');c.setAttribute('aria-label',(AD2[k]||AD[k])+' sepetten çıkar');c.onclick=function(){var i=S.indexOf(k);if(i>=0)S.splice(i,1);kaydet();ciz(false);ac()};ul.appendChild(li)});
  var hd=ort.querySelector('.hd');if(!hd){hd=document.createElement('p');hd.className='hd';ul.parentNode.insertBefore(hd,ul.nextSibling)}
- if(S.length===1&&adet(S[0])>1){hd.hidden=false;hd.innerHTML='<b>Hediye alımı:</b> '+adet(S[0])+' × '+tl(F[S[0]])+' = '+tl(F[S[0]]*adet(S[0]))+'. Her adet için ayrı bir kişisel kod ve hediye kartı bağlantısı oluşturulur; kodları farklı kişilere gönderebilirsin. Toplu alım indirimi uygulanmaz. Aynı defterden en fazla 10 adet.'+(adet(S[0])>=10?' <br><b>Daha fazla mı gerekiyor?</b> Toplu hediye için bize yaz: <a href="https://wa.me/905468466288?text='+encodeURIComponent('Merhaba, 10\'dan fazla Uğrak defteri hediye etmek istiyorum.')+'" target="_blank" rel="noopener">WhatsApp</a> · satis@ugrakjournal.com':'')}
- else if(S.length>1){hd.hidden=false;hd.innerHTML='Aynı defterden birden fazla (ör. hediye için) almak istersen sepette yalnız o defter olsun; adet seçimi o zaman açılır.'}
- else{hd.hidden=false;hd.innerHTML='Hediye mi alıyorsun? <b>+</b> ile adet seç (en fazla 10); her adet için ayrı bir kişisel kod ve hediye kartı oluşturulur.'}
+ hd.hidden=false;hd.innerHTML='<b>Her defter tek kişiliktir.</b> Hediye etmek istediğin kişi için ayrı bir defter al, kodunu <b>açmadan</b> ona gönder.<br><b>Tur, gezi grubu, okul ya da kurum için toplu alım mı düşünüyorsun?</b> Bize yaz, sana özel paket hazırlayalım: <a href="https://wa.me/905468466288?text='+encodeURIComponent('Merhaba, toplu Uğrak defteri almak istiyoruz (tur / grup / kurum).')+'" target="_blank" rel="noopener">WhatsApp</a> · satis@ugrakjournal.com';
  var li=document.createElement('li');li.className='top';li.innerHTML='<span>Toplam</span><span></span><span style="width:44px"></span>';li.children[1].textContent=tl(t);ul.appendChild(li);
  ort.querySelector('#ugs-kl').href=ODEME+'?u='+S.join(',')+'#kosullar';ort.querySelector('.m').textContent='';
  var b=ort.querySelector('.ode');b.disabled=false;b.textContent='Shopier\'de öde · '+tl(t)+' →';

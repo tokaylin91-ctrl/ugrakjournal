@@ -72,6 +72,7 @@ document.querySelectorAll('a[href*=".ugrakjournal.com/satin-al"]').forEach(funct
  if(a.classList.contains('city')){var go=a.querySelector('.go');if(go){var b=document.createElement('span');b.className='ugs-ekle';b.setAttribute('role','button');go.replaceWith(b)}}
  a.addEventListener('click',function(e){e.preventDefault();tog(k)})});
 // 2) data-ugs-ekle düğmeleri (ör. ana sayfadaki Martı listesi)
+document.querySelectorAll('button[data-ugs-hep]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();var ek=0;b.getAttribute('data-ugs-hep').split(',').forEach(function(k){if(F[k]&&S.indexOf(k)<0){S.push(k);ek=1}});kaydet();ciz(ek);b.textContent='✓ 4 şehir defteri sepette'})});
 document.querySelectorAll('button[data-ugs]').forEach(function(b){b.classList.add('ugs-ekle');b.addEventListener('click',function(e){e.preventDefault();tog(b.getAttribute('data-ugs'))})});
 ciz(false);
 (function(){var s=null;try{s=JSON.parse(localStorage.getItem('ug_son')||'null')}catch(e){}

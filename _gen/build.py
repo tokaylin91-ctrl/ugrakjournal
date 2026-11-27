@@ -15,7 +15,7 @@ RIV = os.environ.get('RIV', '/home/claude/ugrak-uretim/sunucu/rivayet/rivayet.js
 SITE = 'https://ugrakjournal.com'
 BUGUN = datetime.date.today().isoformat()
 KONTROL = ('27 Kasım 2026', '27 November 2026')
-CSSV = '3'
+CSSV = '4'
 E = html.escape
 ENSLUG = {'sinop': 'sinop', 'amasra': 'amasra', 'kapadokya': 'cappadocia', 'safranbolu': 'safranbolu'}
 URETILEN = []
@@ -143,10 +143,10 @@ def alt(dil):
 </div></footer>
 '''
 
-FIYAT_JS = '''<script>(function(){var d=new Date();if(d>=new Date('2026-12-11T00:00:00+03:00')){document.querySelectorAll('.pr').forEach(function(e){e.textContent='790 TL'});document.querySelectorAll('.prn').forEach(function(e){e.remove()})}})();</script>'''
+FIYAT_JS = '''<script>(function(){var d=new Date();if(d>=new Date('2026-12-11T00:00:00+03:00')){document.querySelectorAll('.pr').forEach(function(e){e.textContent='790 TL'});document.querySelectorAll('.hept').forEach(function(e){e.textContent='3.160 TL'});document.documentElement.classList.add('fiyat-son');document.querySelectorAll('.prn').forEach(function(e){e.remove()})}})();</script>'''
 
 def son(dil, sepet=False):
-    s = '<script src="/sepet.js?v=5" defer></script>' if sepet else ''
+    s = '<script src="/sepet.js?v=6" defer></script>' if sepet else ''
     return alt(dil) + FIYAT_JS + s + '\n</body>\n</html>\n'
 
 # ---------- şehir sayfası ----------
@@ -475,7 +475,7 @@ def nasil_sayfalari():
 def magaza():
     def kart(key, img, ad, alt, fiyat, fcls, link):
         rozet = '<span class="tbadge prn" style="align-self:flex-start">Tanışma fiyatı · 10 Aralık 23.59\'a kadar</span>' if fcls == 'pr' else ''
-        return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div>{rozet}<h3>{E(ad)}</h3><p>{E(alt)}</p>'
+        return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div>{rozet}<h3>{f'<a href="{link}">{E(ad)}</a>' if link else E(ad)}</h3><p>{E(alt)}</p>'
                 + (f'<a class="more" href="{link}">Rehberi oku →</a>' if link else '')
                 + f'<div class="row"><span class="{fcls}">{fiyat}</span><button class="btn" type="button" data-ugs="{key}">Sepete ekle</button></div></div></article>')
     sehir = ''.join(kart(c, SEHIR[c]['gravur'], f"{SEHIR[c]['ad'][0]} Journal", SEHIR[c]['kart'][0], '390 TL', 'pr', f'/sehirler/{c}/') for c in SEHIR)
@@ -483,15 +483,17 @@ def magaza():
              kart('marti78', 'dijital/merak-0.webp', 'Merak Defteri · 7–8 yaş', 'Merak soruları, görevler, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
              kart('marti910', 'dijital/m910-0.webp', 'Merak Defteri · 9–10 yaş', 'Daha uzun görevler, bulmacalar ve keşif kartları.', '249 TL', 'fy', '/dijital/'))
     gov = f'''<p class="lede" style="font-size:19px;color:#4A3A31;margin:0">Defterini seç, sepete ekle, Shopier'de tek ödemeyle al. Kodun ödemeden hemen sonra ekranda ve e-postanda; <a href="/nasil-alinir/">nasıl alınır?</a></p>
-<h2>Şehir defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe + İngilizce · telefonda uygulama gibi</small></h2>
+<nav class="chips" aria-label="Bölümler"><a href="#sehir">Şehir defterleri</a><a href="#marti">Martı · Çocuk</a></nav>
+<h2 id="sehir">Şehir defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe + İngilizce · telefonda uygulama gibi</small></h2>
+<div class="hep"><button class="btn ghost" type="button" data-ugs-hep="sinop,amasra,kapadokya,safranbolu">4 şehir defterini birlikte seç</button><small>4 ayrı defter · toplam <span class="hept">1.560 TL</span></small></div>
 <div class="shopgrid">{sehir}</div><p class="note prn" style="margin-top:10px">Şehir defterlerinde tanışma fiyatı; 11 Aralık'tan itibaren 790 TL.</p>
-<h2>Uğrak Çocuk · Martı'nın Defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe</small></h2>
+<h2 id="marti">Uğrak Çocuk · Martı'nın Defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe</small></h2>
 <div class="shopgrid">{marti}</div>
 <div class="box" style="margin-top:34px"><b>Birden fazla defter mi?</b> Hepsini sepete ekle; tek ödeme yaparsın, hepsi aynı kodla açılır. Kart bilgin Shopier'in güvenli sayfasında girilir, bize iletilmez. Kod en fazla 2 cihazda çalışır. <a href="/yardim/">Sık sorulanlar</a></div>'''
     sabit('tr', 'magaza/index.html', 'en/index.html', '/magaza/', 'Mağaza: Dijital şehir defterleri ve çocuk defterleri · Uğrak',
           'Sinop, Amasra, Kapadokya ve Safranbolu dijital şehir defterleri ile Martı çocuk defterleri. Sepete ekle, Shopier ile tek ödeme, kod hemen.',
           'Mağaza', gov, None, genis=True)
-    p = os.path.join(KOK, 'magaza/index.html'); h = open(p).read().replace(FIYAT_JS, FIYAT_JS + '<script src="/sepet.js?v=5" defer></script>', 1); open(p, 'w').write(h)
+    p = os.path.join(KOK, 'magaza/index.html'); h = open(p).read().replace(FIYAT_JS, FIYAT_JS + '<script src="/sepet.js?v=6" defer></script>', 1); open(p, 'w').write(h)
 
 # ---------- sitemap / robots ----------
 def sitemap():

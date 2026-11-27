@@ -568,6 +568,6 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
  [].forEach.call(document.querySelectorAll('[data-copy]'),function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.copy).textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Kopyalandı'},function(){var r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.copy));getSelection().removeAllRanges();getSelection().addRange(r);});});});
 })();
 </script>
-<script src="sepet.js?v=5" defer></script>
+<script src="sepet.js?v=6" defer></script>
 </body>
 </html>

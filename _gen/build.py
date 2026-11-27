@@ -15,7 +15,7 @@ RIV = os.environ.get('RIV', '/home/claude/ugrak-uretim/sunucu/rivayet/rivayet.js
 SITE = 'https://ugrakjournal.com'
 BUGUN = datetime.date.today().isoformat()
 KONTROL = ('27 Kasım 2026', '27 November 2026')
-CSSV = '1'
+CSSV = '2'
 E = html.escape
 ENSLUG = {'sinop': 'sinop', 'amasra': 'amasra', 'kapadokya': 'cappadocia', 'safranbolu': 'safranbolu'}
 URETILEN = []
@@ -111,8 +111,8 @@ MENU = {
 def ust(dil, aktif, karsi_url):
     linkler = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == aktif else ""}>{t}</a>' for h, t in MENU[dil])
     dil_l = f'<a class="lang" href="{karsi_url}" hreflang="{"en" if dil=="tr" else "tr"}" lang="{"en" if dil=="tr" else "tr"}">{"EN" if dil=="tr" else "TR"}</a>'
-    btn = '<a class="btn" href="/#magaza">Mağaza</a>' if dil == 'tr' else '<a class="btn" href="/en/#journals">Get a journal</a>'
-    mobil = ''.join(f'<a href="{h}">{t}</a>' for h, t in MENU[dil]) + (f'<a href="/#magaza">Mağaza</a>' if dil == 'tr' else '')
+    btn = '<a class="btn" href="/magaza/">Mağaza</a>' if dil == 'tr' else '<a class="btn" href="/en/#journals">Buy</a>'
+    mobil = ('<a class="shop" href="/magaza/">Mağaza · Defterini al</a>' if dil == 'tr' else '<a class="shop" href="/en/#journals">Buy a journal</a>') + ''.join(f'<a href="{h}">{t}</a>' for h, t in MENU[dil])
     ana = '/' if dil == 'tr' else '/en/'
     return f'''<header><div class="wrap nav">
  <a class="logo" href="{ana}" aria-label="Uğrak"><img src="/logo-kiremit.png" alt="Uğrak" width="72" height="32"></a>
@@ -242,6 +242,8 @@ def sehir_sayfasi(c, dil):
            f'<div class="acts"><div class="price">{fiyat}</div>{satin}{ikinci}</div></section>')
     ana_y = '/' if dil == 'tr' else '/en/'
     liste_y = '/sehirler/' if dil == 'tr' else '/en/#guides'
+    hizli = (f'<div class="quick"><span class="pr">390 TL</span><button class="btn" type="button" data-ugs="{c}">{ad} defterini sepete ekle</button><a class="btn ghost" href="#defter">İçinde ne var?</a></div>' if dil == 'tr'
+             else f'<div class="quick"><span class="pr">390 TL</span><a class="btn" href="https://{c}.ugrakjournal.com/satin-al">Get the {ad} journal</a><a class="btn ghost" href="#defter">What\'s inside?</a></div>')
     crumb_ld = {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Uğrak", "item": SITE + ana_y},
         {"@type": "ListItem", "position": 2, "name": T("Şehirler", "City guides"), "item": SITE + liste_y},
@@ -251,7 +253,7 @@ def sehir_sayfasi(c, dil):
     gov = f'''<main><div class="wrap">
 <p class="crumb"><a href="{ana_y}">Uğrak</a> / <a href="{liste_y}">{T("Şehirler","City guides")}</a> / {E(ad)}</p>
 <div class="ph ph-grid"><div><span class="eyebrow">{T("Gezi rehberi","Travel guide")} · No. {cfg["no"]}</span><h1>{E(ad)} <em>{T("gezi rehberi","travel guide")}</em></h1>
-<p class="lede">{E(cfg["ozet"][i])}</p><p class="updated">{T("Son kontrol","Last checked")}: {KONTROL[i]} · {T("Hazırlayan: Uğrak Journal, Sinop","By Uğrak Journal, Sinop")} · <a href="{'/hakkimizda/#nasil' if dil=='tr' else '/en/about/#how'}">{T("Nasıl hazırlıyoruz?","How we research")}</a></p></div>
+<p class="lede">{E(cfg["ozet"][i])}</p>{hizli}<p class="updated">{T("Son kontrol","Last checked")}: {KONTROL[i]} · {T("Hazırlayan: Uğrak Journal, Sinop","By Uğrak Journal, Sinop")} · <a href="{'/hakkimizda/#nasil' if dil=='tr' else '/en/about/#how'}">{T("Nasıl hazırlıyoruz?","How we research")}</a></p></div>
 <figure class="ph-art" style="margin:0"><img src="/{cfg["gravur"]}" alt="{E(cfg["gcap"][i])}" width="900" height="600"><figcaption>{E(cfg["gcap"][i])} · {T("Uğrak gravürü","Uğrak illustration")}</figcaption></figure></div>
 <div class="cols"><div>
 <h2 id="yerler">{T(EK[c][0]+" görülecek yerler", f"Things to see in {ad}")}</h2>
@@ -468,6 +470,26 @@ def nasil_sayfalari():
         steps = [{"@type": "HowToStep", "position": k + 1, "name": a, "text": re.sub('<[^>]+>', ' ', b)} for k, (a, b) in enumerate(nasil.ADIMLAR[dil])]
         sabit(dil, yol, karsi, aktif, bas_, ac, h1, nasil.govde(dil), [{"@type": "HowTo", "name": re.sub('<[^>]+>', '', h1), "step": steps}], genis=True)
 
+def magaza():
+    def kart(key, img, ad, alt, fiyat, fcls, link):
+        return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div><h3>{E(ad)}</h3><p>{E(alt)}</p>'
+                + (f'<a class="more" href="{link}">Rehberi oku →</a>' if link else '')
+                + f'<div class="row"><span class="{fcls}">{fiyat}</span><button class="btn" type="button" data-ugs="{key}">Sepete ekle</button></div></div></article>')
+    sehir = ''.join(kart(c, SEHIR[c]['gravur'], f"{SEHIR[c]['ad'][0]} Journal", SEHIR[c]['kart'][0], '390 TL', 'pr', f'/sehirler/{c}/') for c in SEHIR)
+    marti = (kart('marti56', 'dijital/m56-0.webp', 'Merak Defteri · 5–6 yaş', 'Martı ile oyunlar, sesli balonlar, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
+             kart('marti78', 'dijital/merak-0.webp', 'Merak Defteri · 7–8 yaş', 'Merak soruları, görevler, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
+             kart('marti910', 'dijital/m910-0.webp', 'Merak Defteri · 9–10 yaş', 'Daha uzun görevler, bulmacalar ve keşif kartları.', '249 TL', 'fy', '/dijital/'))
+    gov = f'''<p class="lede" style="font-size:19px;color:#4A3A31;margin:0">Defterini seç, sepete ekle, Shopier'de tek ödemeyle al. Kodun ödemeden hemen sonra ekranda ve e-postanda; <a href="/nasil-alinir/">nasıl alınır?</a></p>
+<h2>Şehir defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe + İngilizce · telefonda uygulama gibi</small></h2>
+<div class="shopgrid">{sehir}</div><p class="note prn" style="margin-top:10px">Şehir defterlerinde tanışma fiyatı; 11 Aralık'tan itibaren 790 TL.</p>
+<h2>Uğrak Çocuk · Martı'nın Defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe</small></h2>
+<div class="shopgrid">{marti}</div>
+<div class="box" style="margin-top:34px"><b>Birden fazla defter mi?</b> Hepsini sepete ekle; tek ödeme yaparsın, hepsi aynı kodla açılır. Kart bilgin Shopier'in güvenli sayfasında girilir, bize iletilmez. Kod en fazla 2 cihazda çalışır. <a href="/yardim/">Sık sorulanlar</a></div>'''
+    sabit('tr', 'magaza/index.html', 'en/index.html', '/magaza/', 'Mağaza: Dijital şehir defterleri ve çocuk defterleri · Uğrak',
+          'Sinop, Amasra, Kapadokya ve Safranbolu dijital şehir defterleri ile Martı çocuk defterleri. Sepete ekle, Shopier ile tek ödeme, kod hemen.',
+          'Mağaza', gov, None, genis=True)
+    p = os.path.join(KOK, 'magaza/index.html'); h = open(p).read().replace(FIYAT_JS, FIYAT_JS + '<script src="/sepet.js?v=4" defer></script>', 1); open(p, 'w').write(h)
+
 # ---------- sitemap / robots ----------
 def sitemap():
     yollar = [''] + [y.replace('index.html', '') for y in URETILEN if y.endswith('.html')] + ['dijital/']
@@ -504,5 +526,5 @@ if __name__ == '__main__':
     shutil.copy(os.path.join(KOK, '_gen', 'site.css'), os.path.join(KOK, 'site.css'))
     for c in SEHIR:
         sehir_sayfasi(c, 'tr'); sehir_sayfasi(c, 'en')
-    sehirler_tr(); en_ana(); sabitler(); nasil_sayfalari(); yazi_sayfalari(); yazi_listesi(); sitemap()
+    sehirler_tr(); en_ana(); sabitler(); nasil_sayfalari(); yazi_sayfalari(); yazi_listesi(); magaza(); sitemap()
     print('\n'.join(URETILEN))

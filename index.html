@@ -55,6 +55,10 @@ header.sc{border-color:var(--cizgi)}
 .nav .btn{min-height:42px;padding:0 18px;font-size:14.5px}
 @media(max-width:900px){.nav nav{display:none}.nav .btn{margin-left:auto}}
 
+.mmenu{display:none}.mmenu summary{list-style:none;cursor:pointer;font:600 14.5px/1 var(--sans);padding:12px 14px;border-radius:999px;border:1px solid var(--cizgi)}.mmenu summary::-webkit-details-marker{display:none}
+.mmenu div{position:absolute;left:0;right:0;top:68px;background:var(--kagit);border-bottom:1px solid var(--cizgi);padding:10px max(20px,env(safe-area-inset-left)) 18px;display:grid;z-index:30}
+.mmenu div a{padding:12px 0;text-decoration:none;color:var(--grav);font:500 17px/1.2 var(--sans);border-bottom:1px solid var(--cizgi)}.mmenu a.shop{color:var(--kiremit);font-weight:700}
+@media(max-width:900px){.mmenu{display:block}.nav{gap:10px}}
 /* hero */
 .hero{position:relative;overflow:hidden;padding:56px 0 0}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
@@ -310,7 +314,8 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
 <header id="top"><div class="wrap nav">
  <a class="logo" href="#" aria-label="Uğrak"><img src="logo-kiremit.png" alt="Uğrak" width="76" height="34"></a>
  <nav aria-label="Ana menü"><a href="/sehirler/">Şehirler</a><a href="/dijital/">Uğrak Çocuk</a><a href="/nasil-alinir/">Nasıl alınır</a><a href="/hakkimizda/">Hakkımızda</a><a href="/yardim/">Yardım</a><a href="/iletisim/">İletişim</a><a href="/en/" hreflang="en" lang="en">EN</a></nav>
- <a class="btn" href="#magaza">Mağaza</a>
+ <a class="btn" href="/magaza/">Mağaza</a>
+ <details class="mmenu"><summary>Menü</summary><div><a class="shop" href="/magaza/">Mağaza · Defterini al</a><a href="/sehirler/">Şehirler</a><a href="/dijital/">Uğrak Çocuk</a><a href="/nasil-alinir/">Nasıl alınır</a><a href="/hakkimizda/">Hakkımızda</a><a href="/yardim/">Yardım</a><a href="/iletisim/">İletişim</a><a href="/en/">English</a></div></details>
 </div></header>
 
 <section class="hero" style="padding-bottom:0">

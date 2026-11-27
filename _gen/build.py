@@ -479,6 +479,11 @@ def magaza():
                 + (f'<a class="more" href="{link}">Rehberi oku →</a>' if link else '')
                 + f'<div class="row"><span class="{fcls}">{fiyat}</span><button class="btn" type="button" data-ugs="{key}">Sepete ekle</button></div></div></article>')
     sehir = ''.join(kart(c, SEHIR[c]['gravur'], f"{SEHIR[c]['ad'][0]} Journal", SEHIR[c]['kart'][0], '390 TL', 'pr', f'/sehirler/{c}/') for c in SEHIR)
+    def pdfkart(img, ad, alt, pid):
+        return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div><span class="tbadge" style="align-self:flex-start;background:#fff;color:#5E2318;border:1.5px dashed #5E2318">PDF · uygulama değil</span><h3><a href="/dijital/#pdf">{E(ad)}</a></h3><p>{E(alt)}</p>'
+                + f'<div class="row"><span class="fy">149 TL <small style="font:600 13px var(--sans,sans-serif);letter-spacing:.04em">· PDF</small></span><a class="btn" href="https://www.shopier.com/ugrakjournal/{pid}" target="_blank" rel="noopener">PDF\'i al</a></div></div></article>')
+    pdfler = (pdfkart('dijital/kelime-0.webp', "Martı'yla İlk Kelimeler · İngilizce", 'PDF · 7–8 yaş · 24 İngilizce kelime, 9 oyun.', '52785283') +
+              pdfkart('dijital/sehir-0.webp', "Martı'yla Şehrini Keşfet", 'PDF · 7–8 yaş · sokakta 6 küçük keşif.', '52785296'))
     marti = (kart('marti56', 'dijital/m56-0.webp', 'Merak Defteri · 5–6 yaş', 'Martı ile oyunlar, sesli balonlar, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
              kart('marti78', 'dijital/merak-0.webp', 'Merak Defteri · 7–8 yaş', 'Merak soruları, görevler, boyama ve çıkartmalar.', '199 TL', 'fy', '/dijital/') +
              kart('marti910', 'dijital/m910-0.webp', 'Merak Defteri · 9–10 yaş', 'Daha uzun görevler, bulmacalar ve keşif kartları.', '249 TL', 'fy', '/dijital/'))
@@ -489,6 +494,8 @@ def magaza():
 <div class="shopgrid">{sehir}</div><p class="note prn" style="margin-top:10px">Şehir defterlerinde tanışma fiyatı; 11 Aralık'tan itibaren 790 TL.</p>
 <h2 id="marti">Uğrak Çocuk · Martı'nın Defterleri <small style="font:500 15px/1 var(--sans);color:var(--mut)">· Türkçe</small></h2>
 <div class="shopgrid">{marti}</div>
+<h3 style="margin:30px 0 4px;font:500 22px/1.2 var(--serif,serif)">Yazdırılabilir PDF defterler</h3><p style="margin:0 0 14px;color:var(--mut);font-size:15px">Bunlar uygulama değil, PDF dosyasıdır; sepete eklenmez, Shopier\'de ayrı alınır ve en geç 1 iş günü içinde e-postana gelir.</p>
+<div class="shopgrid">{pdfler}</div>
 <div class="box" style="margin-top:34px"><b>Hediye mi alıyorsun?</b> Her defter tek kişiliktir. Hediye etmek istediğin kişi için ayrı bir defter al, kodunu açmadan ona gönder.<br><br><b>Tur, gezi grubu, okul ya da kurum için toplu alım mı düşünüyorsun?</b> Bize yaz, sana özel paket hazırlayalım: <a href="https://wa.me/905468466288?text=Merhaba%2C%20toplu%20U%C4%9Frak%20defteri%20almak%20istiyoruz%20(tur%20%2F%20grup%20%2F%20kurum).">WhatsApp</a> · satis@ugrakjournal.com<br><br><b>Birden fazla farklı defter mi?</b> Hepsini sepete ekle, tek ödeme yaparsın. Şehir defterlerin tek kodla açılır; Martı çocuk defterlerinin kodu ayrıdır. Kart bilgin Shopier'in güvenli sayfasında girilir, bize iletilmez. Kod en fazla 2 cihazda çalışır. <a href="/yardim/">Sık sorulanlar</a></div>'''
     sabit('tr', 'magaza/index.html', 'en/index.html', '/magaza/', 'Mağaza: Dijital şehir defterleri ve çocuk defterleri · Uğrak',
           'Sinop, Amasra, Kapadokya ve Safranbolu dijital şehir defterleri ile Martı çocuk defterleri. Sepete ekle, Shopier ile tek ödeme, kod hemen.',

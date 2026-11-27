@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
-User-agent: *
 Disallow: /yayin-gecici/
+Disallow: /panel-gecici/
+Disallow: /onizleme/
+
+# Arama ve yapay zekâ arama botları açıkça serbest
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+
+Sitemap: https://ugrakjournal.com/sitemap.xml

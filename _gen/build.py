@@ -114,8 +114,8 @@ def ust(dil, aktif, karsi_url):
     btn = '<a class="btn" href="/magaza/">Mağaza</a>' if dil == 'tr' else '<a class="btn" href="/en/#journals">Buy</a>'
     mobil = ('<a class="shop" href="/magaza/">Mağaza · Defterini al</a>' if dil == 'tr' else '<a class="shop" href="/en/#journals">Buy a journal</a>') + ''.join(f'<a href="{h}">{t}</a>' for h, t in MENU[dil])
     ana = '/' if dil == 'tr' else '/en/'
-    serit = ('<a class="tstrip prn" href="/magaza/"><b>TANIŞMA FİYATI</b> Şehir defterleri 10 Aralık\'a kadar 390 TL, sonra 790 TL. <u>Mağazaya git</u></a>' if dil == 'tr'
-             else '<a class="tstrip prn" href="/en/#journals"><b>LAUNCH PRICE</b> City journals 390 TL until 10 December, then 790 TL. <u>See journals</u></a>')
+    serit = ('<a class="tstrip prn" href="/magaza/"><b>TANIŞMA FİYATI</b> Şehir defterleri 10 Aralık 2026 saat 23.59\'a kadar 390 TL. 11 Aralık 2026 itibarıyla fiyat 790 TL olacak. <u>Mağazaya git</u></a>' if dil == 'tr'
+             else '<a class="tstrip prn" href="/en/#journals"><b>LAUNCH PRICE</b> City journals are 390 TL until 23:59 on 10 December 2026. The price will be 790 TL from 11 December 2026. <u>See journals</u></a>')
     return serit + f'''<header><div class="wrap nav">
  <a class="logo" href="{ana}" aria-label="Uğrak"><img src="/logo-kiremit.png" alt="Uğrak" width="72" height="32"></a>
  <nav aria-label="{"Ana menü" if dil=="tr" else "Main menu"}">{linkler}</nav>
@@ -474,7 +474,7 @@ def nasil_sayfalari():
 
 def magaza():
     def kart(key, img, ad, alt, fiyat, fcls, link):
-        rozet = '<span class="tbadge prn" style="align-self:flex-start">Tanışma fiyatı · 10 Aralık\'a kadar</span>' if fcls == 'pr' else ''
+        rozet = '<span class="tbadge prn" style="align-self:flex-start">Tanışma fiyatı · 10 Aralık 23.59\'a kadar</span>' if fcls == 'pr' else ''
         return (f'<article class="prod"><img src="/{img}" alt="" loading="lazy" width="900" height="600"><div>{rozet}<h3>{E(ad)}</h3><p>{E(alt)}</p>'
                 + (f'<a class="more" href="{link}">Rehberi oku →</a>' if link else '')
                 + f'<div class="row"><span class="{fcls}">{fiyat}</span><button class="btn" type="button" data-ugs="{key}">Sepete ekle</button></div></div></article>')

@@ -83,8 +83,11 @@ ciz(false);
   n.querySelector('button').onclick=function(){n.remove()};document.body.appendChild(n);return}
  if(!s||!s.t||Date.now()-s.z>3*864e5)return;
  fetch(ODEME+'api/sepet/durum?t='+encodeURIComponent(s.t)).then(function(r){return r.json()}).then(function(r){
-  if(!r||!r.ok||!r.paid)return;var d=document.createElement('a');d.href=ODEME+'tamam?t='+encodeURIComponent(s.t);
-  d.style.cssText='position:fixed;left:12px;right:12px;top:calc(10px + env(safe-area-inset-top));z-index:85;display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:560px;margin:0 auto;background:#2f6b4f;color:#fff;border-radius:16px;padding:14px 18px;text-decoration:none;font:600 16px "Hanken Grotesk",system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)';
-  d.innerHTML='<span>✓ Ödemen alındı, defterlerin hazır</span><b>Kodunu gör →</b>';document.body.appendChild(d)}).catch(function(){})})();
+  if(!r||!r.ok||!r.paid||s.g)return;function gor(){s.g=1;try{localStorage.setItem('ug_son',JSON.stringify(s))}catch(e){}}
+  var d=document.createElement('a');d.href=ODEME+'tamam?t='+encodeURIComponent(s.t);d.onclick=gor;
+  d.style.cssText='position:fixed;left:12px;right:12px;top:calc(10px + env(safe-area-inset-top));z-index:85;display:flex;align-items:center;justify-content:space-between;gap:10px;max-width:560px;margin:0 auto;background:#2f6b4f;color:#fff;border-radius:16px;padding:14px 48px 14px 18px;text-decoration:none;font:600 16px "Hanken Grotesk",system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.25)';
+  d.innerHTML='<span>✓ Ödemen alındı, defterlerin hazır</span><b>Kodunu gör →</b><button type="button" aria-label="Kapat" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;background:none;color:#fff;font-size:24px;cursor:pointer">×</button>';
+  d.querySelector('button').onclick=function(e){e.preventDefault();e.stopPropagation();gor();d.remove()};
+  document.body.appendChild(d);setTimeout(function(){if(d.parentNode){d.style.transition='opacity .4s';d.style.opacity='0';setTimeout(function(){d.remove()},450)}},10000)}).catch(function(){})})();
 fetch(ODEME+'api/sepet/urunler').then(function(r){return r.json()}).then(function(r){(r.urunler||[]).forEach(function(x){if(F[x.k]&&x.fiyat>0)F[x.k]=x.fiyat});ciz(false)}).catch(function(){});
 })();

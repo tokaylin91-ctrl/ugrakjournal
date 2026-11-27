@@ -144,7 +144,7 @@ def alt(dil):
 FIYAT_JS = '''<script>(function(){var d=new Date();if(d>=new Date('2026-12-11T00:00:00+03:00')){document.querySelectorAll('.pr').forEach(function(e){e.textContent='790 TL'});document.querySelectorAll('.prn').forEach(function(e){e.remove()})}})();</script>'''
 
 def son(dil, sepet=False):
-    s = '<script src="/sepet.js?v=3" defer></script>' if sepet else ''
+    s = '<script src="/sepet.js?v=4" defer></script>' if sepet else ''
     return alt(dil) + FIYAT_JS + s + '\n</body>\n</html>\n'
 
 # ---------- şehir sayfası ----------

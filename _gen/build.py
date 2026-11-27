@@ -15,7 +15,7 @@ RIV = os.environ.get('RIV', '/home/claude/ugrak-uretim/sunucu/rivayet/rivayet.js
 SITE = 'https://ugrakjournal.com'
 BUGUN = datetime.date.today().isoformat()
 KONTROL = ('27 Kasım 2026', '27 November 2026')
-CSSV = '4'
+CSSV = '5'
 E = html.escape
 ENSLUG = {'sinop': 'sinop', 'amasra': 'amasra', 'kapadokya': 'cappadocia', 'safranbolu': 'safranbolu'}
 URETILEN = []
@@ -114,8 +114,8 @@ def ust(dil, aktif, karsi_url):
     btn = '<a class="btn" href="/magaza/">Mağaza</a>' if dil == 'tr' else '<a class="btn" href="/en/#journals">Buy</a>'
     mobil = ('<a class="shop" href="/magaza/">Mağaza · Defterini al</a>' if dil == 'tr' else '<a class="shop" href="/en/#journals">Buy a journal</a>') + ''.join(f'<a href="{h}">{t}</a>' for h, t in MENU[dil])
     ana = '/' if dil == 'tr' else '/en/'
-    serit = ('<a class="tstrip prn" href="/magaza/"><b>TANIŞMA FİYATI</b> Şehir defterleri 10 Aralık 2026 saat 23.59\'a kadar 390 TL. 11 Aralık 2026 itibarıyla fiyat 790 TL olacak. <u>Mağazaya git</u></a>' if dil == 'tr'
-             else '<a class="tstrip prn" href="/en/#journals"><b>LAUNCH PRICE</b> City journals are 390 TL until 23:59 on 10 December 2026. The price will be 790 TL from 11 December 2026. <u>See journals</u></a>')
+    serit = ('<a class="tstrip prn" href="/magaza/"><b>TANIŞMA FİYATI</b> <span class="geri" data-dil="tr"></span><small class="ts2">Şehir defterleri 10 Aralık 2026 saat 23.59\'a kadar 390 TL · 11 Aralık 2026\'dan itibaren 790 TL · <u>Mağazaya git</u></small></a>' if dil == 'tr'
+             else '<a class="tstrip prn" href="/en/#journals"><b>LAUNCH PRICE</b> <span class="geri" data-dil="en"></span><small class="ts2">City journals 390 TL until 23:59 on 10 December 2026 · 790 TL from 11 December 2026 · <u>See journals</u></small></a>')
     return serit + f'''<header><div class="wrap nav">
  <a class="logo" href="{ana}" aria-label="Uğrak"><img src="/logo-kiremit.png" alt="Uğrak" width="72" height="32"></a>
  <nav aria-label="{"Ana menü" if dil=="tr" else "Main menu"}">{linkler}</nav>
@@ -143,7 +143,7 @@ def alt(dil):
 </div></footer>
 '''
 
-FIYAT_JS = '''<script>(function(){var d=new Date();if(d>=new Date('2026-12-11T00:00:00+03:00')){document.querySelectorAll('.pr').forEach(function(e){e.textContent='790 TL'});document.querySelectorAll('.hept').forEach(function(e){e.textContent='3.160 TL'});document.documentElement.classList.add('fiyat-son');document.querySelectorAll('.prn').forEach(function(e){e.remove()})}})();</script>'''
+FIYAT_JS = '''<script>(function(){var B=new Date('2026-12-10T23:59:59+03:00').getTime();function g(){var k=B-Date.now();document.querySelectorAll('.geri').forEach(function(e){if(k<=0){e.textContent='';return}var d=Math.floor(k/864e5),h=Math.floor(k%864e5/36e5),m=Math.floor(k%36e5/6e4);e.textContent=e.getAttribute('data-dil')==='en'?('ends in '+(d?d+'d ':'')+h+'h '+m+'m'):('bitmesine '+(d?d+' gün ':'')+h+' sa '+m+' dk')})}g();setInterval(g,30000)})();</script><script>(function(){var d=new Date();if(d>=new Date('2026-12-11T00:00:00+03:00')){document.querySelectorAll('.pr').forEach(function(e){e.textContent='790 TL'});document.querySelectorAll('.hept').forEach(function(e){e.textContent='3.160 TL'});document.documentElement.classList.add('fiyat-son');document.querySelectorAll('.prn').forEach(function(e){e.remove()})}})();</script>'''
 
 def son(dil, sepet=False):
     s = '<script src="/sepet.js?v=6" defer></script>' if sepet else ''

@@ -141,3 +141,5 @@ footer{background:var(--deri2);color:#EAD3BD;padding:48px 0 calc(40px + env(safe
  .prod .btn,.prod .ugs-ekle{min-height:44px;min-width:88px;padding:0 14px;font-size:14px}
 }
 .fiyat-son .prod .pr::after{content:none}
+.geri{font-variant-numeric:tabular-nums;font-weight:800;font-size:16px;white-space:nowrap}
+.tstrip .ts2{display:block;font:500 13px/1.4 var(--sans);opacity:.95;margin-top:4px}

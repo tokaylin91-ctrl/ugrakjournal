@@ -32,8 +32,8 @@ a{color:inherit}
 h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;margin:0;text-wrap:balance}
 h2{font-size:clamp(34px,5vw,56px);line-height:1.04}
 h2 em,h1 em{font-style:italic;color:var(--kiremit)}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--kiremit);color:#fff;text-decoration:none;font:600 15.5px/1 var(--sans);border:0;transition:transform .2s,background .2s}
-.btn:hover{transform:translateY(-2px);background:#B23808}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--deri);color:#fff;text-decoration:none;font:600 15.5px/1 var(--sans);border:0;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--deri2)}
 .btn.ghost{background:transparent;color:var(--grav);box-shadow:inset 0 0 0 1.5px var(--grav)}
 .btn.ghost:hover{background:var(--grav);color:var(--krem)}
 .btn.light{background:var(--krem);color:var(--deri)}
@@ -57,7 +57,7 @@ header.sc{border-color:var(--cizgi)}
 
 .mmenu{display:none}.mmenu summary{list-style:none;cursor:pointer;font:600 14.5px/1 var(--sans);padding:12px 14px;border-radius:999px;border:1px solid var(--cizgi)}.mmenu summary::-webkit-details-marker{display:none}
 .mmenu div{position:absolute;left:0;right:0;top:68px;background:var(--kagit);border-bottom:1px solid var(--cizgi);padding:10px max(20px,env(safe-area-inset-left)) 18px;display:grid;z-index:30}
-.mmenu div a{padding:12px 0;text-decoration:none;color:var(--grav);font:500 17px/1.2 var(--sans);border-bottom:1px solid var(--cizgi)}.mmenu a.shop{color:var(--kiremit);font-weight:700}
+.mmenu div a{padding:12px 0;text-decoration:none;color:var(--grav);font:500 17px/1.2 var(--sans);border-bottom:1px solid var(--cizgi)}.mmenu a.shop{color:var(--deri);font-weight:700}
 @media(max-width:900px){.mmenu{display:block}.nav{gap:10px}}
 /* hero */
 .hero{position:relative;overflow:hidden;padding:56px 0 0}
@@ -310,7 +310,7 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
 </style>
 </head>
 <body>
-<a class="tanis" href="/magaza/" style="display:block;background:#CB410B;color:#fff;text-align:center;font:600 15.5px/1.4 'Hanken Grotesk',system-ui,sans-serif;padding:11px 16px;text-decoration:none"><b style="font-weight:800;background:#fff;color:#CB410B;border-radius:999px;padding:2px 10px;margin-right:6px">TANIŞMA FİYATI</b> <span class="geri" data-dil="tr" style="font-weight:800;font-variant-numeric:tabular-nums;font-size:16px;white-space:nowrap"></span><small style="display:block;font:500 13px/1.4 'Hanken Grotesk',system-ui,sans-serif;margin-top:4px">Şehir defterleri 10 Aralık 2026 saat 23.59'a kadar 390 TL · 11 Aralık 2026'dan itibaren 790 TL · <u style="text-underline-offset:3px">Mağazaya git</u></small></a><script>(function(){if(new Date()>=new Date('2026-12-11T00:00:00+03:00')){var t=document.querySelector('.tanis');if(t)t.remove()}})();</script><script>(function(){var B=new Date('2026-12-10T23:59:59+03:00').getTime();function g(){var k=B-Date.now();document.querySelectorAll('.geri').forEach(function(e){if(k<=0){e.textContent='';return}var d=Math.floor(k/864e5),h=Math.floor(k%864e5/36e5),m=Math.floor(k%36e5/6e4);e.textContent=e.getAttribute('data-dil')==='en'?('ends in '+(d?d+'d ':'')+h+'h '+m+'m'):('bitmesine '+(d?d+' gün ':'')+h+' sa '+m+' dk')})}g();setInterval(g,30000)})();</script>
+<a class="tanis" href="/magaza/" style="display:block;background:#5E2318 url(/deri-zemin.webp) center/cover;color:#fff;text-align:center;font:600 15.5px/1.4 'Hanken Grotesk',system-ui,sans-serif;padding:11px 16px;text-decoration:none"><b style="font-weight:800;background:#F3D58E;color:#43170F;border-radius:999px;padding:2px 10px;margin-right:6px">TANIŞMA FİYATI</b> <span class="geri" data-dil="tr" style="font-weight:800;font-variant-numeric:tabular-nums;font-size:16px;white-space:nowrap"></span><small style="display:block;font:500 13px/1.4 'Hanken Grotesk',system-ui,sans-serif;margin-top:4px">Şehir defterleri 10 Aralık 2026 saat 23.59'a kadar 390 TL · 11 Aralık 2026'dan itibaren 790 TL · <u style="text-underline-offset:3px">Mağazaya git</u></small></a><script>(function(){if(new Date()>=new Date('2026-12-11T00:00:00+03:00')){var t=document.querySelector('.tanis');if(t)t.remove()}})();</script><script>(function(){var B=new Date('2026-12-10T23:59:59+03:00').getTime();function g(){var k=B-Date.now();document.querySelectorAll('.geri').forEach(function(e){if(k<=0){e.textContent='';return}var d=Math.floor(k/864e5),h=Math.floor(k%864e5/36e5),m=Math.floor(k%36e5/6e4);e.textContent=e.getAttribute('data-dil')==='en'?('ends in '+(d?d+'d ':'')+h+'h '+m+'m'):('bitmesine '+(d?d+' gün ':'')+h+' sa '+m+' dk')})}g();setInterval(g,30000)})();</script>
 <div class="kis-strip"><span id="geri">Yeni bir yıl, keşfedilecek yeni şehirler.</span> <b>Yılbaşında bir şehrin defterini hediye et.</b></div>
 <header id="top"><div class="wrap nav">
  <a class="logo" href="#" aria-label="Uğrak"><img src="logo-kiremit.png" alt="Uğrak" width="76" height="34"></a>
@@ -568,6 +568,6 @@ body.kis .gift-card{background:linear-gradient(90deg,transparent calc(72% - 9px)
  [].forEach.call(document.querySelectorAll('[data-copy]'),function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.copy).textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Kopyalandı'},function(){var r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.copy));getSelection().removeAllRanges();getSelection().addRange(r);});});});
 })();
 </script>
-<script src="sepet.js?v=8" defer></script>
+<script src="sepet.js?v=9" defer></script>
 </body>
 </html>

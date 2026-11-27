@@ -9,6 +9,7 @@ var Q={};try{Q=JSON.parse(localStorage.getItem('ug_adet')||'{}')||{}}catch(e){}
 function adet(k){var n=parseInt(Q[k],10)||1;return S.length===1?Math.max(1,Math.min(20,n)):1}
 function kaydet(){Object.keys(Q).forEach(function(k){if(S.indexOf(k)<0)delete Q[k]});try{localStorage.setItem('ug_sepet',JSON.stringify(S));localStorage.setItem('ug_adet',JSON.stringify(Q))}catch(e){}}
 function anahtar(href){var m=/^https:\/\/(sinop|amasra|kapadokya|safranbolu|marti56|marti78|marti910)\.ugrakjournal\.com\/satin-al/.exec(href||'');return m?m[1]:null}
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function tl(n){return n.toLocaleString('tr-TR')+' TL'}
 var st=document.createElement('style');st.textContent=
 '.ugs-bar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:80;display:flex;align-items:center;gap:12px;background:#47190F;color:#F7F2E8;border-radius:18px;padding:10px 10px 10px 18px;box-shadow:0 10px 30px rgba(40,15,8,.35);transform:translateY(140%);transition:transform .3s cubic-bezier(.2,.8,.2,1);max-width:560px;margin:0 auto}'+
@@ -49,9 +50,9 @@ function ac(){
   if(S.length===1){li.querySelector('.ad b').textContent=n;li.querySelector('.az').onclick=function(){Q[k]=Math.max(1,n-1);kaydet();ciz(false);ac()};li.querySelector('.ar').onclick=function(){Q[k]=Math.min(20,n+1);kaydet();ciz(false);ac()}}
   var c=li.querySelector('.cik');c.setAttribute('aria-label',(AD2[k]||AD[k])+' sepetten çıkar');c.onclick=function(){var i=S.indexOf(k);if(i>=0)S.splice(i,1);kaydet();ciz(false);ac()};ul.appendChild(li)});
  var hd=ort.querySelector('.hd');if(!hd){hd=document.createElement('p');hd.className='hd';ul.parentNode.insertBefore(hd,ul.nextSibling)}
- if(S.length===1&&adet(S[0])>1){hd.hidden=false;hd.innerHTML='<b>Hediye alımı:</b> '+adet(S[0])+' ayrı kod gelir, her biri ayrı bir kişi içindir. Her kod için bir hediye kartı bağlantısı alırsın; arkadaşlarına gönderirsin.'}
+ if(S.length===1&&adet(S[0])>1){hd.hidden=false;hd.innerHTML='<b>Hediye alımı:</b> '+adet(S[0])+' × '+tl(F[S[0]])+' = '+tl(F[S[0]]*adet(S[0]))+'. Her adet için ayrı bir kişisel kod ve hediye kartı bağlantısı oluşturulur; kodları farklı kişilere gönderebilirsin. Toplu alım indirimi uygulanmaz. Aynı defterden en fazla 20 adet.'}
  else if(S.length>1){hd.hidden=false;hd.innerHTML='Aynı defterden birden fazla (ör. hediye için) almak istersen sepette yalnız o defter olsun; adet seçimi o zaman açılır.'}
- else{hd.hidden=false;hd.innerHTML='Hediye mi alıyorsun? <b>+</b> ile adet seç; her adete ayrı kod ve hediye kartı gelir.'}
+ else{hd.hidden=false;hd.innerHTML='Hediye mi alıyorsun? <b>+</b> ile adet seç (en fazla 20); her adet için ayrı bir kişisel kod ve hediye kartı oluşturulur.'}
  var li=document.createElement('li');li.className='top';li.innerHTML='<span>Toplam</span><span></span><span style="width:44px"></span>';li.children[1].textContent=tl(t);ul.appendChild(li);
  ort.querySelector('#ugs-kl').href=ODEME+'?u='+S.join(',')+'#kosullar';ort.querySelector('.m').textContent='';
  var b=ort.querySelector('.ode');b.disabled=false;b.textContent='Shopier\'de öde · '+tl(t)+' →';
@@ -65,8 +66,8 @@ ort.querySelector('.ode').addEventListener('click',function(){
  b.disabled=true;b.textContent='Shopier açılıyor…';
  fetch(ODEME+'api/sepet/baslat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({u:S,adet:S.length===1?adet(S[0]):1,c1:true,c2:true,v:'2026-11-27'})}).then(function(r){return r.json()}).then(function(r){
   if(!r||!r.ok||!r.url)throw new Error(r&&r.err||'hata');
-  var nA=r.adet||1,url=r.url;S=[];Q={};kaydet();try{localStorage.setItem('ug_son',JSON.stringify({t:r.t,z:Date.now()}))}catch(x){}
-  if(nA>1&&!/products=/.test(url)){var kr=ort.querySelector('.ugs-kart');kr.innerHTML='<button class="x" type="button" aria-label="Kapat">×</button><h3>Son bir adım</h3><p class="adim2">Shopier sayfasında <b>Adet</b> kutusunda şu sayı yazmalı:</p><span class="buyuk">'+nA+'</span><p class="adim2">Hazır gelir; yine de kontrol et, sonra <b>Hemen al</b>\'a dokun ve öde. Adet 1 olursa yalnız 1 kod gelir.</p><a class="ode" href="'+url+'" style="text-decoration:none">Shopier\'e geç · Adet '+nA+' →</a><p class="not">Ödemeden sonra ugrakjournal.com/kod adresine dön; '+nA+' kodun ve hediye kartların orada.</p>';kr.querySelector('.x').onclick=function(){location.reload()};ciz(false);return}
+  var nA=r.adet||1,url=r.url,kA=S[0];S=[];Q={};kaydet();try{localStorage.setItem('ug_son',JSON.stringify({t:r.t,z:Date.now()}))}catch(x){}
+  if(nA>1&&!/products=/.test(url)){var kr=ort.querySelector('.ugs-kart');kr.innerHTML='<button class="x" type="button" aria-label="Kapat">×</button><h3>Son bir adım: adedi kontrol et</h3><p class="adim2">Shopier sayfasında <b>Adet</b> kutusunda şu sayı yazmalı:</p><span class="buyuk">'+nA+'</span><p class="adim2">'+esc(AD2[kA]||'')+' · '+nA+' × '+tl(F[kA])+' = <b>'+tl(F[kA]*nA)+'</b></p><p class="adim2">Adet hazır gelir; ödemeden önce adedi ve toplamı kontrol et, sonra <b>Hemen al</b>\'a dokun. Adet 1 olursa yalnız 1 kod oluşur.</p><a class="ode" href="'+url+'" style="text-decoration:none">Shopier\'e geç · Adet '+nA+' →</a><p class="not">Ödemeden sonra ugrakjournal.com/kod adresine dön; '+nA+' kodun ve hediye kartların orada.</p>';kr.querySelector('.x').onclick=function(){location.reload()};ciz(false);return}
   location.href=url;
  }).catch(function(x){b.disabled=false;b.textContent='Shopier\'de öde →';m.textContent=String(x&&x.message)==='kapali'?'Sepet şu an kapalı; birazdan tekrar dene.':'Bir sorun oldu, tekrar dene. Sürerse satis@ugrakjournal.com'})});
 function ciz(pul){

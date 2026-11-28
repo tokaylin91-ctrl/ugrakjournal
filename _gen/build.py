@@ -221,6 +221,7 @@ def sehir_sayfasi(c, dil):
     # sss
     sss = ''.join(f'<details><summary>{E(q[i])}</summary><p>{E(a[i])}</p></details>' for q, a in cfg['sss'])
     faq_ld = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q[i], "acceptedAnswer": {"@type": "Answer", "text": a[i]}} for q, a in cfg['sss']]}
+    kaynak_html = ('<h2 id="kaynaklar">' + T('Kaynaklar','Sources') + '</h2><ul class="kaynaklar">' + ''.join(f'<li><a href="{u}" rel="noopener" target="_blank">{E(tt)}</a></li>' for tt, u in cfg['kaynak']) + '<li>' + T('Uğrak şehir defteri içerikleri (kaynaklarla doğrulanmış)','Uğrak city journal content (checked against sources)') + '</li></ul>') if cfg.get('kaynak') else ''
     # bilgi kutusu
     dl = ''.join(f'<dt>{E(k[i])}</dt><dd>{E(v[i])}</dd>' for k, v in cfg['bilgi'])
     if dil == 'tr':
@@ -266,6 +267,7 @@ def sehir_sayfasi(c, dil):
 {pratik}
 {riv}
 <h2 id="sss">{T("Sık sorulanlar","Frequently asked questions")}</h2><div class="faq">{sss}</div>
+{kaynak_html}
 </div>
 <aside class="facts" aria-label="{T("Kısa bilgiler","Quick facts")}"><h2>{T("Kısa bilgiler","Quick facts")}</h2><dl>{dl}</dl>
 <a class="btn" href="#defter">{T(f"{ad} defterine bak", f"See the {ad} journal")}</a></aside>
